@@ -1,85 +1,138 @@
 import pandas as pd
 import numpy as np
+import streamlit as st
 from sklearn.preprocessing import MinMaxScaler
-from content_based import content_based_filtering_enhanced, predict_content_ratings
-from collaborative import collaborative_filtering_enhanced, train_svd_model, svd_model, predict_collaborative_ratings
+from content_based import content_based_filtering_enhanced
+from collaborative import collaborative_filtering_enhanced
 import warnings
+from datetime import datetime
 
 warnings.filterwarnings('ignore')
 
 # =====================================================================================
-# == Functions for Streamlit App (main.py)
+# == Hybrid Recommender for Streamlit (Linear Weighted Blend)
 # =====================================================================================
 
-def smart_hybrid_recommendation(user_id, movie_title, genre_input, df, ratings_df, top_n=10, content_weight=0.5, collab_weight=0.5):
+@st.cache_data
+def _compute_popularity_and_recency(merged_df: pd.DataFrame):
+    """Compute normalized popularity and recency scores for all movies.
+    Popularity = IMDB_Rating * log(No_of_Votes)
+    Recency = exp(-(current_year - Released_Year)/k)
+    Returns two pd.Series indexed like merged_df.
     """
-    Generates hybrid recommendations for the Streamlit app.
+    df = merged_df.copy()
+    rating_col = 'IMDB_Rating' if 'IMDB_Rating' in df.columns else ('Rating' if 'Rating' in df.columns else None)
+    votes_col = 'No_of_Votes' if 'No_of_Votes' in df.columns else None
+    year_col = 'Released_Year' if 'Released_Year' in df.columns else ('Year' if 'Year' in df.columns else None)
+
+    # Popularity
+    if rating_col and votes_col and votes_col in df.columns:
+        votes = pd.to_numeric(df[votes_col], errors='coerce').fillna(0.0)
+        ratings = pd.to_numeric(df[rating_col], errors='coerce').fillna(df[rating_col].median() if rating_col in df.columns else 0.0)
+        popularity = ratings * np.log1p(votes)
+    else:
+        popularity = pd.Series(np.zeros(len(df)), index=df.index)
+
+    # Recency
+    if year_col and year_col in df.columns:
+        year_values = pd.to_numeric(df[year_col], errors='coerce').fillna(df[year_col].median() if year_col in df.columns else 2000)
+        current_year = datetime.now().year
+        k = 15.0
+        recency = np.exp(-(current_year - year_values) / k)
+    else:
+        recency = pd.Series(np.zeros(len(df)), index=df.index)
+
+    # Normalize 0..1
+    def _normalize(series: pd.Series):
+        arr = series.to_numpy(dtype=float)
+        min_v, max_v = np.nanmin(arr), np.nanmax(arr)
+        if max_v - min_v < 1e-9:
+            return pd.Series(np.zeros_like(arr), index=series.index)
+        return pd.Series((arr - min_v) / (max_v - min_v + 1e-9), index=series.index)
+
+    pop_norm = _normalize(popularity)
+    rec_norm = _normalize(recency)
+    return pop_norm, rec_norm
+
+
+def smart_hybrid_recommendation(merged_df: pd.DataFrame, movie_title: str, genre_input: str, top_n: int = 10):
+    """Hybrid recommendations combining Content (0.4) + Collaborative (0.4) + Popularity (0.1) + Recency (0.1).
+    Returns a DataFrame suitable for display in the Streamlit app.
     """
-    # Ensure the collaborative model is trained (uses the cached version if available)
-    global svd_model
-    if svd_model is None:
-        svd_model = train_svd_model(ratings_df)
+    if merged_df is None or merged_df.empty:
+        return pd.DataFrame()
 
-    # 1. Get Content-Based Recommendations
-    content_recs = content_based_filtering_enhanced(movie_title, genre_input, df, top_n=len(df), genre_weight=0.3)
-    if content_recs.empty:
-        return collaborative_filtering_enhanced(user_id, df, ratings_df, top_n=top_n)
+    genre_col = 'Genre_y' if 'Genre_y' in merged_df.columns else ('Genre_x' if 'Genre_x' in merged_df.columns else 'Genre')
+    rating_col = 'IMDB_Rating' if 'IMDB_Rating' in merged_df.columns else ('Rating' if 'Rating' in merged_df.columns else None)
 
-    content_recs['content_score'] = range(len(content_recs), 0, -1)
+    # Content-based candidates
+    content_df = content_based_filtering_enhanced(merged_df, movie_title, genre_input, top_n=max(top_n * 4, 20))
+    if content_df is None or content_df.empty:
+        # Fallback to collaborative only
+        cf_df = collaborative_filtering_enhanced(merged_df, movie_title, top_n=top_n)
+        return cf_df if cf_df is not None else pd.DataFrame()
+    if 'ContentScore' not in content_df.columns:
+        # If content function didn't attach a score, create a simple rank score
+        content_df = content_df.copy()
+        content_df['ContentScore'] = np.linspace(1.0, 0.0, num=len(content_df), endpoint=False)
 
-    # 2. Get Collaborative Filtering Predictions
-    user_rated_movies = ratings_df[ratings_df['User_ID'] == user_id]['Movie_ID'].tolist()
-    unrated_movies = [movie_id for movie_id in df['Movie_ID'].unique() if movie_id not in user_rated_movies]
-    
-    predictions = [svd_model.predict(user_id, movie_id) for movie_id in unrated_movies]
-    collab_scores_df = pd.DataFrame([(pred.iid, pred.est) for pred in predictions], columns=['Movie_ID', 'collab_score'])
+    # Collaborative scores for same anchor movie
+    cf_df = collaborative_filtering_enhanced(merged_df, movie_title, top_n=max(top_n * 4, 20))
+    if cf_df is None:
+        cf_df = pd.DataFrame(columns=['Series_Title', 'Similarity'])
+    if 'Similarity' not in cf_df.columns:
+        cf_df['Similarity'] = 0.0
 
-    # 3. Combine Scores
-    hybrid_df = pd.merge(content_recs, collab_scores_df, on='Movie_ID', how='left')
-    hybrid_df['collab_score'].fillna(0, inplace=True)
+    # Merge by title
+    merged_scores = content_df.merge(
+        cf_df[['Series_Title', 'Similarity']], on='Series_Title', how='left'
+    )
+    merged_scores['Similarity'] = merged_scores['Similarity'].fillna(0.0)
 
-    scaler = MinMaxScaler()
-    hybrid_df[['content_score', 'collab_score']] = scaler.fit_transform(hybrid_df[['content_score', 'collab_score']])
-    hybrid_df['hybrid_score'] = (hybrid_df['content_score'] * content_weight) + (hybrid_df['collab_score'] * collab_weight)
+    # Popularity and Recency
+    pop_norm, rec_norm = _compute_popularity_and_recency(merged_df)
+    aux = merged_df[['Series_Title']].copy()
+    aux['pop_norm'] = pop_norm.values
+    aux['rec_norm'] = rec_norm.values
+    merged_scores = merged_scores.merge(aux, on='Series_Title', how='left')
+    merged_scores[['pop_norm', 'rec_norm']] = merged_scores[['pop_norm', 'rec_norm']].fillna(0.0)
 
-    hybrid_df = hybrid_df.sort_values(by='hybrid_score', ascending=False)
-    
-    if movie_title in hybrid_df['Series_Title'].values:
-        hybrid_df = hybrid_df[hybrid_df['Series_Title'] != movie_title]
+    # Normalize Content and CF to 0..1
+    normalizer = MinMaxScaler()
+    merged_scores[['ContentScore', 'Similarity']] = normalizer.fit_transform(
+        merged_scores[['ContentScore', 'Similarity']]
+    )
 
-    return hybrid_df.head(top_n)
+    # Weighted blend
+    merged_scores['FinalScore'] = (
+        0.4 * merged_scores['ContentScore'] +
+        0.4 * merged_scores['Similarity'] +
+        0.1 * merged_scores['pop_norm'] +
+        0.1 * merged_scores['rec_norm']
+    )
 
-# =====================================================================================
-# == Functions for Offline Evaluation (evaluate_recommendations.py)
-# =====================================================================================
+    # Remove the anchor movie if it's present
+    if isinstance(movie_title, str) and movie_title.strip():
+        merged_scores = merged_scores[merged_scores['Series_Title'].str.lower() != movie_title.strip().lower()]
 
-def predict_hybrid_ratings(user_id, movie_id, train_df, movies_df, tfidf_matrix, cosine_sim, indices, svd_model, content_weight=0.5, collab_weight=0.5):
-    """
-    Predicts a single movie rating for a user by combining content and collaborative methods.
-    """
-    # 1. Get Content-Based Prediction
-    # This is simplified for a single prediction to avoid re-calculating for all movies
-    user_ratings = train_df[train_df['User_ID'] == user_id]
-    content_pred_score = 3.0 # Default score
-    if not user_ratings.empty and movie_id in indices:
-        # Get indices of movies the user rated
-        rated_movie_indices = [indices[mid] for mid in user_ratings['Movie_ID'] if mid in indices]
-        
-        # Get similarity of the target movie to the movies the user has rated
-        target_movie_idx = indices[movie_id]
-        sim_scores_to_rated = cosine_sim[target_movie_idx, rated_movie_indices]
-        
-        # Calculate a weighted average similarity based on user's ratings
-        weighted_sim = np.dot(sim_scores_to_rated, user_ratings['Rating']) / user_ratings['Rating'].sum() if user_ratings['Rating'].sum() > 0 else 0
-        
-        # Scale the 0-1 similarity to a 1-10 rating
-        content_pred_score = weighted_sim * 9 + 1
+    # If genre filter provided, prefer matching ones slightly
+    if isinstance(genre_input, str) and genre_input.strip() and genre_col in merged_df.columns:
+        genre_boost_titles = set(
+            merged_df[merged_df[genre_col].fillna('').str.lower().str.contains(genre_input.strip().lower())]['Series_Title']
+        )
+        merged_scores['FinalScore'] += merged_scores['Series_Title'].isin(genre_boost_titles) * 0.02
 
-    # 2. Get Collaborative Prediction
-    collab_pred_score = predict_collaborative_ratings(user_id, movie_id, svd_model)
+    # Attach display columns
+    display_cols = ['Series_Title']
+    if genre_col in merged_df.columns:
+        display_cols.append(genre_col)
+    if rating_col and rating_col in merged_df.columns:
+        display_cols.append(rating_col)
 
-    # 3. Combine with weights
-    final_score = (content_pred_score * content_weight) + (collab_pred_score * collab_weight)
-    
-    return final_score
+    display_df = merged_df[display_cols].drop_duplicates('Series_Title')
+    merged_scores = merged_scores.merge(display_df, on='Series_Title', how='left')
+
+    merged_scores = merged_scores.sort_values('FinalScore', ascending=False)
+    return merged_scores.head(top_n)
+
 
