@@ -1,157 +1,96 @@
 import pandas as pd
 import numpy as np
-from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.feature_extraction.text import TfidfVectorizer
-from scipy.sparse import hstack, csr_matrix
-import re
-from difflib import get_close_matches
-import streamlit as st
+from sklearn.metrics.pairwise import linear_kernel, cosine_similarity
+from sklearn.preprocessing import MinMaxScaler
+import warnings
 
+warnings.filterwarnings('ignore')
 
-def safe_convert_to_numeric(value, default=None):
-    """Safely convert a value to numeric, handling strings and NaN"""
-    if pd.isna(value):
-        return default
-    
-    if isinstance(value, (int, float)):
-        return float(value)
-    
-    if isinstance(value, str):
-        # Remove any non-numeric characters except decimal point
-        clean_value = re.sub(r'[^\d.-]', '', str(value))
-        try:
-            return float(clean_value) if clean_value else default
-        except (ValueError, TypeError):
-            return default
-    
-    return default
+# =====================================================================================
+# == Functions for Streamlit App (main.py)
+# =====================================================================================
 
-
-def find_rating_column(df: pd.DataFrame) -> str:
-    return 'IMDB_Rating' if 'IMDB_Rating' in df.columns else 'Rating'
-
-
-def find_genre_column(df: pd.DataFrame) -> str:
-    return 'Genre_y' if 'Genre_y' in df.columns else 'Genre'
-
-
-def _get_title_series(df: pd.DataFrame) -> pd.Series:
-    return df['Series_Title'].fillna('').astype(str)
-
-
-def find_similar_titles(input_title, titles_list, cutoff=0.6):
-    """Enhanced fuzzy matching for movie titles"""
-    if not input_title or not titles_list:
-        return []
-    
-    input_lower = input_title.lower().strip()
-    
-    # Direct match
-    exact_matches = [title for title in titles_list if title.lower() == input_lower]
-    if exact_matches:
-        return exact_matches
-    
-    # Partial match
-    partial_matches = []
-    for title in titles_list:
-        title_lower = title.lower()
-        if input_lower in title_lower:
-            partial_matches.append((title, len(input_lower) / len(title_lower)))
-        elif title_lower in input_lower:
-            partial_matches.append((title, len(title_lower) / len(input_lower)))
-            
-    if partial_matches:
-        # Sort by match ratio
-        partial_matches.sort(key=lambda x: x[1], reverse=True)
-        return [match[0] for match in partial_matches]
-
-    # Close matches
-    return get_close_matches(input_title, titles_list, n=5, cutoff=cutoff)
-
-
-@st.cache_data
-def create_content_features(merged_df: pd.DataFrame):
-    """Create weighted content feature matrix using TF-IDF and numeric rating.
-
-    Features and weights (as requested):
-    - Series_Title (TF-IDF) weight = 0.5
-    - Genre (TF-IDF) weight = 8.0
-    - IMDB_Rating (numeric scaled to [0,1]) weight = 1.5
+def content_based_filtering_enhanced(movie_title, genre_input, df, top_n=10, genre_weight=0.3):
     """
-    genre_col = find_genre_column(merged_df)
-    rating_col = find_rating_column(merged_df)
+    Generates movie recommendations based on content similarity for the Streamlit app.
+    """
+    df_copy = df.copy()
+    df_copy.fillna('', inplace=True)
+    df_copy['soup'] = df_copy['Genre'] + ' ' + df_copy['Overview'] + ' ' + df_copy['Director'] + ' ' + df_copy['Stars']
 
-    # Text corpora
-    title_text = _get_title_series(merged_df)
-    genre_text = merged_df[genre_col].fillna('').astype(str)
+    tfidf = TfidfVectorizer(stop_words='english')
+    tfidf_matrix = tfidf.fit_transform(df_copy['soup'])
+    cosine_sim = cosine_similarity(tfidf_matrix, tfidf_matrix)
+    indices = pd.Series(df_copy.index, index=df_copy['Series_Title']).drop_duplicates()
 
-    # Vectorize title and genre separately
-    title_vec = TfidfVectorizer(stop_words='english', ngram_range=(1, 2), min_df=1)
-    genre_vec = TfidfVectorizer(stop_words='english', ngram_range=(1, 2), min_df=1)
+    if movie_title not in indices:
+        return pd.DataFrame()
 
-    title_tfidf = title_vec.fit_transform(title_text)
-    genre_tfidf = genre_vec.fit_transform(genre_text)
+    idx = indices[movie_title]
+    sim_scores = list(enumerate(cosine_sim[idx]))
 
-    # Weights
-    TITLE_W = 0.5
-    GENRE_W = 8.0
-    RATING_W = 1.5
+    if genre_input:
+        genre_col = 'Genre_x' if 'Genre_x' in df_copy.columns else 'Genre'
+        for i, score in sim_scores:
+            if genre_input.lower() in str(df_copy.iloc[i][genre_col]).lower():
+                sim_scores[i] = (i, score + genre_weight)
 
-    # Rating numeric column → scaled to [0,1] (divide by 10), fill with median or 7.0 fallback
-    ratings = merged_df[rating_col].apply(lambda v: safe_convert_to_numeric(v, default=np.nan))
-    if ratings.isna().all():
-        ratings = pd.Series([7.0] * len(merged_df), index=merged_df.index)
-    ratings_filled = ratings.fillna(ratings.median() if not pd.isna(ratings.median()) else 7.0)
-    rating_norm = (ratings_filled.clip(lower=0.0, upper=10.0) / 10.0) * RATING_W
-    rating_csr = csr_matrix(rating_norm.values.reshape(-1, 1))
+    sim_scores = sorted(sim_scores, key=lambda x: x[1], reverse=True)
+    sim_scores = sim_scores[1:top_n+1]
+    movie_indices = [i[0] for i in sim_scores]
+    return df_copy.iloc[movie_indices]
 
-    # Weighted concatenation
-    weighted_title = title_tfidf * TITLE_W
-    weighted_genre = genre_tfidf * GENRE_W
-    content_features = hstack([weighted_title, weighted_genre, rating_csr], format='csr')
-    return content_features
+# =====================================================================================
+# == Functions for Offline Evaluation (evaluate_recommendations.py)
+# =====================================================================================
 
+def create_content_features(df):
+    """
+    Pre-computes TF-IDF matrix, cosine similarity, and indices for evaluation.
+    """
+    df_copy = df.copy()
+    df_copy.fillna('', inplace=True)
+    df_copy['soup'] = df_copy['Genre'] + ' ' + df_copy['Overview'] + ' ' + df_copy['Director'] + ' ' + df_copy['Stars']
+    
+    tfidf = TfidfVectorizer(stop_words='english')
+    tfidf_matrix = tfidf.fit_transform(df_copy['soup'])
+    cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+    indices = pd.Series(df_copy.index, index=df_copy['Movie_ID']).drop_duplicates()
+    
+    return tfidf_matrix, cosine_sim, indices
 
-@st.cache_data
-def content_based_filtering_enhanced(merged_df, target_movie=None, genre=None, top_n=8):
-    """Content-Based filtering using weighted TF-IDF on title, genre, plus numeric rating (cosine similarity)."""
-    genre_col = find_genre_column(merged_df)
-    rating_col = find_rating_column(merged_df)
+def predict_content_ratings(user_id, train_df, movies_df, tfidf_matrix, cosine_sim, indices):
+    """
+    Predicts movie ratings for a user based on their past ratings for the evaluation script.
+    Returns a dictionary of {movie_id: predicted_rating}.
+    """
+    user_ratings = train_df[train_df['User_ID'] == user_id]
+    if user_ratings.empty:
+        return {}
 
-    # Target movie mode
-    if target_movie and str(target_movie).strip():
-        similar_titles = find_similar_titles(target_movie, merged_df['Series_Title'].tolist())
-        if not similar_titles:
-            return None
-        target_title = similar_titles[0]
-        if target_title not in merged_df['Series_Title'].values:
-            return None
+    # Get the indices of movies the user has rated
+    rated_movie_indices = [indices[movie_id] for movie_id in user_ratings['Movie_ID'] if movie_id in indices]
+    
+    # Create a user profile: a weighted average of TF-IDF vectors of movies they rated
+    user_profile = np.dot(user_ratings['Rating'].values, tfidf_matrix[rated_movie_indices])
+    
+    # FIX: Convert the resulting numpy.matrix to a standard numpy.ndarray
+    user_profile = np.asarray(user_profile)
+    
+    # Reshape the user profile for the similarity calculation
+    user_profile = user_profile.reshape(1, -1)
 
-        target_idx = merged_df[merged_df['Series_Title'] == target_title].index[0]
-        features = create_content_features(merged_df)
-        target_loc = merged_df.index.get_loc(target_idx)
-        sims = cosine_similarity(features[target_loc], features).flatten()
+    # Calculate cosine similarity between the user profile and all movies
+    sim_scores = cosine_similarity(user_profile, tfidf_matrix).flatten()
+    
+    # Scale scores to a 1-10 rating
+    scaler = MinMaxScaler(feature_range=(1, 10))
+    scaled_scores = scaler.fit_transform(sim_scores.reshape(-1, 1)).flatten()
+    
+    # Create a dictionary of movie_id to predicted rating
+    movie_ids = movies_df['Movie_ID'].iloc[indices.values]
+    predictions = {movie_id: score for movie_id, score in zip(movie_ids, scaled_scores)}
+    
+    return predictions
 
-        order = list(np.argsort(-sims))
-        # drop self index
-        order = [i for i in order if i != target_loc]
-        # optional genre filtering
-        if genre and str(genre).strip():
-            mask = merged_df[genre_col].fillna('').str.contains(str(genre), case=False, regex=False)
-            order = [i for i in order if bool(mask.iloc[i])]
-        top_idx = order[:top_n]
-        result_df = merged_df.iloc[top_idx]
-        return result_df[['Series_Title', genre_col, rating_col]]
-
-    # Genre query mode (no target movie)
-    if genre and str(genre).strip():
-        genre_corpus = merged_df[genre_col].fillna('').astype(str).tolist()
-        tfidf = TfidfVectorizer(stop_words='english', ngram_range=(1, 2), min_df=1)
-        tfidf_matrix = tfidf.fit_transform(genre_corpus)
-        query = tfidf.transform([str(genre)])
-        sims = cosine_similarity(query, tfidf_matrix).flatten()
-        order = np.argsort(-sims)[:top_n]
-        result_df = merged_df.iloc[order]
-        return result_df[['Series_Title', genre_col, rating_col]]
-
-    return None

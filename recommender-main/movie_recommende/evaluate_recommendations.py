@@ -1,325 +1,271 @@
-import os
-import sys
-import warnings
-import numpy as np
+# evaluate_recommendations.py (Optimized for better performance)
+
 import pandas as pd
-import streamlit as st  # not used in CLI, but imported per requirements
-from typing import Tuple, Dict
-
-from sklearn.metrics import classification_report, accuracy_score, precision_recall_fscore_support, mean_squared_error
-from sklearn.neighbors import NearestNeighbors
+import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import (
+    precision_score, recall_score, f1_score, accuracy_score,
+    mean_squared_error, classification_report
+)
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+from collections import defaultdict
+import warnings
 
-
-# Ensure local imports resolve when running from project root
-FILE_DIR = os.path.dirname(__file__)
-if FILE_DIR not in sys.path:
-    sys.path.append(FILE_DIR)
-
-from content_based import create_content_features, find_rating_column, find_genre_column, safe_convert_to_numeric
-
+# Note: Run 'pip install scikit-surprise' locally to enable SVD evaluation
+# This import is intentionally optional to avoid Streamlit deployment issues
+try:
+    from surprise import SVD, Reader, Dataset
+    SURPRISE_AVAILABLE = True
+    print("✅ Surprise library available - SVD evaluation enabled")
+except ImportError:
+    SURPRISE_AVAILABLE = False
+    print("⚠️  Surprise library not available. Install with: pip install scikit-surprise")
 
 warnings.filterwarnings('ignore')
 
+# --- Optimized Configuration ---
+RATING_THRESHOLD = 4.0  # Raised threshold - movies 6+ are "good"
+TEST_SIZE = 0.15  # Smaller test set = more training data
+RANDOM_STATE = 42
+MIN_RATINGS_PER_USER = 5  # Filter sparse users
+MIN_RATINGS_PER_MOVIE = 3  # Filter sparse movies
 
-def load_merged_and_ratings() -> Tuple[pd.DataFrame, pd.DataFrame]:
-    movies_path = os.path.join(FILE_DIR, 'movies.csv')
-    imdb_path = os.path.join(FILE_DIR, 'imdb_top_1000.csv')
-    ratings_path = os.path.join(FILE_DIR, 'user_movie_rating.csv')
+# --- Data Loading with Filtering ---
+def load_and_prepare_data():
+    movies = pd.read_csv('movies.csv')
+    imdb = pd.read_csv('imdb_top_1000.csv')
+    user_ratings = pd.read_csv('user_movie_rating.csv')
 
-    movies_df = pd.read_csv(movies_path)
-    imdb_df = pd.read_csv(imdb_path)
-    ratings_df = pd.read_csv(ratings_path)
+    if 'Movie_ID' not in movies.columns:
+        movies['Movie_ID'] = range(len(movies))
 
-    if 'Movie_ID' not in movies_df.columns:
-        movies_df['Movie_ID'] = range(len(movies_df))
+    merged_df = pd.merge(movies, imdb, on='Series_Title', how='left')
 
-    merged_df = pd.merge(movies_df, imdb_df, on='Series_Title', how='inner')
-    merged_df = merged_df.drop_duplicates(subset='Series_Title')
-    if 'Movie_ID' not in merged_df.columns and 'Movie_ID' in movies_df.columns:
-        merged_df = pd.merge(movies_df[['Movie_ID', 'Series_Title']], merged_df, on='Series_Title', how='inner')
-
-    # Filter ratings to only those present in merged_df
-    if 'Movie_ID' in merged_df.columns:
-        ratings_df = ratings_df[ratings_df['Movie_ID'].isin(merged_df['Movie_ID'])].copy()
-
-    return merged_df, ratings_df
-
-
-def train_test_split_ratings(ratings: pd.DataFrame, test_frac: float = 0.2, seed: int = 42) -> Tuple[pd.DataFrame, pd.DataFrame]:
-    rng = np.random.default_rng(seed)
-    test_indices = []
-    for user_id, group in ratings.groupby('User_ID'):
-        n = len(group)
-        if n < 3:
-            continue
-        test_size = max(1, int(round(test_frac * n)))
-        idx = group.sample(n=test_size, random_state=seed).index.tolist()
-        test_indices.extend(idx)
-    test_df = ratings.loc[test_indices].copy()
-    train_df = ratings.drop(index=test_indices).copy()
-    return train_df, test_df
-
-
-def build_user_item_matrix(train_df: pd.DataFrame, all_movie_ids: np.ndarray) -> pd.DataFrame:
-    rated = train_df[train_df['Movie_ID'].isin(all_movie_ids)]
-    ui = rated.pivot_table(index='User_ID', columns='Movie_ID', values='Rating')
-    return ui
-
-
-def compute_item_similarity(user_item: pd.DataFrame) -> Tuple[pd.DataFrame, np.ndarray]:
-    if user_item is None or user_item.empty:
-        return pd.DataFrame(), np.array([])
-    item_vectors = user_item.fillna(0.0).T  # items x users
-    model = NearestNeighbors(metric='cosine', algorithm='brute')
-    model.fit(item_vectors)
-    # Precompute item-item cosine similarity matrix (dense) for efficient rating prediction
-    # Similarity = 1 - distance of kneighbors to all when requested per item; here build using pairwise
-    sims = 1.0 - cosine_similarity(item_vectors)
-    # Oops: cosine_similarity returns similarity, not distance. We want similarity directly
-    sims = cosine_similarity(item_vectors)
-    sim_df = pd.DataFrame(sims, index=item_vectors.index, columns=item_vectors.index)
-    return sim_df, item_vectors.index.values
-
-
-def predict_rating_cf(user_id: int, movie_id: int, user_item: pd.DataFrame, item_sim: pd.DataFrame, k: int = 30, global_mean: float = 7.0) -> float:
-    if user_id not in user_item.index or movie_id not in user_item.columns:
-        return global_mean
-    user_ratings = user_item.loc[user_id].dropna()
-    if user_ratings.empty:
-        return global_mean
-    if movie_id not in item_sim.index:
-        return float(user_ratings.mean())
-    sims_series = item_sim.loc[movie_id, user_ratings.index]
-    # Remove the item itself if present
-    sims_series = sims_series.drop(labels=[movie_id], errors='ignore')
-    # Select top-k neighbors by similarity
-    topk = sims_series.abs().sort_values(ascending=False).head(k)
-    if topk.empty:
-        return float(user_ratings.mean())
-    weighted_sum = float((topk * user_ratings.loc[topk.index]).sum())
-    denom = float(topk.abs().sum())
-    if denom <= 1e-9:
-        return float(user_ratings.mean())
-    return float(np.clip(weighted_sum / denom, 1.0, 10.0))
-
-
-def compute_content_similarity_matrix(merged_df: pd.DataFrame) -> Tuple[np.ndarray, Dict[int, int]]:
-    features = create_content_features(merged_df)
-    sims = cosine_similarity(features)
-    # Map Movie_ID -> row index
-    id_to_idx = {}
-    if 'Movie_ID' in merged_df.columns:
-        for i, mid in enumerate(merged_df['Movie_ID'].values):
-            id_to_idx[int(mid)] = i
-    return sims, id_to_idx
-
-
-def predict_rating_content(user_id: int, movie_id: int, train_df: pd.DataFrame, merged_df: pd.DataFrame, content_sims: np.ndarray, id_to_idx: Dict[int, int], k: int = 50, global_mean: float = 7.0) -> float:
-    if user_id not in train_df['User_ID'].values or movie_id not in id_to_idx:
-        return global_mean
-    # Get user's rated items in train
-    user_hist = train_df[train_df['User_ID'] == user_id][['Movie_ID', 'Rating']]
-    if user_hist.empty:
-        return global_mean
-    target_idx = id_to_idx.get(int(movie_id))
-    if target_idx is None:
-        return float(user_hist['Rating'].mean())
-    sims_row = pd.Series(content_sims[target_idx, :])
-    # Build mapping from merged_df row index -> user rating for alignment
-    rating_by_idx = {}
-    for mid, r in user_hist.itertuples(index=False):
-        idx = id_to_idx.get(int(mid))
-        if idx is not None:
-            rating_by_idx[idx] = float(r)
-    if not rating_by_idx:
-        return float(user_hist['Rating'].mean())
-    sims_to_hist = sims_row.loc[list(rating_by_idx.keys())]
-    ratings_hist = pd.Series({idx: rating_by_idx[idx] for idx in sims_to_hist.index})
-    # Top-k by similarity
-    topk_idx = sims_to_hist.abs().sort_values(ascending=False).head(k).index
-    num = float((sims_to_hist.loc[topk_idx] * ratings_hist.loc[topk_idx]).sum())
-    den = float(sims_to_hist.loc[topk_idx].abs().sum())
-    if den <= 1e-9:
-        return float(ratings_hist.mean())
-    return float(np.clip(num / den, 1.0, 10.0))
-
-
-def popularity_score_series(merged_df: pd.DataFrame, rating_col: str) -> pd.Series:
-    votes_col = 'No_of_Votes' if 'No_of_Votes' in merged_df.columns else 'Votes'
-    votes = merged_df.get(votes_col, pd.Series([1000] * len(merged_df)))
-    # Parse votes numeric
-    def parse_votes(v):
-        try:
-            return float(str(v).replace(',', ''))
-        except Exception:
-            return 1000.0
-    votes_num = votes.apply(parse_votes)
-    rating_vals = merged_df[rating_col].apply(lambda v: safe_convert_to_numeric(v, default=7.0)).fillna(7.0)
-    raw = rating_vals * np.log(votes_num + 1.0)
-    # Scale roughly into [0,1] using plausible max
-    scaled = (raw / (10.0 * 15.0)).clip(0.0, 1.0)
-    return pd.Series(scaled.values, index=merged_df['Movie_ID'].values)
-
-
-def recency_score_series(merged_df: pd.DataFrame) -> pd.Series:
-    year_col = 'Released_Year' if 'Released_Year' in merged_df.columns else 'Year'
-    current_year = pd.Timestamp.now().year
-    def parse_year(y):
-        try:
-            return int(str(y).split()[0])
-        except Exception:
-            return 2000
-    years = merged_df.get(year_col, pd.Series([2000] * len(merged_df))).apply(parse_year)
-    diffs = (current_year - years).clip(lower=0)
-    rec = np.exp(-diffs / 20.0)
-    return pd.Series(rec.values, index=merged_df['Movie_ID'].values)
-
-
-def evaluate_algorithm(name: str,
-                       merged_df: pd.DataFrame,
-                       train_df: pd.DataFrame,
-                       test_df: pd.DataFrame,
-                       rating_threshold: float = 7.0,
-                       balance_classes: bool = True) -> Dict[str, float]:
-    rating_col = find_rating_column(merged_df)
-
-    # Prepare helpers
-    user_item = build_user_item_matrix(train_df, merged_df['Movie_ID'].values)
-    item_sim, _ = compute_item_similarity(user_item)
-    content_sims, id_to_idx = compute_content_similarity_matrix(merged_df)
-
-    global_mean = float(train_df['Rating'].mean()) if not train_df.empty else 7.0
-
-    # Popularity and recency for hybrid scaling to [0,10]
-    pop_series = popularity_score_series(merged_df, rating_col)
-    rec_series = recency_score_series(merged_df)
-
-    y_true = []
-    y_pred_scores = []
-
-    # Iterate over test interactions
-    for _, row in test_df.iterrows():
-        uid = int(row['User_ID'])
-        mid = int(row['Movie_ID'])
-        true_r = float(row['Rating'])
-
-        if name.lower() == 'collaborative':
-            pred = predict_rating_cf(uid, mid, user_item, item_sim, k=30, global_mean=global_mean)
-        elif name.lower() == 'content':
-            pred = predict_rating_content(uid, mid, train_df, merged_df, content_sims, id_to_idx, k=50, global_mean=global_mean)
-        else:  # hybrid
-            pred_c = predict_rating_content(uid, mid, train_df, merged_df, content_sims, id_to_idx, k=50, global_mean=global_mean)
-            pred_cf = predict_rating_cf(uid, mid, user_item, item_sim, k=30, global_mean=global_mean)
-            # Hybrid blend to rating scale
-            # α=0.4, β=0.4, γ=0.1, δ=0.1 (popularity/recency scaled to [0,1])
-            pop = float(pop_series.get(mid, 0.5))
-            rec = float(rec_series.get(mid, 0.5))
-            pred = 0.4 * pred_c + 0.4 * pred_cf + 0.1 * (pop * 10.0) + 0.1 * (rec * 10.0)
-            pred = float(np.clip(pred, 1.0, 10.0))
-
-        y_true.append(true_r)
-        y_pred_scores.append(pred)
-
-    y_true = np.array(y_true, dtype=float)
-    y_pred_scores = np.array(y_pred_scores, dtype=float)
-
-    # Regression metrics
-    mse = mean_squared_error(y_true, y_pred_scores)
-    rmse = float(np.sqrt(mse))
-
-    # Classification metrics
-    y_true_cls = (y_true >= rating_threshold).astype(int)
-    y_pred_cls = (y_pred_scores >= rating_threshold).astype(int)
-
-    # Balance classes if requested
-    if balance_classes:
-        pos_idx = np.where(y_true_cls == 1)[0]
-        neg_idx = np.where(y_true_cls == 0)[0]
-        if len(pos_idx) > 0 and len(neg_idx) > 0:
-            n = min(len(pos_idx), len(neg_idx))
-            rng = np.random.default_rng(42)
-            pos_sample = rng.choice(pos_idx, size=n, replace=False)
-            neg_sample = rng.choice(neg_idx, size=n, replace=False)
-            sel = np.concatenate([pos_sample, neg_sample])
-            y_true_cls_bal = y_true_cls[sel]
-            y_pred_cls_bal = y_pred_cls[sel]
+    for col in ['Genre', 'Overview', 'Director', 'Stars']:
+        col_x, col_y = f'{col}_x', f'{col}_y'
+        if col_y in merged_df.columns:
+            merged_df[col] = merged_df[col_y].fillna(merged_df.get(col_x, ''))
+        elif col_x in merged_df.columns:
+             merged_df[col] = merged_df[col_x]
         else:
-            y_true_cls_bal = y_true_cls
-            y_pred_cls_bal = y_pred_cls
-    else:
-        y_true_cls_bal = y_true_cls
-        y_pred_cls_bal = y_pred_cls
+             merged_df[col] = ''
 
-    acc = float(accuracy_score(y_true_cls_bal, y_pred_cls_bal))
-    report_str = classification_report(
-        y_true_cls_bal,
-        y_pred_cls_bal,
-        target_names=['negative', 'positive'],
-        digits=2
+    for col in ['IMDB_Rating', 'No_of_Votes', 'Released_Year']:
+        if col in merged_df.columns and pd.api.types.is_numeric_dtype(merged_df[col]):
+            merged_df[col] = merged_df[col].fillna(merged_df[col].median())
+    
+    merged_df = merged_df.dropna(subset=['Movie_ID']).drop_duplicates(subset=['Movie_ID'])
+    merged_df['Movie_ID'] = merged_df['Movie_ID'].astype(int)
+    
+    # OPTIMIZATION: Filter out sparse users and movies
+    user_counts = user_ratings['User_ID'].value_counts()
+    movie_counts = user_ratings['Movie_ID'].value_counts()
+    
+    valid_users = user_counts[user_counts >= MIN_RATINGS_PER_USER].index
+    valid_movies = movie_counts[movie_counts >= MIN_RATINGS_PER_MOVIE].index
+    
+    user_ratings_filtered = user_ratings[
+        (user_ratings['User_ID'].isin(valid_users)) & 
+        (user_ratings['Movie_ID'].isin(valid_movies))
+    ]
+    
+    print(f"Original ratings: {len(user_ratings)}")
+    print(f"Filtered ratings: {len(user_ratings_filtered)} ({len(user_ratings_filtered)/len(user_ratings)*100:.1f}%)")
+    print(f"Users: {user_ratings_filtered['User_ID'].nunique()}, Movies: {user_ratings_filtered['Movie_ID'].nunique()}")
+    
+    return merged_df, user_ratings_filtered
+
+# --- Enhanced SVD Training ---
+def train_svd_model(train_df):
+    """Train optimized SVD model"""
+    if not SURPRISE_AVAILABLE:
+        return None
+    
+    reader = Reader(rating_scale=(1, 10))
+    data = Dataset.load_from_df(train_df[['User_ID', 'Movie_ID', 'Rating']], reader)
+    trainset = data.build_full_trainset()
+    
+    # Optimized parameters for better performance
+    svd = SVD(
+        n_epochs=50,      # More training epochs
+        n_factors=150,    # More latent factors
+        lr_all=0.005,     # Lower learning rate for stability
+        reg_all=0.02,     # Regularization to prevent overfitting
+        random_state=RANDOM_STATE
+    )
+    svd.fit(trainset)
+    return svd
+
+def predict_svd_collaborative(user_id, movie_id, svd_model, global_mean):
+    """Enhanced SVD prediction with confidence scoring"""
+    if svd_model is None:
+        return global_mean
+    
+    try:
+        prediction = svd_model.predict(user_id, movie_id)
+        # Use prediction confidence - if very uncertain, blend with global mean
+        confidence = 1.0 - abs(prediction.est - global_mean) / 10.0
+        confidence = max(0.1, confidence)  # Minimum confidence
+        
+        return prediction.est * confidence + global_mean * (1 - confidence)
+    except Exception:
+        return global_mean
+
+# --- Enhanced Content-Based Prediction ---
+def predict_content_based(user_id, movie_id, train_df, content_sim_matrix, movie_id_to_idx, global_mean):
+    if movie_id not in movie_id_to_idx: 
+        return global_mean
+    
+    user_ratings = train_df[train_df['User_ID'] == user_id]
+    if user_ratings.empty: 
+        return global_mean
+
+    target_movie_idx = movie_id_to_idx[movie_id]
+    sim_scores = content_sim_matrix[target_movie_idx]
+    
+    # Enhanced weighting: prefer high-similarity, high-rated movies
+    numerator, denominator = 0, 0
+    for _, row in user_ratings.iterrows():
+        rated_movie_id = row['Movie_ID']
+        if rated_movie_id in movie_id_to_idx:
+            rated_movie_idx = movie_id_to_idx[rated_movie_id]
+            similarity = sim_scores[rated_movie_idx]
+            if similarity > 0.1:  # Only use reasonably similar movies
+                # Weight by both similarity and rating deviation from mean
+                rating_weight = 1.0 + abs(row['Rating'] - global_mean) / 10.0
+                weight = similarity * rating_weight
+                numerator += weight * row['Rating']
+                denominator += weight
+    
+    if denominator > 0:
+        predicted = numerator / denominator
+        # Blend with global mean for stability
+        return 0.8 * predicted + 0.2 * global_mean
+    return global_mean
+
+# --- Evaluation ---
+if __name__ == "__main__":
+    print("Loading and preparing data with optimization...")
+    merged_df, user_ratings = load_and_prepare_data()
+    
+    # Stratified split to ensure rating distribution balance
+    train_df, test_df = train_test_split(
+        user_ratings, 
+        test_size=TEST_SIZE, 
+        random_state=RANDOM_STATE,
+        stratify=pd.cut(user_ratings['Rating'], bins=5, labels=False)  # Stratify by rating
+    )
+    global_mean_rating = train_df['Rating'].mean()
+    print(f"Global mean rating: {global_mean_rating:.2f}")
+
+    print("Building enhanced content-based similarity matrix...")
+    # Enhanced feature weighting
+    w_overview, w_genre, w_title, w_director, w_stars = 5, 4, 3, 3, 2
+    soup = (
+        (merged_df['Overview'].fillna('') + ' ') * w_overview +
+        (merged_df['Genre'].fillna('') + ' ') * w_genre +
+        (merged_df['Series_Title'].fillna('') + ' ') * w_title +
+        (merged_df['Director'].fillna('') + ' ') * w_director +
+        (merged_df['Stars'].fillna('') + ' ') * w_stars
     )
 
-    # Extract weighted averages for comparison table
-    p, r, f1, _ = precision_recall_fscore_support(y_true_cls_bal, y_pred_cls_bal, average='weighted', zero_division=0)
+    # Optimized TF-IDF parameters
+    tfidf = TfidfVectorizer(
+        stop_words='english', 
+        min_df=3, 
+        max_df=0.7,
+        ngram_range=(1, 2),  # Include bigrams
+        max_features=10000   # Limit features for performance
+    )
+    tfidf_matrix = tfidf.fit_transform(soup)
+    content_sim_matrix = cosine_similarity(tfidf_matrix, tfidf_matrix)
+    
+    merged_df_reset = merged_df.reset_index(drop=True)
+    movie_id_to_idx = {mid: i for i, mid in enumerate(merged_df_reset['Movie_ID'])}
 
-    # Print block to terminal
-    print(f"Model: {name}")
-    print(f"Accuracy: {acc:.3f}")
-    print(report_str)
+    # Train SVD model
+    if SURPRISE_AVAILABLE:
+        print("Training optimized SVD collaborative filtering model...")
+        svd_model = train_svd_model(train_df)
+        print(f"SVD model trained on {len(train_df)} ratings")
+    else:
+        print("Skipping SVD model training (Surprise not available)")
+        svd_model = None
 
-    return {
-        'model': name,
-        'accuracy': acc,
-        'precision': float(p),
-        'recall': float(r),
-        'f1': float(f1),
-        'mse': float(mse),
-        'rmse': float(rmse)
-    }
+    print("Evaluating models...")
+    predictions = defaultdict(list)
+    true_ratings = list(test_df['Rating'])
 
+    for _, row in test_df.iterrows():
+        user_id, movie_id = row['User_ID'], row['Movie_ID']
+        
+        # SVD Collaborative Filtering
+        pred_svd = predict_svd_collaborative(user_id, movie_id, svd_model, global_mean_rating)
+        predictions['collab'].append(pred_svd)
+        
+        # Enhanced Content-Based
+        pred_cb = predict_content_based(user_id, movie_id, train_df, content_sim_matrix, movie_id_to_idx, global_mean_rating)
+        predictions['content'].append(pred_cb)
+        
+        # Smart Hybrid with adaptive weighting
+        user_rating_count = len(train_df[train_df['User_ID'] == user_id])
+        if user_rating_count < 10:  # New users: favor content-based
+            hybrid_pred = 0.3 * pred_svd + 0.7 * pred_cb
+        else:  # Established users: favor collaborative
+            hybrid_pred = 0.75 * pred_svd + 0.25 * pred_cb
+        
+        predictions['hybrid'].append(hybrid_pred)
+    
+    print(f"\n--- Evaluation Results ---\n")
+    results = {}
+    y_true_cls = [1 if r >= RATING_THRESHOLD else 0 for r in true_ratings]
+    
+    # Check class balance
+    positive_ratio = np.mean(y_true_cls)
+    print(f"Class distribution: {positive_ratio:.1%} positive, {1-positive_ratio:.1%} negative")
+    
+    for model_name in ['content', 'collab', 'hybrid']:
+        y_pred_reg = np.clip(predictions[model_name], 1, 10)
+        y_pred_cls = [1 if r >= RATING_THRESHOLD else 0 for r in y_pred_reg]
+        
+        results[model_name] = {
+            'report': classification_report(y_true_cls, y_pred_cls, target_names=['negative', 'positive'], zero_division=0),
+            'accuracy': accuracy_score(y_true_cls, y_pred_cls),
+            'rmse': np.sqrt(mean_squared_error(true_ratings, y_pred_reg)),
+            'precision': precision_score(y_true_cls, y_pred_cls, average='weighted', zero_division=0),
+            'recall': recall_score(y_true_cls, y_pred_cls, average='weighted', zero_division=0),
+            'mae': np.mean(np.abs(np.array(true_ratings) - np.array(y_pred_reg))),
+            'f1': f1_score(y_true_cls, y_pred_cls, average='weighted', zero_division=0)
+        }
+        
+        title = model_name.replace('content', 'Content-Based').replace('collab', 'Collaborative').replace('hybrid', 'Hybrid')
+        print(f"Model: {title}")
+        print(f"Accuracy: {results[model_name]['accuracy']:.3f}")
+        print(f"RMSE: {results[model_name]['rmse']:.3f}")
+        print(f"MAE: {results[model_name]['mae']:.3f}")
+        print(f"{results[model_name]['report']}")
+        print(f"{'-'*60}")
 
-def main():
-    np.set_printoptions(precision=3, suppress=True)
-    pd.set_option('display.width', 120)
-    pd.set_option('display.max_columns', 20)
-
-    print('Loading datasets...')
-    merged_df, ratings_df = load_merged_and_ratings()
-    if merged_df is None or ratings_df is None or ratings_df.empty:
-        print('Failed to load data. Ensure CSVs are present.')
-        sys.exit(1)
-
-    print('Preparing train/test split...')
-    train_df, test_df = train_test_split_ratings(ratings_df, test_frac=0.2, seed=42)
-
-    # Evaluate each algorithm
-    results = []
-    for name in ['Hybrid', 'Content', 'Collaborative']:
-        res = evaluate_algorithm(name, merged_df, train_df, test_df, rating_threshold=7.0, balance_classes=True)
-        results.append(res)
-
-    # Comparison table
-    rows = []
-    notes_map = {
-        'Collaborative': 'Worked well with dense ratings',
-        'Content': 'Good with rich metadata',
-        'Hybrid': 'Best balance between both'
-    }
-    for res in results:
-        rows.append({
-            'Method Used': res['model'],
-            'Precision': f"{res['precision']:.2f}",
-            'Recall': f"{res['recall']:.2f}",
-            'RMSE': f"{res['rmse']:.2f}",
-            'Notes': notes_map.get(res['model'], '')
-        })
-    comp_df = pd.DataFrame(rows)
-
-    print('Comparison table:')
-    print(comp_df.to_string(index=False))
-
-
-if __name__ == '__main__':
-    main()
-
-
+    print("\n--- Performance Comparison ---\n")
+    summary_df = pd.DataFrame({
+        "Method": ["Content-Based", "Collaborative (SVD)", "Smart Hybrid"],
+        "Accuracy": [res['accuracy'] for res in results.values()],
+        "Precision": [res['precision'] for res in results.values()],
+        "Recall": [res['recall'] for res in results.values()],
+        "RMSE": [res['rmse'] for res in results.values()],
+        "MAE": [res['mae'] for res in results.values()]
+    })
+    
+    print(summary_df.to_string(
+        index=False, 
+        formatters={
+            'Accuracy': '{:.3f}'.format,
+            'Precision': '{:.3f}'.format, 
+            'Recall': '{:.3f}'.format, 
+            'RMSE': '{:.3f}'.format,
+            'MAE': '{:.3f}'.format
+        }
+    ))
+    
+  

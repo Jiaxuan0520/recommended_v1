@@ -4,8 +4,14 @@ from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics.pairwise import cosine_similarity
 import streamlit as st
 
-# Minimal, pure item-based KNN collaborative filtering without extra calculations
+# NEW: Add SVD imports
+try:
+    from surprise import SVD, Reader, Dataset
+    SURPRISE_AVAILABLE = True
+except ImportError:
+    SURPRISE_AVAILABLE = False
 
+# Minimal, pure item-based KNN collaborative filtering without extra calculations
 
 @st.cache_data
 def load_user_ratings():
@@ -104,9 +110,105 @@ def collaborative_knn(merged_df: pd.DataFrame, target_movie: str, top_n: int = 8
     return result.drop(columns=['Movie_ID'])
 
 
+# NEW: Add SVD-based collaborative filtering
+@st.cache_data
+def collaborative_svd(merged_df: pd.DataFrame, target_movie: str, top_n: int = 8):
+    """SVD-based collaborative filtering for better accuracy"""
+    if not SURPRISE_AVAILABLE:
+        # Fallback to KNN if Surprise is not installed
+        return collaborative_knn(merged_df, target_movie, top_n)
+    
+    if target_movie is None or not isinstance(target_movie, str) or target_movie.strip() == '':
+        return None
+
+    if 'Movie_ID' not in merged_df.columns or 'Series_Title' not in merged_df.columns:
+        return None
+
+    # Get target movie ID
+    title_to_id = dict(merged_df[['Series_Title', 'Movie_ID']].values)
+    if target_movie not in title_to_id:
+        match_series = merged_df[merged_df['Series_Title'].str.lower() == target_movie.lower()]
+        if match_series.empty:
+            return None
+        target_movie_id = int(match_series.iloc[0]['Movie_ID'])
+    else:
+        target_movie_id = int(title_to_id[target_movie])
+
+    # Load ratings data
+    ratings_df = load_user_ratings()
+    if ratings_df is None or ratings_df.empty:
+        return collaborative_knn(merged_df, target_movie, top_n)  # Fallback to KNN
+
+    # Prepare data for Surprise
+    reader = Reader(rating_scale=(1, 10))
+    data = Dataset.load_from_df(ratings_df[['User_ID', 'Movie_ID', 'Rating']], reader)
+    trainset = data.build_full_trainset()
+    
+    # Train SVD model
+    svd = SVD(n_epochs=20, n_factors=50, random_state=42)
+    svd.fit(trainset)
+    
+    # Get all movies that could be recommended
+    available_movies = merged_df['Movie_ID'].tolist()
+    
+    # Find users who rated the target movie highly
+    target_movie_raters = ratings_df[
+        (ratings_df['Movie_ID'] == target_movie_id) & 
+        (ratings_df['Rating'] >= 7)
+    ]['User_ID'].tolist()
+    
+    if not target_movie_raters:
+        return collaborative_knn(merged_df, target_movie, top_n)  # Fallback
+    
+    # Get predictions for all movies from users who liked the target movie
+    movie_scores = {}
+    for movie_id in available_movies:
+        if movie_id == target_movie_id:
+            continue
+            
+        scores = []
+        for user_id in target_movie_raters[:50]:  # Limit to top 50 users for performance
+            try:
+                pred = svd.predict(user_id, movie_id)
+                if pred.est >= 6:  # Only consider high predictions
+                    scores.append(pred.est)
+            except:
+                continue
+        
+        if scores:
+            movie_scores[movie_id] = np.mean(scores)
+    
+    if not movie_scores:
+        return collaborative_knn(merged_df, target_movie, top_n)  # Fallback
+    
+    # Get top recommendations
+    top_movies = sorted(movie_scores.items(), key=lambda x: x[1], reverse=True)[:top_n]
+    top_movie_ids = [mid for mid, score in top_movies]
+    
+    # Format results
+    result = merged_df[merged_df['Movie_ID'].isin(top_movie_ids)][['Series_Title', 'Movie_ID']]
+    rating_col = 'IMDB_Rating' if 'IMDB_Rating' in merged_df.columns else ('Rating' if 'Rating' in merged_df.columns else None)
+    genre_col = 'Genre_y' if 'Genre_y' in merged_df.columns else ('Genre' if 'Genre' in merged_df.columns else None)
+    cols = ['Series_Title', 'Movie_ID'] + ([genre_col] if genre_col else []) + ([rating_col] if rating_col else [])
+    result = result.merge(merged_df[cols].drop_duplicates(['Series_Title','Movie_ID']), on=['Series_Title','Movie_ID'], how='left')
+    
+    # Preserve order and add scores
+    title_by_id = dict(merged_df[['Movie_ID', 'Series_Title']].values)
+    score_by_id = {mid: score for mid, score in top_movies}
+    order = {title_by_id[mid]: i for i, mid in enumerate(top_movie_ids) if mid in title_by_id}
+    
+    result = result.copy()
+    result['rank_order'] = result['Series_Title'].map(order)
+    result['SVD_Score'] = result['Movie_ID'].map(score_by_id)
+    result = result.sort_values('rank_order').drop(columns=['rank_order'])
+    
+    return result.drop(columns=['Movie_ID'])
+
+
+# UNCHANGED: Keep existing function for backward compatibility
 @st.cache_data
 def collaborative_filtering_enhanced(merged_df: pd.DataFrame, target_movie: str, top_n: int = 8):
-    # Minimal wrapper to keep existing app API; uses pure KNN ranking
+    # This function remains EXACTLY the same - your main.py won't break
     return collaborative_knn(merged_df, target_movie, top_n=top_n)
 
 
