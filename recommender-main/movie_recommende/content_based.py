@@ -80,12 +80,13 @@ def create_content_features(merged_df):
     rating_col = find_rating_column(merged_df)
     director_col = find_director_column(merged_df)
 
-    # Emphasize genre strongly; drop director; keep title minimal
+    # Weighted features per requirement: genre=8, rating=1.5, title=0.5
+    # Use integer scaling factor 2 to emulate fractional weights (0.5->1, 1.5->3)
     WEIGHTS = {
-        'title': 1,
-        'genre': 8,
+        'title': 1,   # 0.5 * 2
+        'genre': 16,  # 8 * 2
         'director': 0,
-        'rating': 2,
+        'rating': 3,  # 1.5 * 2
     }
 
     def build_row_text(row: pd.Series) -> str:

@@ -15,10 +15,10 @@ class LinearHybridRecommender:
         self.rating_col = find_rating_column(merged_df)
         self.genre_col = find_genre_column(merged_df)
         self.user_ratings_df = load_user_ratings()
-        # Weights
+        # Weights per requirement
         self.alpha = 0.4  # Content
-        self.beta = 0.3   # Collaborative
-        self.gamma = 0.2  # Popularity
+        self.beta = 0.4   # Collaborative
+        self.gamma = 0.1  # Popularity
         self.delta = 0.1  # Recency
 
     def _content_scores(self, target_movie, genre, top_n):

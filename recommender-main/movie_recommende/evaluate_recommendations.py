@@ -21,8 +21,8 @@ from content_based import (
 # Configuration
 # =============================================================
 ALPHA = 0.4  # Content-based weight
-BETA = 0.3   # Collaborative weight
-GAMMA = 0.2  # Popularity weight
+BETA = 0.4   # Collaborative weight
+GAMMA = 0.1  # Popularity weight
 DELTA = 0.1  # Recency weight
 
 RATING_THRESHOLD = 4.0  # ratings >= threshold are positive
@@ -153,18 +153,27 @@ def split_per_user(user_ratings, test_size=TEST_SIZE_PER_USER, random_state=RAND
 	train_rows = []
 	test_rows = []
 	for user_id, grp in user_ratings.groupby('User_ID'):
-		if len(grp) < 5:
-			# small history: simple split
+		# derive labels for stratification
+		labels = (grp['Rating'] >= RATING_THRESHOLD).astype(int)
+		has_both = labels.nunique() == 2
+		if len(grp) < 5 or not has_both:
+			# small history OR single-class: simple shuffled split
 			grp_shuffled = grp.sample(frac=1, random_state=random_state)
 			split_idx = int(len(grp_shuffled) * (1 - test_size))
 			train_rows.append(grp_shuffled.iloc[:split_idx])
 			test_rows.append(grp_shuffled.iloc[split_idx:])
 		else:
-			tr, te = train_test_split(grp, test_size=test_size, random_state=random_state)
+			tr, te = train_test_split(grp, test_size=test_size, random_state=random_state, stratify=labels)
 			train_rows.append(tr)
 			test_rows.append(te)
 	train_df = pd.concat(train_rows).reset_index(drop=True)
 	test_df = pd.concat(test_rows).reset_index(drop=True)
+	# report class balance on test set
+	y_test = (test_df['Rating'] >= RATING_THRESHOLD).astype(int)
+	pos = int((y_test == 1).sum())
+	neg = int((y_test == 0).sum())
+	total = len(y_test)
+	print(f"Test set class balance -> positive: {pos} ({pos/total:.2%}), negative: {neg} ({neg/total:.2%}), total: {total}")
 	return train_df, test_df
 
 # =============================================================
@@ -299,13 +308,11 @@ def evaluate_models():
 		y_pred_reg_collab.append(collab_score)
 		y_pred_reg_hybrid.append(hybrid_pred)
 
-		# Classification label predictions (hybrid uses majority vote of signals)
+		# Classification label predictions (hybrid threshold on its predicted rating)
 		y_true_cls.append(true_label)
 		y_pred_cls_content.append(1 if content_rating_est >= RATING_THRESHOLD else 0)
 		y_pred_cls_collab.append(1 if collab_score >= RATING_THRESHOLD else 0)
-		pop_rec_avg = (pop_rating + rec_rating) / 2.0
-		votes = int(content_rating_est >= RATING_THRESHOLD) + int(collab_score >= RATING_THRESHOLD) + int(pop_rec_avg >= RATING_THRESHOLD)
-		y_pred_cls_hybrid.append(1 if votes >= 2 else 0)
+		y_pred_cls_hybrid.append(1 if hybrid_pred >= RATING_THRESHOLD else 0)
 
 	# Compute metrics
 	def compute_classification_metrics(y_true, y_pred):
@@ -338,12 +345,15 @@ def evaluate_models():
 	# Display
 	print('Model: Content-Based')
 	print(f"Accuracy: {results['Content-Based']['accuracy']:.3f}")
+	print(f"MSE: {results['Content-Based']['mse']:.3f}, RMSE: {results['Content-Based']['rmse']:.3f}")
 	print(results['Content-Based']['report'])
 	print('Model: Collaborative')
 	print(f"Accuracy: {results['Collaborative']['accuracy']:.3f}")
+	print(f"MSE: {results['Collaborative']['mse']:.3f}, RMSE: {results['Collaborative']['rmse']:.3f}")
 	print(results['Collaborative']['report'])
 	print('Model: Hybrid')
 	print(f"Accuracy: {results['Hybrid']['accuracy']:.3f}")
+	print(f"MSE: {results['Hybrid']['mse']:.3f}, RMSE: {results['Hybrid']['rmse']:.3f}")
 	print(results['Hybrid']['report'])
 
 	# Summary table
