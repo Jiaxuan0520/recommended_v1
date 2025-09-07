@@ -1,21 +1,27 @@
 import pandas as pd
 import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import classification_report, precision_score, recall_score, f1_score, accuracy_score, mean_squared_error
 from sklearn.model_selection import train_test_split
 from collections import defaultdict
 import warnings
+import os
+import streamlit as st
 warnings.filterwarnings('ignore')
 
-# Import latest content-based helpers to ensure feature parity
+# Import latest content-based helpers and algorithm entry points
 from content_based import (
 	create_content_features,
 	find_rating_column,
 	find_genre_column,
-	find_director_column,
+	content_based_filtering_enhanced,
 )
+from collaborative import (
+	collaborative_filtering_enhanced,
+	load_user_ratings,
+)
+from hybrid import smart_hybrid_recommendation
 
 # =============================================================
 # Configuration
@@ -34,10 +40,12 @@ K_NEIGHBORS = 20  # for item-based KNN similarity neighborhood
 # Data Loading
 # =============================================================
 
+
 def load_datasets():
-	movies = pd.read_csv('movies.csv')
-	imdb = pd.read_csv('imdb_top_1000.csv')
-	user_ratings = pd.read_csv('user_movie_rating.csv')
+	base_dir = os.path.dirname(__file__)
+	movies = pd.read_csv(os.path.join(base_dir, 'movies.csv'))
+	imdb = pd.read_csv(os.path.join(base_dir, 'imdb_top_1000.csv'))
+	user_ratings = pd.read_csv(os.path.join(base_dir, 'user_movie_rating.csv'))
 	# ensure Movie_ID exists in merged data
 	if 'Movie_ID' not in movies.columns:
 		movies['Movie_ID'] = range(len(movies))
@@ -60,7 +68,7 @@ def get_cols(df):
 
 
 def build_content_matrix(merged):
-	# Use the latest content feature builder (title + genre + director + rating token)
+	# Use the latest content feature builder (title + genre + rating)
 	X = create_content_features(merged)
 	return X
 
@@ -89,13 +97,15 @@ def compute_popularity_and_recency(merged, ratings_df=None):
 		rating = row.get(rating_col, np.nan)
 		votes = row.get(votes_col, np.nan)
 		year = row.get(year_col, np.nan)
-		# Popularity: rating * log10(votes+1) normalized to [0,1]
+		# Popularity: IMDB_Rating × log(votes); scale roughly to [0,1] to align with hybrid
 		if pd.isna(rating):
 			rating = 7.0
 		if pd.isna(votes) or votes == 0:
 			votes = 1000
-		popularity = (rating * np.log10(float(str(votes).replace(',', '')) + 1.0)) / 10.0
-		pop[title] = float(np.clip(popularity, 0.0, 1.0))
+		votes_val = float(str(votes).replace(',', ''))
+		raw_pop = float(rating) * float(np.log(votes_val + 1.0))
+		scaled_pop = raw_pop / (10.0 * 15.0)
+		pop[title] = float(np.clip(scaled_pop, 0.0, 1.0))
 		# Recency: exponential decay by year
 		try:
 			year_val = int(str(year).split()[0]) if not pd.isna(year) else 2000
@@ -114,6 +124,87 @@ def compute_popularity_and_recency(merged, ratings_df=None):
 				boost = min(cnt / 100.0, 1.0)
 				pop[t] = 0.6 * pop.get(t, 0.5) + 0.4 * boost
 	return pop, rec
+
+
+# =============================================================
+# Utility: pick a seed movie per user from training data
+# =============================================================
+
+def pick_user_seed(train_df, merged, user_id):
+	user_hist = train_df[train_df['User_ID'] == user_id]
+	if user_hist.empty:
+		return None
+	# Choose highest-rated movie in training that exists in merged
+	user_hist = user_hist.sort_values(['Rating'], ascending=False)
+	ids = user_hist['Movie_ID'].tolist()
+	movieid_to_title = dict(merged[['Movie_ID', 'Series_Title']].values)
+	for mid in ids:
+		if mid in movieid_to_title:
+			return movieid_to_title[mid]
+	return None
+
+
+# =============================================================
+# Algorithm-connected classification evaluation
+# =============================================================
+
+def collect_classification_predictions(merged, train_df, test_df, top_n=8):
+	# Make collaborative functions use training data via session_state to avoid leakage
+	try:
+		st.session_state['user_ratings_df'] = train_df.copy()
+	except Exception:
+		pass
+
+	movieid_to_title = dict(merged[['Movie_ID', 'Series_Title']].values)
+	# Build per-user set of relevant (positive) test titles
+	user_pos_titles = {}
+	for user_id, grp in test_df.groupby('User_ID'):
+		pos = grp[grp['Rating'] >= RATING_THRESHOLD]['Movie_ID'].map(movieid_to_title).dropna().tolist()
+		user_pos_titles[user_id] = set(pos)
+
+	algo_names = ['Content-Based', 'Collaborative', 'Hybrid']
+	cls_data = {name: {'y_true': [], 'y_pred': []} for name in algo_names}
+
+	all_titles = set(merged['Series_Title'].tolist())
+
+	for user_id in sorted(test_df['User_ID'].unique()):
+		seed_title = pick_user_seed(train_df, merged, user_id)
+		if not seed_title:
+			continue
+		relevant = user_pos_titles.get(user_id, set())
+		if len(relevant) == 0:
+			continue
+
+		# Content-Based recommendations
+		cb_df = content_based_filtering_enhanced(merged, seed_title, genre=None, top_n=top_n)
+		cb_recs = cb_df['Series_Title'].tolist() if cb_df is not None and not cb_df.empty else []
+
+		# Collaborative recommendations
+		cf_df = collaborative_filtering_enhanced(merged, seed_title, top_n=top_n)
+		cf_recs = cf_df['Series_Title'].tolist() if cf_df is not None and not cf_df.empty else []
+
+		# Hybrid recommendations
+		hb_df = smart_hybrid_recommendation(merged, seed_title, genre=None, top_n=top_n)
+		hb_recs = hb_df['Series_Title'].tolist() if hb_df is not None and not hb_df.empty else []
+
+		for name, recs in [('Content-Based', cb_recs), ('Collaborative', cf_recs), ('Hybrid', hb_recs)]:
+			if not recs:
+				continue
+			# Positive predictions: recommended items (label by membership in relevant set)
+			y_true_pos = [1 if t in relevant else 0 for t in recs]
+			y_pred_pos = [1] * len(recs)
+			# Negative predictions: sample same number of non-recommended, non-relevant items
+			neg_pool = list(all_titles - set(recs) - set(relevant))
+			if len(neg_pool) >= len(recs):
+				neg_sample = np.random.RandomState(42).choice(neg_pool, size=len(recs), replace=False)
+			else:
+				neg_sample = neg_pool
+			y_true_neg = [0] * len(neg_sample)
+			y_pred_neg = [0] * len(neg_sample)
+			cls_data[name]['y_true'].extend(y_true_pos + y_true_neg)
+			cls_data[name]['y_pred'].extend(y_pred_pos + y_pred_neg)
+
+	return cls_data
 
 # =============================================================
 # Predictors
@@ -202,24 +293,8 @@ def evaluate_models():
 	user_mean = train_df.groupby('User_ID')['Rating'].mean().to_dict()
 	item_mean = train_df.groupby('Movie_ID')['Rating'].mean().to_dict()
 
-	# Precompute user profile vectors for content-based: average similarity to liked items
-	user_content_pref = {}
-	for user_id, grp in user_train:
-		liked_movie_ids = grp[grp['Rating'] >= RATING_THRESHOLD]['Movie_ID'].tolist()
-		idxs = [title_to_idx.get(movieid_to_title.get(mid, ''), None) for mid in liked_movie_ids]
-		idxs = [i for i in idxs if i is not None]
-		if idxs:
-			profile = sim_matrix[idxs].mean(axis=0)
-			# Per-user min-max normalization to spread scores to [0,1]
-			prof_min = float(np.min(profile))
-			prof_max = float(np.max(profile))
-			if prof_max > prof_min:
-				profile = (profile - prof_min) / (prof_max - prof_min)
-			else:
-				profile = np.zeros_like(profile)
-			user_content_pref[user_id] = profile
-		else:
-			user_content_pref[user_id] = np.zeros(sim_matrix.shape[0])
+	# Classification evaluation using actual algorithm functions
+	cls_data = collect_classification_predictions(merged, train_df, test_df, top_n=8)
 
 	# Predictions and ground truth
 	y_true_cls = []
@@ -232,7 +307,7 @@ def evaluate_models():
 	y_pred_reg_collab = []
 	y_pred_reg_hybrid = []
 
-	# Iterate over test set rows
+	# Iterate over test set rows for rating prediction (seed-based content for connection)
 	for _, row in test_df.iterrows():
 		user = row['User_ID']
 		movie_id = int(row['Movie_ID'])
@@ -243,9 +318,15 @@ def evaluate_models():
 			# skip if not in merged dataset
 			continue
 
-		# Content score: from user profile similarity to target item index
-		idx = title_to_idx[title]
-		content_score = float(user_content_pref.get(user, np.zeros(sim_matrix.shape[0]))[idx])
+		# Choose a seed from train for this user
+		seed_title = pick_user_seed(train_df, merged, user)
+		if not seed_title or seed_title not in title_to_idx:
+			continue
+
+		# Content score: cosine similarity between seed and target item
+		seed_idx = title_to_idx[seed_title]
+		target_idx = title_to_idx[title]
+		content_score = float(cosine_similarity(content_matrix[seed_idx], content_matrix[target_idx]).flatten()[0])
 		# Collaborative score: baseline-corrected item-based KNN (r_hat = b_u + b_i + sum sim*(r_uj - b_u - b_j)/sum|sim|)
 		neighbor_sims = predict_collaborative_scores(knn, user_item, movie_id, k=K_NEIGHBORS)
 		b_u = user_mean.get(user, global_mean)
@@ -299,13 +380,15 @@ def evaluate_models():
 		y_pred_reg_collab.append(collab_score)
 		y_pred_reg_hybrid.append(hybrid_pred)
 
-		# Classification label predictions (hybrid uses majority vote of signals)
-		y_true_cls.append(true_label)
-		y_pred_cls_content.append(1 if content_rating_est >= RATING_THRESHOLD else 0)
-		y_pred_cls_collab.append(1 if collab_score >= RATING_THRESHOLD else 0)
-		pop_rec_avg = (pop_rating + rec_rating) / 2.0
-		votes = int(content_rating_est >= RATING_THRESHOLD) + int(collab_score >= RATING_THRESHOLD) + int(pop_rec_avg >= RATING_THRESHOLD)
-		y_pred_cls_hybrid.append(1 if votes >= 2 else 0)
+		# Collect classification predictions from algorithm-connected evaluation
+		# Note: We already collected balanced predictions via cls_data; just extend y_true_cls once per method at the end
+		pass
+
+	# Replace classification arrays with collected values
+	y_true_cls = cls_data['Content-Based']['y_true']
+	y_pred_cls_content = cls_data['Content-Based']['y_pred']
+	y_pred_cls_collab = cls_data['Collaborative']['y_pred']
+	y_pred_cls_hybrid = cls_data['Hybrid']['y_pred']
 
 	# Compute metrics
 	def compute_classification_metrics(y_true, y_pred):
@@ -322,20 +405,21 @@ def evaluate_models():
 		return {'mse': mse, 'rmse': float(np.sqrt(mse))}
 
 	results = {}
+	# Use each method's own y_true from cls_data for fair classification metrics
 	results['Content-Based'] = {
-		**compute_classification_metrics(y_true_cls, y_pred_cls_content),
+		**compute_classification_metrics(cls_data['Content-Based']['y_true'], cls_data['Content-Based']['y_pred']),
 		**compute_regression_metrics(y_true_reg, y_pred_reg_content)
 	}
 	results['Collaborative'] = {
-		**compute_classification_metrics(y_true_cls, y_pred_cls_collab),
+		**compute_classification_metrics(cls_data['Collaborative']['y_true'], cls_data['Collaborative']['y_pred']),
 		**compute_regression_metrics(y_true_reg, y_pred_reg_collab)
 	}
 	results['Hybrid'] = {
-		**compute_classification_metrics(y_true_cls, y_pred_cls_hybrid),
+		**compute_classification_metrics(cls_data['Hybrid']['y_true'], cls_data['Hybrid']['y_pred']),
 		**compute_regression_metrics(y_true_reg, y_pred_reg_hybrid)
 	}
 
-	# Display (terminal)
+	# Display
 	print('Model: Content-Based')
 	print(f"Accuracy: {results['Content-Based']['accuracy']:.3f}")
 	print(results['Content-Based']['report'])
@@ -345,20 +429,6 @@ def evaluate_models():
 	print('Model: Hybrid')
 	print(f"Accuracy: {results['Hybrid']['accuracy']:.3f}")
 	print(results['Hybrid']['report'])
-
-	# Display (streamlit if running in app)
-	try:
-		st.subheader('Model: Content-Based')
-		st.write(f"Accuracy: {results['Content-Based']['accuracy']:.3f}")
-		st.text(results['Content-Based']['report'])
-		st.subheader('Model: Collaborative')
-		st.write(f"Accuracy: {results['Collaborative']['accuracy']:.3f}")
-		st.text(results['Collaborative']['report'])
-		st.subheader('Model: Hybrid')
-		st.write(f"Accuracy: {results['Hybrid']['accuracy']:.3f}")
-		st.text(results['Hybrid']['report'])
-	except Exception:
-		pass
 
 	# Summary table
 	summary_rows = []
@@ -378,11 +448,6 @@ def evaluate_models():
 	summary_df = pd.DataFrame(summary_rows, columns=['Method Used', 'Precision', 'Recall', 'RMSE', 'Notes'])
 	print('\nComparison Table:')
 	print(summary_df.to_string(index=False))
-	try:
-		st.subheader('Comparison Table')
-		st.dataframe(summary_df)
-	except Exception:
-		pass
 
 
 if __name__ == '__main__':

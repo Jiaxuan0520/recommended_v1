@@ -15,7 +15,7 @@ class LinearHybridRecommender:
         self.rating_col = find_rating_column(merged_df)
         self.genre_col = find_genre_column(merged_df)
         self.user_ratings_df = load_user_ratings()
-        # Weights (Content 0.4, Collaborative 0.4, Popularity 0.1, Recency 0.1)
+        # Weights
         self.alpha = 0.4  # Content
         self.beta = 0.4   # Collaborative
         self.gamma = 0.1  # Popularity
@@ -85,8 +85,12 @@ class LinearHybridRecommender:
                 votes_val = 1000.0
             if pd.isna(rating):
                 rating = 7.0
-            popularity = (float(rating) * np.log10(votes_val + 1.0)) / 10.0
-            pop[title] = float(np.clip(popularity, 0.0, 1.0))
+            # Popularity = IMDB_Rating × log(votes); scale to [0,1]
+            raw_pop = float(rating) * float(np.log(votes_val + 1.0))
+            # Rough min-max style scaling based on plausible ranges
+            # rating in [0,10], log(votes) roughly in [0, ~15]
+            scaled_pop = raw_pop / (10.0 * 15.0)
+            pop[title] = float(np.clip(scaled_pop, 0.0, 1.0))
         # Optional: light boost based on user interactions if available
         if self.user_ratings_df is not None and 'Movie_ID' in self.merged_df.columns:
             interaction_counts = self.user_ratings_df['Movie_ID'].value_counts()
