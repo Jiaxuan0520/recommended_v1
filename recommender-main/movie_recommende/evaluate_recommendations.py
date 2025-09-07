@@ -34,13 +34,17 @@ def load_and_prepare_data():
 
     merged = pd.merge(movies, imdb, on='Series_Title', how='left')
 
-    # Normalize key columns
+    # Normalize key columns (compute medians on numeric-converted series)
     if 'IMDB_Rating' in merged.columns:
-        merged['IMDB_Rating'] = pd.to_numeric(merged['IMDB_Rating'], errors='coerce').fillna(merged['IMDB_Rating'].median())
+        _imdb_num = pd.to_numeric(merged['IMDB_Rating'], errors='coerce')
+        _imdb_med = float(np.nanmedian(_imdb_num)) if np.isfinite(np.nanmedian(_imdb_num)) else 0.0
+        merged['IMDB_Rating'] = _imdb_num.fillna(_imdb_med)
     if 'No_of_Votes' in merged.columns:
         merged['No_of_Votes'] = pd.to_numeric(merged['No_of_Votes'], errors='coerce').fillna(0)
     if 'Released_Year' in merged.columns:
-        merged['Released_Year'] = pd.to_numeric(merged['Released_Year'], errors='coerce').fillna(merged['Released_Year'].median())
+        _yr_num = pd.to_numeric(merged['Released_Year'], errors='coerce')
+        _yr_med = float(np.nanmedian(_yr_num)) if np.isfinite(np.nanmedian(_yr_num)) else 2000.0
+        merged['Released_Year'] = _yr_num.fillna(_yr_med)
 
     # Ensure consistent Genre column
     if 'Genre_y' in merged.columns:
