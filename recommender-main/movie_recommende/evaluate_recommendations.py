@@ -126,19 +126,23 @@ def predict_rating_content(user_id: int, movie_id: int, train_df: pd.DataFrame, 
     if target_idx is None:
         return float(user_hist['Rating'].mean())
     sims_row = pd.Series(content_sims[target_idx, :])
-    # Align to user history indices
-    hist_indices = [id_to_idx[m] for m in user_hist['Movie_ID'].values if m in id_to_idx]
-    if not hist_indices:
+    # Build mapping from merged_df row index -> user rating for alignment
+    rating_by_idx = {}
+    for mid, r in user_hist.itertuples(index=False):
+        idx = id_to_idx.get(int(mid))
+        if idx is not None:
+            rating_by_idx[idx] = float(r)
+    if not rating_by_idx:
         return float(user_hist['Rating'].mean())
-    sims_to_hist = sims_row.iloc[hist_indices]
-    ratings_hist = user_hist[user_hist['Movie_ID'].isin([merged_df.iloc[i]['Movie_ID'] for i in hist_indices])]['Rating'].reset_index(drop=True)
+    sims_to_hist = sims_row.loc[list(rating_by_idx.keys())]
+    ratings_hist = pd.Series({idx: rating_by_idx[idx] for idx in sims_to_hist.index})
     # Top-k by similarity
     topk_idx = sims_to_hist.abs().sort_values(ascending=False).head(k).index
-    numerator = float((sims_to_hist.loc[topk_idx].reset_index(drop=True) * ratings_hist.loc[:len(topk_idx)-1]).sum())
-    denom = float(sims_to_hist.loc[topk_idx].abs().sum())
-    if denom <= 1e-9:
+    num = float((sims_to_hist.loc[topk_idx] * ratings_hist.loc[topk_idx]).sum())
+    den = float(sims_to_hist.loc[topk_idx].abs().sum())
+    if den <= 1e-9:
         return float(ratings_hist.mean())
-    return float(np.clip(numerator / denom, 1.0, 10.0))
+    return float(np.clip(num / den, 1.0, 10.0))
 
 
 def popularity_score_series(merged_df: pd.DataFrame, rating_col: str) -> pd.Series:
