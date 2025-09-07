@@ -1,5 +1,8 @@
 import pandas as pd
 import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import classification_report, precision_score, recall_score, f1_score, accuracy_score, mean_squared_error
 from sklearn.model_selection import train_test_split
 from sklearn.metrics.pairwise import cosine_similarity
@@ -18,7 +21,12 @@ RATING_THRESHOLD = 4.0
 TEST_SIZE_PER_USER = 0.2
 RANDOM_STATE = 42
 K_NEIGHBORS = 20
-LAMBDA_CF = 10.0
+
+# Precision-first enhancements
+CLASSIFICATION_PRED_THRESHOLD = 4.5  # stricter threshold for predicted positives
+MIN_NEIGHBOR_SIM = 0.15              # ignore very weak CF neighbors
+CF_SHRINKAGE = 5.0                   # regularization in CF denominator
+STRATIFY_SPLIT = True                # balance classes in train/test
 
 
 def load_datasets():
@@ -112,7 +120,9 @@ def predict_collaborative_scores(knn, user_item, target_movie_id, k=K_NEIGHBORS)
 		nb = int(item_vectors.index[idx])
 		if nb == target_movie_id:
 			continue
-		neighbors[nb] = 1.0 - float(d)
+		sim = 1.0 - float(d)
+		if sim >= MIN_NEIGHBOR_SIM:
+			neighbors[nb] = sim
 	return neighbors
 
 
@@ -126,9 +136,12 @@ def split_per_user(user_ratings, label_threshold, test_size=TEST_SIZE_PER_USER, 
 			train_rows.append(grp_shuffled.iloc[:split_idx])
 			test_rows.append(grp_shuffled.iloc[split_idx:])
 		else:
-			labels = (grp['Rating'] >= label_threshold).astype(int)
-			if labels.nunique() > 1:
-				tr, te = train_test_split(grp, test_size=test_size, random_state=random_state, stratify=labels)
+			if STRATIFY_SPLIT:
+				labels = (grp['Rating'] >= label_threshold).astype(int)
+				if labels.nunique() > 1:
+					tr, te = train_test_split(grp, test_size=test_size, random_state=random_state, stratify=labels)
+				else:
+					tr, te = train_test_split(grp, test_size=test_size, random_state=random_state)
 			else:
 				tr, te = train_test_split(grp, test_size=test_size, random_state=random_state)
 			train_rows.append(tr)
@@ -146,8 +159,8 @@ def evaluate_models():
 	present = set(merged['Movie_ID'].unique())
 	ratings = ratings[ratings['Movie_ID'].isin(present)].copy()
 
-	# split with stratification by median label to balance classes
-	global_label_threshold = float(ratings['Rating'].median()) if not ratings.empty else 4.0
+	# split (stratified by global threshold for balance)
+	global_label_threshold = float(ratings['Rating'].median()) if not ratings.empty else RATING_THRESHOLD
 	train_df, test_df = split_per_user(ratings, label_threshold=global_label_threshold)
 
 	# content features and similarity
@@ -169,20 +182,14 @@ def evaluate_models():
 	user_mean = train_df.groupby('User_ID')['Rating'].mean().to_dict()
 	item_mean = train_df.groupby('Movie_ID')['Rating'].mean().to_dict()
 
-	# determine label threshold from training set
-	label_threshold = float(train_df['Rating'].median()) if not train_df.empty else global_label_threshold
-
-	# user content profiles (weighted avg similarity to liked items)
+	# user content profiles (avg similarity to liked items)
 	user_content_pref = {}
 	for user_id, grp in user_groups:
-		liked_mask = grp['Rating'] >= label_threshold
-		liked_ids = grp[liked_mask]['Movie_ID'].tolist()
-		idxs = [title_to_idx.get(movieid_to_title.get(mid, ''), None) for mid in liked_ids]
+		liked = grp[grp['Rating'] >= RATING_THRESHOLD]['Movie_ID'].tolist()
+		idxs = [title_to_idx.get(movieid_to_title.get(mid, ''), None) for mid in liked]
 		idxs = [i for i in idxs if i is not None]
 		if idxs:
-			weights = (grp[liked_mask]['Rating'].values - label_threshold)
-			weights = np.clip(weights, 0.1, None)
-			profile = np.average(sim_matrix[idxs], axis=0, weights=weights)
+			profile = sim_matrix[idxs].mean(axis=0)
 			mn = float(np.min(profile)); mx = float(np.max(profile))
 			if mx > mn:
 				profile = (profile - mn) / (mx - mn)
@@ -192,88 +199,35 @@ def evaluate_models():
 		else:
 			user_content_pref[user_id] = np.zeros(sim_matrix.shape[0])
 
+	# Calibrate mapping from content similarity to rating using training data
+	a_content, b_content = 2.0, 8.0
+	content_sims_train = []
+	ratings_train = []
+	for _, tr in train_df.iterrows():
+		u = tr['User_ID']
+		mid = int(tr['Movie_ID'])
+		t = movieid_to_title.get(mid)
+		if t is None or t not in title_to_idx:
+			continue
+		idx_t = title_to_idx[t]
+		sim_val = float(user_content_pref.get(u, np.zeros(sim_matrix.shape[0]))[idx_t])
+		content_sims_train.append(sim_val)
+		ratings_train.append(float(tr['Rating']))
+	if len(content_sims_train) >= 2 and np.std(content_sims_train) > 1e-6:
+		c_arr = np.array(content_sims_train)
+		y_arr = np.array(ratings_train)
+		b_content = float(np.cov(c_arr, y_arr, bias=True)[0,1] / (np.var(c_arr) + 1e-8))
+		a_content = float(y_arr.mean() - b_content * c_arr.mean())
+
 	# predictions containers
 	y_true_cls, y_pred_cls_content, y_pred_cls_collab, y_pred_cls_hybrid = [], [], [], []
 	y_true_reg, y_pred_reg_content, y_pred_reg_collab, y_pred_reg_hybrid = [], [], [], []
-
-	# --- Calibrate content similarity to rating scale using training data; find CLS thresholds ---
-	train_content_sims = []
-	train_true_ratings = []
-	train_collab_preds = []
-	train_hybrid_preds = []
-
-	for _, tr in train_df.iterrows():
-		user_t = tr['User_ID']
-		mid_t = int(tr['Movie_ID'])
-		y_t = float(tr['Rating'])
-		title_t = movieid_to_title.get(mid_t)
-		if title_t is None or title_t not in title_to_idx:
-			continue
-		idx_t = title_to_idx[title_t]
-		c_sim = float(user_content_pref.get(user_t, np.zeros(sim_matrix.shape[0]))[idx_t])
-		# CF prediction with shrinkage
-		nb_sims = predict_collaborative_scores(knn, user_item, mid_t, k=K_NEIGHBORS)
-		b_u_t = user_mean.get(user_t, global_mean)
-		b_i_t = item_mean.get(mid_t, global_mean)
-		num = 0.0; den = 0.0
-		if nb_sims:
-			user_row_t = user_item.loc[user_t].dropna() if (user_t in user_item.index) else pd.Series(dtype=float)
-			for nb_m, s in nb_sims.items():
-				if nb_m in user_row_t.index:
-					r_uj = float(user_row_t.loc[nb_m])
-					b_j = item_mean.get(int(nb_m), global_mean)
-					num += s * (r_uj - b_u_t - b_j)
-					den += abs(s)
-			cf_pred_t = b_u_t + b_i_t + (num / (den + LAMBDA_CF)) if den > 0 else np.nan
-		else:
-			cf_pred_t = np.nan
-		if np.isnan(cf_pred_t):
-			item_ratings_t = train_df[train_df['Movie_ID'] == mid_t]['Rating']
-			cf_pred_t = item_ratings_t.mean() if not item_ratings_t.empty else ratings['Rating'].mean()
-		# store
-		train_content_sims.append(c_sim)
-		train_true_ratings.append(y_t)
-		train_collab_preds.append(float(np.clip(cf_pred_t, 1.0, 10.0)))
-		# provisional hybrid with uncalibrated content (will recalibrate later)
-		pop_t = popularity.get(title_t, 0.5); rec_t = recency.get(title_t, 0.5)
-		pop_r_t = 2.0 + 8.0 * pop_t; rec_r_t = 2.0 + 8.0 * rec_t
-		train_hybrid_preds.append(float(np.clip(ALPHA * (2.0 + 8.0 * np.clip(c_sim,0.0,1.0)) + BETA * cf_pred_t + GAMMA * pop_r_t + DELTA * rec_r_t, 1.0, 10.0)))
-
-	# Fit linear map: rating ≈ a + b * content_sim
-	if len(train_content_sims) >= 2 and np.std(train_content_sims) > 1e-6:
-		c_arr = np.array(train_content_sims)
-		y_arr = np.array(train_true_ratings)
-		b_content = float(np.cov(c_arr, y_arr, bias=True)[0,1] / (np.var(c_arr) + 1e-8))
-		a_content = float(y_arr.mean() - b_content * c_arr.mean())
-	else:
-		a_content, b_content = 2.0, 8.0
-
-	# Determine best classification thresholds on training by maximizing F1
-	def _best_threshold(y_true_list, y_score_list):
-		if len(y_true_list) == 0:
-			return 4.0
-		y_true_np = np.array(y_true_list, dtype=int)
-		y_score_np = np.array(y_score_list, dtype=float)
-		candidates = np.linspace(3.0, 7.5, 46)
-		best_t, best_f1 = 4.0, -1.0
-		for t in candidates:
-			pred = (y_score_np >= t).astype(int)
-			f1v = f1_score(y_true_np, pred, zero_division=0)
-			if f1v > best_f1:
-				best_f1, best_t = f1v, float(t)
-		return best_t
-
-	train_content_preds = [float(np.clip(a_content + b_content * s, 1.0, 10.0)) for s in train_content_sims]
-	train_labels = (np.array(train_true_ratings) >= label_threshold).astype(int).tolist()
-	content_cls_threshold = _best_threshold(train_labels, train_content_preds)
-	collab_cls_threshold = _best_threshold(train_labels, train_collab_preds)
-	hybrid_cls_threshold = _best_threshold(train_labels, train_hybrid_preds)
 
 	for _, row in test_df.iterrows():
 		user = row['User_ID']
 		movie_id = int(row['Movie_ID'])
 		true_rating = float(row['Rating'])
-		true_label = 1 if true_rating >= label_threshold else 0
+		true_label = 1 if true_rating >= RATING_THRESHOLD else 0
 		title = movieid_to_title.get(movie_id)
 		if title is None or title not in title_to_idx:
 			continue
@@ -292,11 +246,10 @@ def evaluate_models():
 				if nb_movie in user_row.index:
 					r_uj = float(user_row.loc[nb_movie])
 					b_j = item_mean.get(int(nb_movie), global_mean)
-					w = sim
-					numerator += w * (r_uj - b_u - b_j)
-					norm += abs(w)
+					numerator += sim * (r_uj - b_u - b_j)
+					norm += abs(sim)
 			if norm > 0:
-				collab_score = b_u + b_i + (numerator / (norm + LAMBDA_CF))
+				collab_score = b_u + b_i + (numerator / (norm + CF_SHRINKAGE))
 			else:
 				collab_score = np.nan
 		else:
@@ -305,7 +258,7 @@ def evaluate_models():
 			item_ratings = train_df[train_df['Movie_ID'] == movie_id]['Rating']
 			collab_score = item_ratings.mean() if not item_ratings.empty else ratings['Rating'].mean()
 
-		# map scores (use calibrated content)
+		# map scores (calibrated content)
 		content_rating_est = float(np.clip(a_content + b_content * content_score, 1.0, 10.0))
 		pop = popularity.get(title, 0.5)
 		rec = recency.get(title, 0.5)
@@ -330,9 +283,10 @@ def evaluate_models():
 		y_pred_reg_hybrid.append(hybrid_pred)
 
 		y_true_cls.append(true_label)
-		y_pred_cls_content.append(1 if content_rating_est >= label_threshold else 0)
-		y_pred_cls_collab.append(1 if collab_score >= label_threshold else 0)
-		y_pred_cls_hybrid.append(1 if hybrid_pred >= label_threshold else 0)
+		y_pred_cls_content.append(1 if content_rating_est >= CLASSIFICATION_PRED_THRESHOLD else 0)
+		y_pred_cls_collab.append(1 if collab_score >= CLASSIFICATION_PRED_THRESHOLD else 0)
+		vote = int(content_rating_est >= CLASSIFICATION_PRED_THRESHOLD) + int(collab_score >= CLASSIFICATION_PRED_THRESHOLD) + int(((pop_rating + rec_rating)/2.0) >= CLASSIFICATION_PRED_THRESHOLD)
+		y_pred_cls_hybrid.append(1 if vote >= 2 else 0)
 
 	def cls_metrics(y_true, y_pred):
 		return {
