@@ -1,0 +1,1002 @@
+Movie_ID,Series_Title,Genre,Overview,Director,Stars
+0,The Shawshank Redemption,drama,imprison men bond number year find solac eventu redempt act common decenc,frank darabont,tim robbin morgan freeman bob gunton william sadler
+1,The Godfather,crime drama,organ crime dynasti age patriarch transfer control clandestin empir reluct son,franci ford coppola,marlon brando al pacino jame caan dian keaton
+2,The Dark Knight,action crime drama,menac known joker wreak havoc chao peopl gotham batman accept greatest psycholog physic test abil fight injustic,christoph nolan,christian bale heath ledger aaron eckhart michael cain
+3,The Godfather: Part II,crime drama,earli life career vito corleon s new york citi portray son michael expand tighten grip famili crime syndic,franci ford coppola,al pacino robert niro robert duval dian keaton
+4,12 Angry Men,crime drama,juri holdout attempt prevent miscarriag justic forc colleagu reconsid evid,sidney lumet,henri fonda lee j cobb martin balsam john fiedler
+5,The Lord of the Rings: The Return of the King,action adventur drama,gandalf aragorn lead world men sauron armi draw gaze frodo sam approach mount doom ring,peter jackson,elijah wood viggo mortensen ian mckellen orlando bloom
+6,Pulp Fiction,crime drama,live mob hitmen boxer gangster wife pair diner bandit intertwin tale violenc redempt,quentin tarantino,john travolta uma thurman samuel l jackson bruce willi
+7,Schindler's List,biographi drama histori,germanoccupi poland world war ii industrialist oskar schindler gradual concern jewish workforc wit persecut nazi,steven spielberg,liam neeson ralph fienn ben kingsley carolin goodal
+8,Inception,action adventur scifi,thief steal corpor secret use dreamshar technolog given invers task plant idea mind ceo,christoph nolan,leonardo dicaprio joseph gordonlevitt elliot page ken watanab
+9,Fight Club,drama,insomniac offic worker devilmaycar soapmak form underground fight club evolv,david fincher,brad pitt edward norton meat loaf zach grenier
+10,The Lord of the Rings: The Fellowship of the Ring,action adventur drama,meek hobbit shire companion set journey destroy power ring save middleearth dark lord sauron,peter jackson,elijah wood ian mckellen orlando bloom sean bean
+11,Forrest Gump,drama romanc,presid kennedi johnson event vietnam waterg histor event unfold perspect alabama man iq desir reunit childhood sweetheart,robert zemecki,tom hank robin wright gari sinis salli field
+12,"Il buono, il brutto, il cattivo",western,bounti hunt scam join men uneasi allianc race fortun gold buri remot cemeteri,sergio leon,clint eastwood eli wallach lee van cleef aldo giuffrè
+13,The Lord of the Rings: The Two Towers,action adventur drama,frodo sam edg closer mordor help shifti gollum divid fellowship make stand sauron new alli saruman hord isengard,peter jackson,elijah wood ian mckellen viggo mortensen orlando bloom
+14,The Matrix,action scifi,beauti stranger lead comput hacker neo forbid underworld discov shock truthth life know elabor decept evil cyberintellig,lana wachowski,lilli wachowski keanu reev laurenc fishburn carrieann moss
+15,Goodfellas,biographi crime drama,stori henri hill life mob cover relationship wife karen hill mob partner jimmi conway tommi devito italianamerican crime syndic,martin scorses,robert niro ray liotta joe pesci lorrain bracco
+16,Star Wars: Episode V - The Empire Strikes Back,action adventur fantasi,rebel brutal overpow empir ice planet hoth luke skywalk begin jedi train yoda friend pursu darth vader bounti hunter name boba fett galaxi,irvin kershner,mark hamil harrison ford carri fisher billi dee william
+17,One Flew Over the Cuckoo's Nest,drama,crimin plead insan admit mental institut rebel oppress nurs ralli scare patient,milo forman,jack nicholson louis fletcher michael berryman peter brocco
+18,Hamilton,biographi drama histori,real life america foremost found father secretari treasuri alexand hamilton captur live broadway richard rodger theater origin broadway cast,thoma kail,linmanuel miranda phillipa soo lesli odom jr rené elis goldsberri
+19,Gisaengchung,comedi drama thriller,greed class discrimin threaten newli form symbiot relationship wealthi park famili destitut kim clan,bong joon ho,kangho song lee sunkyun cho yeojeong choi woosik
+20,Soorarai Pottru,drama,nedumaaran rajangam maara set make common man fli process take world capit intens industri enemi stand way,sudha kongara,suriya madhavan paresh rawal aparna balamurali
+21,Interstellar,adventur drama scifi,team explor travel wormhol space attempt ensur human surviv,christoph nolan,matthew mcconaughey ann hathaway jessica chastain mackenzi foy
+22,Cidade de Deus,crime drama,slum rio kid path diverg struggl photograph kingpin,fernando meirel,kátia lund alexandr rodrigu leandro firmino matheu nachtergael
+23,Sen to Chihiro no kamikakushi,anim adventur famili,famili suburb sullen yearold girl wander world rule god witch spirit human chang beast,hayao miyazaki,daveigh chase suzann pleshett miyu irino rumi hiiragi
+24,Saving Private Ryan,drama war,follow normandi land group soldier enemi line retriev paratroop brother kill action,steven spielberg,tom hank matt damon tom sizemor edward burn
+25,The Green Mile,crime drama fantasi,live guard death row affect charg black man accus child murder rape mysteri gift,frank darabont,tom hank michael clark duncan david mors bonni hunt
+26,La vita è bella,comedi drama romanc,openmind jewish librarian son victim holocaust use perfect mixtur humor imagin protect son danger camp,roberto benigni,roberto benigni nicoletta braschi giorgio cantarini giustino durano
+27,Se7en,crime drama mysteri,detect rooki veteran hunt serial killer use seven deadli sin motiv,david fincher,morgan freeman brad pitt kevin spacey andrew kevin walker
+28,The Silence of the Lambs,crime drama thriller,young fbi cadet receiv help incarcer manipul cannib killer help catch serial killer madman skin victim,jonathan demm,jodi foster anthoni hopkin lawrenc bonney kasi lemmon
+29,Star Wars,action adventur fantasi,luke skywalk join forc jedi knight cocki pilot wookie droid save galaxi empir worlddestroy battl station attempt rescu princess leia mysteri darth vader,georg luca,mark hamil harrison ford carri fisher alec guin
+30,Seppuku,action drama mysteri,ronin request seppuku feudal lord palac told brutal suicid ronin previous visit reveal past intertwin do challeng clan integr,masaki kobayashi,tatsuya nakadai akira ishihama shima iwashita tetsurô tanba
+31,Shichinin no samurai,action adventur drama,poor villag attack bandit recruit seven unemploy samurai help defend,akira kurosawa,toshirô mifun takashi shimura keiko tsushima yukiko shimazaki
+32,It's a Wonderful Life,drama famili fantasi,angel sent heaven help desper frustrat businessman show life like exist,frank capra,jame stewart donna reed lionel barrymor thoma mitchel
+33,Joker,crime drama thriller,gotham citi mental troubl comedian arthur fleck disregard mistreat societi embark downward spiral revolut bloodi crime path bring facetofac alterego joker,todd phillip,joaquin phoenix robert niro zazi beetz franc conroy
+34,Whiplash,drama music,promis young drummer enrol cutthroat music conservatori dream great mentor instructor stop realiz student potenti,damien chazel,mile teller jk simmon melissa benoist paul reiser
+35,The Intouchables,biographi comedi drama,quadripleg paraglid accid aristocrat hire young man project caregiv,olivi nakach,éric toledano françoi cluzet omar sy ann le ny
+36,The Prestige,drama mysteri scifi,tragic accid stage magician engag battl creat ultim illus sacrif outwit,christoph nolan,christian bale hugh jackman scarlett johansson michael cain
+37,The Departed,crime drama thriller,undercov cop mole polic attempt identifi infiltr irish gang south boston,martin scorses,leonardo dicaprio matt damon jack nicholson mark wahlberg
+38,The Pianist,biographi drama music,polish jewish musician struggl surviv destruct warsaw ghetto world war ii,roman polanski,adrien brodi thoma kretschmann frank finlay emilia fox
+39,Gladiator,action adventur drama,roman gener set exact vengeanc corrupt emperor murder famili sent slaveri,ridley scott,russel crow joaquin phoenix conni nielsen oliv reed
+40,American History X,drama,neonazi skinhead tri prevent younger brother go wrong path did,toni kay,edward norton edward furlong beverli dangelo jennif lien
+41,The Usual Suspects,crime mysteri thriller,sole survivor tell twisti event lead horrif gun battl boat began crimin met seemingli random polic lineup,bryan singer,kevin spacey gabriel byrn chazz palminteri stephen baldwin
+42,Léon,action crime drama,mathilda yearold girl reluctantli taken léon profession assassin famili murder unusu relationship form protégé learn assassin trade,luc besson,jean reno gari oldman natali portman danni aiello
+43,The Lion King,anim adventur drama,lion princ simba father target bitter uncl want ascend throne,roger aller,rob minkoff matthew broderick jeremi iron jame earl jone
+44,Terminator 2: Judgment Day,action scifi,cyborg ident fail kill sarah connor protect teenag son john connor advanc power cyborg,jame cameron,arnold schwarzenegg linda hamilton edward furlong robert patrick
+45,Nuovo Cinema Paradiso,drama romanc,filmmak recal childhood fall love pictur cinema home villag form deep friendship cinema projectionist,giusepp tornator,philipp noiret enzo cannaval antonella attili isa dani
+46,Hotaru no haka,anim drama war,young boy littl sister struggl surviv japan world war ii,isao takahata,tsutomu tatsumi ayano shiraishi akemi yamaguchi yoshiko shinohara
+47,Back to the Future,adventur comedi scifi,marti mcfli yearold high school student accident sent thirti year past timetravel delorean invent close friend eccentr scientist doc brown,robert zemecki,michael j fox christoph lloyd lea thompson crispin glover
+48,Once Upon a Time in the West,western,mysteri stranger harmonica join forc notori desperado protect beauti widow ruthless assassin work railroad,sergio leon,henri fonda charl bronson claudia cardinal jason robard
+49,Psycho,horror mysteri thriller,phoenix secretari embezzl employ client goe run check remot motel run young man domin mother,alfr hitchcock,anthoni perkin janet leigh vera mile john gavin
+50,Casablanca,drama romanc war,cynic expatri american cafe owner struggl decid help lover fugit husband escap nazi french morocco,michael curtiz,humphrey bogart ingrid bergman paul henreid claud rain
+51,Modern Times,comedi drama famili,tramp struggl live modern industri societi help young homeless woman,charl chaplin,charl chaplin paulett goddard henri bergman tini sandford
+52,City Lights,comedi drama romanc,aid wealthi errat tippler dewyey tramp fallen love sightless flower girl accumul money abl help medic,charl chaplin,charl chaplin virginia cherril florenc lee harri myer
+53,Capharnaüm,drama,serv fiveyear sentenc violent crime yearold boy sue parent neglect,nadin labaki,zain al rafeea yordano shiferaw boluwatif treasur bankol kawsar al haddad
+54,Ayla: The Daughter of War,biographi drama histori,amidst ravag korean war sergeant süleyman stumbl halffrozen littl girl parent help sight frantic scare verg death summari,ulkay,erdem çetin tekindor ismail hacioglu kyungjin lee
+55,Vikram Vedha,action crime drama,vikram nononsens polic offic accompani simon partner hunt captur vedha smuggler murder vedha tri chang vikram life lead conflict,gayatri,pushkar madhavan vijay sethupathi shraddha srinath
+56,Kimi no na wa.,anim drama fantasi,stranger link bizarr way connect form distanc thing apart,makoto shinkai,ryûnosuk kamiki mone kamishiraishi ryô narita aoi yûki
+57,Dangal,action biographi drama,wrestler mahavir singh phogat wrestler daughter struggl glori commonwealth game face societ oppress,nitesh tiwari,aamir khan sakshi tanwar fatima sana shaikh sanya malhotra
+58,Spider-Man: Into the Spider-Verse,anim action adventur,teen mile moral spiderman univers join spiderpow individu dimens stop threat realiti,bob persichetti,peter ramsey rodney rothman shameik moor jake johnson
+59,Avengers: Endgame,action adventur drama,devast event aveng infin war univers ruin help remain alli aveng assembl order revers thano action restor balanc univers,anthoni russo,joe russo robert downey jr chri evan mark ruffalo
+60,Avengers: Infinity War,action adventur scifi,aveng alli will sacrific attempt defeat power thano blitz devast ruin put end univers,anthoni russo,joe russo robert downey jr chri hemsworth mark ruffalo
+61,Coco,anim adventur famili,aspir musician miguel confront famili ancestr ban music enter land dead greatgreatgrandfath legendari singer,lee unkrich,adrian molina anthoni gonzalez gael garcía bernal benjamin bratt
+62,Django Unchained,drama western,help german bounti hunter freed slave set rescu wife brutal mississippi plantat owner,quentin tarantino,jami foxx christoph waltz leonardo dicaprio kerri washington
+63,The Dark Knight Rises,action adventur,year joker reign anarchi batman help enigmat catwoman forc exil save gotham citi brutal guerrilla terrorist bane,christoph nolan,christian bale tom hardi ann hathaway gari oldman
+64,3 Idiots,comedi drama,friend search long lost companion revisit colleg day recal memori friend inspir think differ rest world call idiot,rajkumar hirani,aamir khan madhavan mona singh sharman joshi
+65,Taare Zameen Par,drama famili,eightyearold boy thought lazi troublemak new art teacher patienc compass discov real problem struggl school,aamir khan,amol gupt darsheel safari aamir khan tisca chopra
+66,WALL·E,anim adventur famili,distant futur small wastecollect robot inadvert embark space journey ultim decid fate mankind,andrew stanton,ben burtt elissa knight jeff garlin fred willard
+67,The Lives of Others,drama mysteri thriller,east berlin agent secret polic conduct surveil writer lover find increasingli absorb live,florian henckel von donnersmarck,ulrich mühe martina gedeck sebastian koch ulrich tukur
+68,Oldeuboi,action drama mysteri,kidnap imprison year oh daesu releas captor day,chanwook park,choi minsik yoo jita kang hyejeong kim byeongok
+69,Memento,mysteri thriller,man shortterm memori loss attempt track wife murder,christoph nolan,guy pearc carrieann moss joe pantoliano mark boon junior
+70,Mononoke-hime,anim action adventur,journey cure tatarigami curs ashitaka find middl war forest god tatara mine coloni quest meet san mononok hime,hayao miyazaki,yôji matsuda yuriko ishida yûko tanaka billi crudup
+71,Once Upon a Time in America,crime drama,prohibitionera jewish gangster return lower east manhattan thirti year later confront ghost regret old life,sergio leon,robert niro jame wood elizabeth mcgovern treat william
+72,Raiders of the Lost Ark,action adventur,archaeologist adventur indiana jone hire govern ark coven adolf hitler nazi obtain awesom power,steven spielberg,harrison ford karen allen paul freeman john rhysdavi
+73,The Shining,drama horror,famili head isol hotel winter sinist presenc influenc father violenc psychic son see horrif forebod past futur,stanley kubrick,jack nicholson shelley duval danni lloyd scatman crother
+74,Apocalypse Now,drama mysteri war,armi offic serv vietnam task assassin renegad special forc colonel see god,franci ford coppola,martin sheen marlon brando robert duval freder forrest
+75,Alien,horror scifi,space merchant vessel receiv unknown transmiss distress crew attack mysteri life form soon realiz life cycl mere begun,ridley scott,sigourney weaver tom skerritt john hurt veronica cartwright
+76,Anand,drama music,stori termin ill man wish live life fullest inevit occur told best friend,hrishikesh mukherje,rajesh khanna amitabh bachchan sumita sanyal ramesh deo
+77,Tengoku to jigoku,crime drama mysteri,execut shoe compani victim extort chauffeur son kidnap held ransom,akira kurosawa,toshirô mifun yutaka sada tatsuya nakadai kyôko kagawa
+78,Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb,comedi,insan gener trigger path nuclear holocaust war room politician gener frantic tri stop,stanley kubrick,peter seller georg c scott sterl hayden keenan wynn
+79,Witness for the Prosecution,crime drama mysteri,veteran british barrist defend client murder trial surpris surpris,billi wilder,tyron power marlen dietrich charl laughton elsa lanchest
+80,Paths of Glory,drama war,refus attack enemi posit gener accus soldier cowardic command offic defend,stanley kubrick,kirk dougla ralph meeker adolph menjou georg macreadi
+81,Rear Window,mysteri thriller,wheelchairbound photograph spi neighbor apart window convinc commit murder,alfr hitchcock,jame stewart grace kelli wendel corey thelma ritter
+82,Sunset Blvd.,drama filmnoir,screenwrit develop danger relationship fade film star determin make triumphant return,billi wilder,william holden gloria swanson erich von stroheim nanci olson
+83,The Great Dictator,comedi drama war,dictat adenoid hynkel tri expand empir poor jewish barber tri avoid persecut hynkel regim,charl chaplin,charl chaplin paulett goddard jack oaki reginald gardin
+84,1917,drama thriller war,april th regiment assembl wage war deep enemi territori soldier assign race time deliv messag stop men walk straight deadli trap,sam mend,deancharl chapman georg mackay daniel may colin firth
+85,Tumbbad,drama fantasi horror,mytholog stori goddess creat entir univers plot revolv consequ human build templ firstborn,rahi anil barv,anand gandhi adesh prasad sohum shah jyoti malsh
+86,Andhadhun,crime drama music,seri mysteri event chang life blind pianist report crime technic know,sriram raghavan,ayushmann khurrana tabu radhika apt anil dhawan
+87,Drishyam,crime drama thriller,man goe extrem length save famili punish famili commit accident crime,jeethu joseph,mohanl meena asha sharath ansiba
+88,Jagten,drama,teacher live lone life struggl son custodi life slowli get better find love receiv good news son new luck brutal shatter innoc littl lie,thoma vinterberg,mad mikkelsen thoma bo larsen annika wedderkopp lass fogelstrøm
+89,Jodaeiye Nader az Simin,drama,marri coupl face difficult decis improv life child move countri stay iran look deterior parent alzheim diseas,asghar farhadi,payman maadi leila hatami sareh bayat shahab hosseini
+90,Incendies,drama mysteri war,twin journey middl east discov famili histori fulfil mother wish,deni villeneuv,lubna azab mélissa désormeauxpoulin maxim gaudett mustafa kamel
+91,Miracle in cell NO.7,drama,stori love mentallyil father wrongli accus murder love year old daughter prison home base korean movi beonbangui seonmul,mehmet ada öztekin,ara bulut iynemli nisa sofiya aksongur deniz baysal celil toyon uysal
+92,Babam ve Oglum,drama famili,famili leftw journalist torn apart militari coup turkey,çagan irmak,çetin tekindor fikret kuskan hümeyra ege tanman
+93,Inglourious Basterds,adventur drama war,nazioccupi franc world war ii plan assassin nazi leader group jewish soldier coincid theatr owner veng plan,quentin tarantino,brad pitt dian kruger eli roth mélani laurent
+94,Eternal Sunshine of the Spotless Mind,drama romanc scifi,relationship turn sour coupl undergo medic procedur eras memori,michel gondri,jim carrey kate winslet tom wilkinson gerri robert byrn
+95,Amélie,comedi romanc,améli innoc naiv girl pari sens justic decid help way discov love,jeanpierr jeunet,audrey tautou mathieu kassovitz rufu lorella cravotta
+96,Snatch,comedi crime,unscrupul box promot violent bookmak russian gangster incompet amateur robber supposedli jewish jewel fight track priceless stolen diamond,guy ritchi,jason statham brad pitt benicio del toro denni farina
+97,Requiem for a Dream,drama,druginduc utopia coney island peopl shatter addict run deep,darren aronofski,ellen burstyn jare leto jennif connelli marlon wayan
+98,American Beauty,drama,sexual frustrat suburban father midlif crisi infatu daughter best friend,sam mend,kevin spacey annett bene thora birch we bentley
+99,Good Will Hunting,drama romanc,hunt janitor mit gift mathemat need help psychologist direct life,gu van sant,robin william matt damon ben affleck stellan skarsgård
+100,Bacheha-Ye aseman,drama famili sport,boy lose sister pair shoe goe seri adventur order tri new way win new pair,majid majidi,mohammad amir naji amir farrokh hashemian bahar seddiqi nafis jafarmohammadi
+101,Toy Story,anim adventur comedi,cowboy doll profoundli threaten jealou new spaceman figur supplant toy boy room,john lasset,tom hank tim allen don rickl jim varney
+102,Braveheart,biographi drama histori,scottish warrior william wallac lead countrymen rebellion free homeland tyranni king edward england,mel gibson,mel gibson sophi marceau patrick mcgoohan angu macfadyen
+103,Reservoir Dogs,crime drama thriller,simpl jewelri heist goe horribl wrong surviv crimin begin suspect polic inform,quentin tarantino,harvey keitel tim roth michael madsen chri penn
+104,Full Metal Jacket,drama war,pragmat marin observ dehuman effect vietnam war fellow recruit brutal boot camp train bloodi street fight hue,stanley kubrick,matthew modin r lee ermey vincent donofrio adam baldwin
+105,Idi i smotri,drama thriller war,find old rifl young boy join soviet resist movement ruthless german forc experi horror world war ii,elem klimov,aleksey kravchenko olga mironova liubomira lauceviciu vlada bagdona
+106,Aliens,action adventur scifi,fiftyseven year surviv apocalypt attack aboard space vessel merciless space creatur offic ripley awaken hypersleep tri warn listen predat,jame cameron,sigourney weaver michael biehn carri henn paul reiser
+107,Amadeus,biographi drama histori,life success troubl wolfgang amadeu mozart told antonio salieri contemporan compos insan jealou mozart talent claim murder,milo forman,f murray abraham tom hulc elizabeth berridg roy dotric
+108,Scarface,crime drama,miami determin cuban immigr take drug cartel succumb greed,brian palma,al pacino michel pfeiffer steven bauer mari elizabeth mastrantonio
+109,Star Wars: Episode VI - Return of the Jedi,action adventur fantasi,dare mission rescu han solo jabba hutt rebel dispatch endor destroy second death star luke struggl help darth vader dark fall emperor trap,richard marquand,mark hamil harrison ford carri fisher billi dee william
+110,Das Boot,adventur drama thriller,claustrophob world wwii german uboat boredom filth sheer terror,wolfgang petersen,jürgen prochnow herbert grönemey klau wennemann hubertu bengsch
+111,Taxi Driver,crime drama,mental unstabl veteran work nighttim taxi driver new york citi perceiv decad sleaz fuel urg violent action attempt liber presidenti campaign worker underag prostitut,martin scorses,robert niro jodi foster cybil shepherd albert brook
+112,The Sting,comedi crime drama,grifter team pull ultim,georg roy hill,paul newman robert redford robert shaw charl durn
+113,A Clockwork Orange,crime drama scifi,futur sadist gang leader imprison volunt conductavers experi doesnt plan,stanley kubrick,malcolm mcdowel patrick mage michael bate warren clark
+114,2001: A Space Odyssey,adventur scifi,discov mysteri artifact buri beneath lunar surfac mankind set quest origin help intellig supercomput hal,stanley kubrick,keir dullea gari lockwood william sylvest daniel richter
+115,Per qualche dollaro in più,western,bounti hunter intent team track western outlaw,sergio leon,clint eastwood lee van cleef gian maria volontè mara krupp
+116,Lawrence of Arabia,adventur biographi drama,stori te lawrenc english offic success unit led divers war arab tribe world war order fight turk,david lean,peter otool alec guin anthoni quinn jack hawkin
+117,The Apartment,comedi drama romanc,man tri rise compani let execut use apart tryst complic romanc ensu,billi wilder,jack lemmon shirley maclain fred macmurray ray walston
+118,North by Northwest,adventur mysteri thriller,new york citi advertis execut goe run mistaken govern agent group foreign spi,alfr hitchcock,cari grant eva mari saint jame mason jessi royc landi
+119,Vertigo,mysteri romanc thriller,polic detect juggl wrestl person demon obsess hauntingli beauti woman,alfr hitchcock,jame stewart kim novak barbara bel gedd tom helmor
+120,Singin' in the Rain,comedi music romanc,silent film product compani cast make difficult transit sound,stanley donen,gene kelli gene kelli donald oconnor debbi reynold
+121,Ikiru,drama,bureaucrat tri mean life discov termin cancer,akira kurosawa,takashi shimura nobuo kaneko shinichi himori haruo tanaka
+122,Ladri di biciclette,drama,postwar itali workingclass man bicycl stolen son set,vittorio sica,lamberto maggiorani enzo staiola lianella carel elena altieri
+123,Double Indemnity,crime drama filmnoir,insur repres let talk seduct housewif murderinsur fraud scheme arous suspicion insur investig,billi wilder,fred macmurray barbara stanwyck edward g robinson byron barr
+124,Citizen Kane,drama mysteri,follow death publish tycoon charl foster kane report scrambl uncov mean final utter rosebud,orson well,orson well joseph cotten dorothi comingor agn moorehead
+125,M - Eine Stadt sucht einen Mörder,crime mysteri thriller,polic german citi unabl catch childmurder crimin join manhunt,fritz lang,peter lorr ellen widmann ing landgut otto wernick
+126,Metropolis,drama scifi,futurist citi sharpli divid work class citi planner son citi mastermind fall love workingclass prophet predict come savior mediat differ,fritz lang,brigitt helm alfr abel gustav fröhlich rudolf kleinrogg
+127,The Kid,comedi drama famili,tramp care abandon child event relationship jeopardi,charl chaplin,charl chaplin edna purvianc jacki coogan carl miller
+128,Chhichhore,comedi drama,tragic incid forc anirudh middleag man trip memori lane reminisc colleg day friend label loser,nitesh tiwari,sushant singh rajput shraddha kapoor varun sharma prateik
+129,Uri: The Surgical Strike,action drama war,indian armi special forc execut covert oper aveng kill fellow armi men base terrorist group,aditya dhar,vicki kaushal paresh rawal mohit raina yami gautam
+130,K.G.F: Chapter 1,action drama,s fierc rebel rise brutal oppress symbol hope legion downtrodden peopl,prashanth neel,yash srinidhi shetti ramachandra raju archana joi
+131,Green Book,biographi comedi drama,workingclass italianamerican bouncer driver africanamerican classic pianist tour venu s american south,peter farrelli,viggo mortensen mahershala ali linda cardellini sebastian maniscalco
+132,"Three Billboards Outside Ebbing, Missouri",comedi crime drama,mother person challeng local author solv daughter murder fail catch culprit,martin mcdonagh,franc mcdormand woodi harrelson sam rockwel caleb landri jone
+133,Talvar,crime drama mysteri,experienc investig confront conflict theori perpetr violent doubl homicid,meghna gulzar,irrfan khan konkona sen sharma neeraj kabi sohum shah
+134,Baahubali 2: The Conclusion,action drama,shiva son bahubali learn heritag begin look answer stori juxtapos past event unfold mahishmati kingdom,ss rajamouli,prabha rana daggubati anushka shetti tamannaah bhatia
+135,Klaus,anim adventur comedi,simpl act kind spark frozen faraway place smeerensburg new postman jesper befriend toymak klau gift melt ageold feud deliv sleigh holiday tradit,sergio pablo,carlo martínez lópez jason schwartzman jk simmon rashida jone
+136,Drishyam,crime drama mysteri,desper measur taken man tri save famili dark law commit unexpect crime,nishik kamat,ajay devgn shriya saran tabu rajat kapoor
+137,Queen,adventur comedi drama,delhi girl tradit famili set solo honeymoon marriag get cancel,vika bahl,kangana ranaut rajkummar rao lisa haydon jeffrey ho
+138,Mandariinid,drama war,war rage abkhazia breakaway region georgia estonian man ivo decid stay harvest crop tangerin bloodi conflict door wound man left ivo take,zaza urushadz,lembit ulfsak elmo nüganen giorgi nakashidz misha meskhi
+139,Bhaag Milkha Bhaag,biographi drama sport,truth ascens milkha singh scar indiapakistan partit,rakeysh omprakash mehra,farhan akhtar sonam kapoor pawan malhotra art malik
+140,Gangs of Wasseypur,action comedi crime,clash sultan shahid khan lead expuls khan wasseypur ignit deadli blood feud span gener,anurag kashyap,manoj bajpaye richa chadha nawazuddin siddiqui tigmanshu dhulia
+141,Udaan,drama,expel school year old boy return home abus oppress father,vikramaditya motwan,rajat barmecha ronit roy manjot singh ram kapoor
+142,Paan Singh Tomar,action biographi crime,stori paan singh tomar indian athlet seventim nation steeplechas champion fear dacoit chambal valley retir,tigmanshu dhulia,irrfan khan mahi gill rajesh abhay hemendra dandotiya
+143,El secreto de sus ojos,drama mysteri romanc,retir legal counselor write novel hope closur past unresolv homicid case unreciproc love superior haunt decad later,juan josé campanella,ricardo darín soledad villamil pablo rago carla quevedo
+144,Warrior,action drama sport,youngest son alcohol boxer return home he train father competit mix martial art tournament path put fighter collis cours estrang older brother,gavin oconnor,tom hardi nick nolt joel edgerton jennif morrison
+145,Shutter Island,mysteri thriller,marshal investig disappear murder escap hospit crimin insan,martin scorses,leonardo dicaprio emili mortim mark ruffalo ben kingsley
+146,Up,anim adventur comedi,yearold carl fredricksen travel paradis fall hous equip balloon inadvert take young stowaway,pete docter,bob peterson edward asner jordan nagai john ratzenberg
+147,The Wolf of Wall Street,biographi crime drama,base true stori jordan belfort rise wealthi stockbrok live high life fall involv crime corrupt feder govern,martin scorses,leonardo dicaprio jonah hill margot robbi matthew mcconaughey
+148,Chak De! India,drama famili sport,kabir khan coach indian women nation hockey team dream make girl team emerg victori odd,shimit amin,shah rukh khan vidya malvad sagarika ghatg shilpa shukla
+149,There Will Be Blood,drama,stori famili religion hatr oil mad focus turnofthecenturi prospector earli day busi,paul thoma anderson,daniel daylewi paul dano ciarán hind martin stringer
+150,Pan's Labyrinth,drama fantasi war,falangist spain bookish young stepdaught sadist armi offic escap eeri captiv fantasi world,guillermo del toro,ivana baquero ariadna gil sergi lópez maribel verdú
+151,Toy Story 3,anim adventur comedi,toy mistakenli deliv daycar center instead attic right andi leav colleg woodi convinc toy werent abandon return home,lee unkrich,tom hank tim allen joan cusack ned beatti
+152,V for Vendetta,action drama scifi,futur british tyranni shadowi freedom fighter known alia v plot overthrow help young woman,jame mcteigu,hugo weav natali portman rupert grave stephen rea
+153,Rang De Basanti,comedi crime drama,stori young indian assist english woman film documentari freedom fighter past event lead reliv longforgotten saga freedom,rakeysh omprakash mehra,aamir khan soha ali khan siddharth sharman joshi
+154,Black,drama,cathart tale young woman hear talk teacher bring ray light dark world,sanjay leela bhansali,amitabh bachchan rani mukerji shernaz patel ayesha kapoor
+155,Batman Begins,action adventur,train mentor batman begin fight free crimeridden gotham citi corrupt,christoph nolan,christian bale michael cain ken watanab liam neeson
+156,"Swades: We, the People",drama,success indian scientist return indian villag nanni america process rediscov root,ashutosh gowarik,shah rukh khan gayatri joshi kishori ballal smit sheth
+157,Der Untergang,biographi drama histori,traudl jung final secretari adolf hitler tell nazi dictat final day berlin bunker end wwii,oliv hirschbiegel,bruno ganz alexandra maria lara ulrich matth julian köhler
+158,Hauru no ugoku shiro,anim adventur famili,unconfid young woman curs old bodi spite witch chanc break spell lie selfindulg insecur young wizard companion leg walk castl,hayao miyazaki,chieko baishô takuya kimura tatsuya gashûin akihiro miwa
+159,A Beautiful Mind,biographi drama,john nash brilliant asoci mathematician accept secret work cryptographi life take turn nightmarish,ron howard,russel crow ed harri jennif connelli christoph plummer
+160,Hera Pheri,action comedi crime,unemploy men look answer money problem opportun arriv know,priyadarshan,akshay kumar sunil shetti paresh rawal tabu
+161,"Lock, Stock and Two Smoking Barrels",action comedi crime,botch card game london trigger friend thug weedgrow hard gangster loan shark debt collector collid seri unexpect event sake weed cash antiqu shotgun,guy ritchi,jason flemyng dexter fletcher nick moran jason statham
+162,L.A. Confidential,crime drama mysteri,corrupt grow s lo angel policemen straitlac brutal sleazi investig seri murder brand justic,curti hanson,kevin spacey russel crow guy pearc kim basing
+163,Eskiya,crime drama thriller,baran bandit releas prison year search vengeanc lover,yavuz turgul,sener sen ugur yücel sermin hürmeriç yesim salkim
+164,Heat,crime drama thriller,group profession bank robber start feel heat polic unknowingli leav clue latest heist,michael mann,al pacino robert niro val kilmer jon voight
+165,Casino,crime drama,tale greed decept money power murder occur best friend mafia enforc casino execut compet gambl empir fastliv fastlov socialit,martin scorses,robert niro sharon stone joe pesci jame wood
+166,Andaz Apna Apna,action comedi romanc,slacker compet affect heiress inadvert protector evil crimin,rajkumar santoshi,aamir khan salman khan raveena tandon karisma kapoor
+167,Unforgiven,drama western,retir old west gunsling william munni reluctantli take job help old partner ned logan young man schofield kid,clint eastwood,clint eastwood gene hackman morgan freeman richard harri
+168,Indiana Jones and the Last Crusade,action adventur,father professor henri jone sr goe miss pursu holi grail professor henri indiana jone jr find adolf hitler nazi stop obtain power,steven spielberg,harrison ford sean conneri alison doodi denholm elliott
+169,Dom za vesanje,comedi crime drama,lumin tale set area sarajevo itali perhan engag young romani gypsi telekinet power seduc quickcash world petti crime threaten destroy love,emir kusturica,davor dujmov bora todorov ljubica adzov husnija hasimov
+170,Tonari no Totoro,anim famili fantasi,girl countri near ail mother adventur wondrou forest spirit live nearbi,hayao miyazaki,hitoshi takagi noriko hidaka chika sakamoto shigesato itoi
+171,Die Hard,action thriller,nypd offic tri save wife taken hostag german terrorist christma parti nakatomi plaza lo angel,john mctiernan,bruce willi alan rickman bonni bedelia reginald veljohnson
+172,Ran,action drama war,mediev japan elderli warlord retir hand empir son vastli underestim newfound power corrupt caus turn otherand,akira kurosawa,tatsuya nakadai akira terao jinpachi nezu daisuk ryû
+173,Raging Bull,biographi drama sport,life boxer jake lamotta violenc temper led ring destroy life outsid,martin scorses,robert niro cathi moriarti joe pesci frank vincent
+174,Stalker,drama scifi,guid lead men area known zone room grant wish,andrei tarkovski,alisa freyndlikh aleksandr kaydanovskiy anatoliy solonitsyn nikolay grinko
+175,Höstsonaten,drama music,marri daughter long mother love visit success concert pianist,ingmar bergman,ingrid bergman liv ullmann lena nyman halvar björk
+176,The Message,biographi drama histori,epic histor drama chronicl life time prophet muhammad serv introduct earli islam histori,moustapha akkad,anthoni quinn iren papa michael ansara johnni sekka
+177,Sholay,action adventur comedi,famili murder notori ruthless bandit polic offic enlist servic outlaw captur bandit,ramesh sippi,sanjeev kumar dharmendra amitabh bachchan amjad khan
+178,Monty Python and the Holy Grail,adventur comedi fantasi,king arthur knight round tabl embark surreal lowbudget search holi grail encount silli obstacl,terri gilliam,terri jone graham chapman john clees eric idl
+179,The Great Escape,adventur drama histori,alli prison war plan number escap german camp world war ii,john sturg,steve mcqueen jame garner richard attenborough charl bronson
+180,To Kill a Mockingbird,crime drama,atticu finch lawyer depressionera south defend black man undeserv rape charg children prejudic,robert mulligan,gregori peck john megna frank overton rosemari murphi
+181,Yôjinbô,action drama thriller,crafti ronin come town divid crimin gang decid play free town,akira kurosawa,toshirô mifun eijirô tôno tatsuya nakadai yôko tsukasa
+182,Judgment at Nuremberg,drama war,american court occupi germani tri nazi judg war crime,stanley kramer,spencer traci burt lancast richard widmark marlen dietrich
+183,Some Like It Hot,comedi music romanc,male musician wit mob hit flee state allfemal band disguis women complic set,billi wilder,marilyn monro toni curti jack lemmon georg raft
+184,Smultronstället,drama romanc,live life mark cold age professor forc confront empti exist,ingmar bergman,victor sjöström bibi andersson ingrid thulin gunnar björnstrand
+185,Det sjunde inseglet,drama fantasi histori,man seek answer life death exist god play chess grim reaper black plagu,ingmar bergman,max von sydow gunnar björnstrand bengt ekerot nil popp
+186,Du rififi chez les hommes,crime drama thriller,men plan technic perfect crime human element interven,jule dassin,jean servai carl möhner robert manuel janin darcey
+187,Dial M for Murder,crime thriller,tenni player tri arrang wife murder learn affair,alfr hitchcock,ray milland grace kelli robert cum john william
+188,Tôkyô monogatari,drama,old coupl visit children grandchildren citi receiv littl attent,yasujirô ozu,chishû ryû chieko higashiyama sô yamamura setsuko hara
+189,Rashômon,crime drama mysteri,rape bride murder samurai husband recal perspect bandit bride samurai ghost woodcutt,akira kurosawa,toshirô mifun machiko kyô masayuki mori takashi shimura
+190,All About Eve,drama,seemingli timid secretli ruthless ingénu insinu live age broadway star circl theater friend,joseph l mankiewicz,bett davi ann baxter georg sander celest holm
+191,The Treasure of the Sierra Madre,adventur drama western,american search work mexico convinc old prospector help gold sierra madr mountain,john huston,humphrey bogart walter huston tim holt bruce bennett
+192,To Be or Not to Be,comedi war,nazi occup poland act troup embroil polish soldier effort track german spi,ernst lubitsch,carol lombard jack benni robert stack felix bressart
+193,The Gold Rush,adventur comedi drama,prospector goe klondik search gold find,charl chaplin,charl chaplin mack swain tom murray henri bergman
+194,Sherlock Jr.,action comedi romanc,film projectionist long detect put meagr skill work frame rival steal girlfriend father pocketwatch,buster keaton,buster keaton kathryn mcguir joe keaton erwin connelli
+195,Portrait de la jeune fille en feu,drama romanc,isol island brittani end eighteenth centuri femal painter oblig paint wed portrait young woman,céline sciamma,noémi merlant adèl haenel luàna bajrami valeria golino
+196,Pink,drama thriller,young women implic crime retir lawyer step forward help clear name,aniruddha roy chowdhuri,taapse pannu amitabh bachchan kirti kulhari andrea tariang
+197,Koe no katachi,anim drama famili,young man ostrac classmat bulli deaf girl point move away year later set path redempt,naoko yamada,miyu irino saori hayami aoi yûki kenshô ono
+198,Contratiempo,crime drama mysteri,success entrepreneur accus murder wit prepar expert hour come impregn defens,oriol paulo,mario casa ana wagen jose coronado bárbara lenni
+199,Ah-ga-ssi,drama romanc thriller,woman hire handmaiden japanes heiress secretli involv plot defraud,chanwook park,kim minhe jungwoo ha cho jinwoong moon sori
+200,Mommy,drama,widow singl mother rais violent son find new hope mysteri neighbor insert household,xavier dolan,ann dorval antoin olivi pilon suzann clément patrick huard
+201,Haider,action crime drama,young man return kashmir father disappear confront uncl suspect play role father fate,vishal bhardwaj,shahid kapoor tabu shraddha kapoor kay kay menon
+202,Logan,action drama scifi,futur mutant nearli extinct elderli weari logan lead quiet life laura mutant child pursu scientist come help safeti,jame mangold,hugh jackman patrick stewart dafn keen boyd holbrook
+203,Room,drama thriller,held captiv year enclos space woman young son final gain freedom allow boy experi outsid world time,lenni abrahamson,brie larson jacob tremblay sean bridger wendi crewson
+204,Relatos salvajes,comedi drama thriller,short stori explor extrem human behavior involv peopl distress,damián szifron,darío grandinetti maría marul mónica villa diego starosta
+205,Soul,anim adventur comedi,land gig lifetim new york jazz pianist suddenli find trap strang land earth afterlif,pete docter,kemp power jami foxx tina fey graham norton
+206,Kis Uykusu,drama,hotel owner landlord remot turkish villag deal conflict famili tenant rent,nuri bilg ceylan,haluk bilgin melisa sözen demet akbag ayberk pekcan
+207,PK,comedi drama music,alien earth lose devic use commun spaceship innoc natur childlik question forc countri evalu impact religion peopl,rajkumar hirani,aamir khan anushka sharma sanjay dutt boman irani
+208,OMG: Oh My God!,comedi drama fantasi,shopkeep take god court shop destroy earthquak,umesh shukla,paresh rawal akshay kumar mithun chakraborti mahesh manjrekar
+209,The Grand Budapest Hotel,adventur comedi crime,writer encount owner age highclass hotel tell earli year serv lobbi boy hotel gloriou year except concierg,we anderson,ralph fienn f murray abraham mathieu amalr adrien brodi
+210,Gone Girl,drama mysteri thriller,wife disappear have focu intens media circu man see spotlight turn suspect innoc,david fincher,ben affleck rosamund pike neil patrick harri tyler perri
+211,Ôkami kodomo no Ame to Yuki,anim drama fantasi,werewolf lover unexpectedli die accid hunt food children young woman way rais werewolf son daughter keep trait hidden societi,mamoru hosoda,aoi miyazaki takao osawa haru kuroki yukito nishii
+212,Hacksaw Ridge,biographi drama histori,world war ii american armi medic desmond t doss serv battl okinawa refus kill peopl man american histori receiv medal honor fire shot,mel gibson,andrew garfield sam worthington luke bracey teresa palmer
+213,Inside Out,anim adventur comedi,young riley uproot midwest life move san francisco emot joy fear anger disgust sad conflict best navig new citi hous school,pete docter,ronni del carmen ami poehler hader lewi black
+214,Barfi!,comedi drama romanc,young peopl learn love defin contain societi definit normal abnorm,anurag basu,ranbir kapoor priyanka chopra ileana dcruz saurabh shukla
+215,12 Years a Slave,biographi drama histori,antebellum unit state solomon northup free black man upstat new york abduct sold slaveri,steve mcqueen,chiwetel ejiofor michael kenneth william michael fassbend brad pitt
+216,Rush,action biographi drama,merciless s rivalri formula rival jame hunt niki lauda,ron howard,daniel brühl chri hemsworth olivia wild alexandra maria lara
+217,Ford v Ferrari,action biographi drama,american car design carrol shelbi driver ken mile battl corpor interfer law physic build revolutionari race car ford order defeat ferrari hour le man,jame mangold,matt damon christian bale jon bernthal caitriona balf
+218,Spotlight,biographi crime drama,true stori boston globe uncov massiv scandal child molest coverup local cathol archdioces shake entir cathol church core,tom mccarthi,mark ruffalo michael keaton rachel mcadam liev schreiber
+219,Song of the Sea,anim adventur drama,ben young irish boy littl sister saoirs girl turn seal adventur free fairi save spirit world,tomm moor,david rawl brendan gleeson lisa hannigan fionnula flanagan
+220,Kahaani,mysteri thriller,pregnant woman search miss husband take london kolkata question deni have met,sujoy ghosh,vidya balan parambrata chattopadhyay indraneil sengupta nawazuddin siddiqui
+221,Zindagi Na Milegi Dobara,comedi drama,friend decid turn fantasi vacat realiti friend get engag,zoya akhtar,hrithik roshan farhan akhtar abhay deol katrina kaif
+222,Prisoners,crime drama mysteri,keller dover daughter friend miss take matter hand polic pursu multipl lead pressur mount,deni villeneuv,hugh jackman jake gyllenha viola davi melissa leo
+223,Mad Max: Fury Road,action adventur scifi,postapocalypt wasteland woman rebel tyrann ruler search homeland aid group femal prison psychot worship drifter name max,georg miller,tom hardi charliz theron nichola hoult zoë kravitz
+224,A Wednesday,action crime drama,retir polic offic reminisc astound day career case file continu haunt memori case man wednesday,neeraj pandey,anupam kher naseeruddin shah jimmi sheirgil aamir bashir
+225,Gran Torino,drama,disgruntl korean war veteran walt kowalski set reform neighbor thao lor hmong teenag tri steal kowalski prize possess gran torino,clint eastwood,clint eastwood bee vang christoph carley ahney
+226,Harry Potter and the Deathly Hallows: Part 2,adventur drama fantasi,harri ron hermion search voldemort remain horcrux effort destroy dark lord final battl rage hogwart,david yate,daniel radcliff emma watson rupert grint michael gambon
+227,Okuribito,drama music,newli unemploy cellist take job prepar dead funer,yôjirô takita,masahiro motoki ryôko hirosu tsutomu yamazaki kazuko yoshiyuki
+228,Hachi: A Dog's Tale,biographi drama famili,colleg professor bond abandon dog take home,lass hallström,richard gere joan allen caryhiroyuki tagawa sarah roemer
+229,Mary and Max,anim comedi drama,tale friendship unlik pen pal mari lone eightyearold girl live suburb melbourn max fortyfouryear old sever obes man live new york,adam elliot,toni collett philip seymour hoffman eric bana barri humphri
+230,How to Train Your Dragon,anim action adventur,hapless young vike aspir hunt dragon unlik friend young dragon learn creatur assum,dean debloi,chri sander jay baruchel gerard butler christoph mintzplass
+231,Into the Wild,adventur biographi drama,graduat emori univers student athlet christoph mccandless abandon possess give entir save account chariti hitchhik alaska live wilder way christoph encount seri charact shape life,sean penn,emil hirsch vinc vaughn catherin keener marcia gay harden
+232,No Country for Old Men,crime drama thriller,violenc mayhem ensu hunter stumbl drug deal gone wrong million dollar cash near rio grand,ethan coen,joel coen tommi lee jone javier bardem josh brolin
+233,Lage Raho Munna Bhai,comedi drama romanc,munna bhai embark journey mahatma gandhi order fight corrupt properti dealer,rajkumar hirani,sanjay dutt arshad warsi vidya balan boman irani
+234,Million Dollar Baby,drama sport,determin woman work harden box trainer profession,clint eastwood,hilari swank clint eastwood morgan freeman jay baruchel
+235,Hotel Rwanda,biographi drama histori,paul rusesabagina hotel manag hous thousand tutsi refuge struggl hutu militia rwanda africa,terri georg,don cheadl sophi okonedo joaquin phoenix xolani mali
+236,Taegukgi hwinalrimyeo,action drama war,brother forc fight korean war elder decid riskiest mission help shield younger battl,jekyu kang,jang donggun won bin eunju lee hyeongjin kong
+237,Before Sunset,drama romanc,year jess celin met encount french leg jess book tour,richard linklat,ethan hawk juli delpi vernon dobtcheff louis lemoin torrè
+238,Munna Bhai M.B.B.S.,comedi drama music,gangster set fulfil father dream doctor,rajkumar hirani,sanjay dutt arshad warsi graci singh sunil dutt
+239,Salinui chueok,crime drama mysteri,small korean provinc detect struggl case multipl young women rape murder unknown culprit,bong joon ho,kangho song kim sangkyung roeha kim jaeho song
+240,Dil Chahta Hai,comedi drama romanc,insepar childhood friend just colleg come fall love wildli differ approach relationship creat tension,farhan akhtar,aamir khan saif ali khan akshay khanna preiti zinta
+241,Kill Bill: Vol. 1,action crime drama,awaken fouryear coma assassin wreak vengeanc team assassin betray,quentin tarantino,uma thurman david carradin daryl hannah michael madsen
+242,Finding Nemo,anim adventur comedi,son captur great barrier reef taken sydney timid clownfish set journey bring home,andrew stanton,lee unkrich albert brook ellen degener alexand gould
+243,Catch Me If You Can,biographi crime drama,bare frank skill forger pass doctor lawyer pilot fbi agent carl obsess track man revel pursuit,steven spielberg,leonardo dicaprio tom hank christoph walken martin sheen
+244,Amores perros,drama thriller,horrif car accid connect stori involv charact deal loss regret life harsh realiti love,alejandro g iñárritu,emilio echevarría gael garcía bernal goya toledo álvaro guerrero
+245,"Monsters, Inc.",anim adventur comedi,order power citi monster scare children scream children toxic monster child get monster realiz thing think,pete docter,david silverman lee unkrich billi crystal john goodman
+246,"Shin seiki Evangelion Gekijô-ban: Air/Magokoro wo, kimi ni",anim action drama,concurr theatric end tv seri shin seiki evangerion,hideaki anno,kazuya tsurumaki megumi ogata megumi hayashibara yûko miyamura
+247,Lagaan: Once Upon a Time in India,adventur drama music,peopl small villag victorian india stake futur game cricket ruthless british ruler,ashutosh gowarik,aamir khan raghuvir yadav graci singh rachel shelley
+248,The Sixth Sense,drama mysteri thriller,boy commun spirit seek help dishearten child psychologist,m night shyamalan,bruce willi haley joel osment toni collett olivia william
+249,La leggenda del pianista sull'oceano,drama music romanc,babi boy discov ocean liner grow music prodigi set foot land,giusepp tornator,tim roth pruitt taylor vinc mélani thierri nunn
+250,The Truman Show,comedi drama,insur salesman discov life actual realiti tv,peter weir,jim carrey ed harri laura linney noah emmerich
+251,"Crna macka, beli macor",comedi crime romanc,matko son zare live bank danub river hustl basic do make live order pay busi debt matko agre marri zare sister local gangster,emir kusturica,bajram severdzan srdjan zika todorov branka katic florijan ajdini
+252,The Big Lebowski,comedi crime sport,jeff dude lebowski mistaken millionair seek restitut ruin rug enlist bowl buddi help,joel coen,ethan coen jeff bridg john goodman juliann moor
+253,Fa yeung nin wah,drama romanc,neighbor woman man form strong bond suspect extramarit activ spous agre bond platon commit similar wrong,karwai wong,toni chiuwai leung maggi cheung ping lam siu tung cho joe cheung
+254,Trainspotting,drama,renton deepli immers edinburgh drug scene tri clean despit allur drug influenc friend,danni boyl,ewan mcgregor ewen bremner jonni lee miller kevin mckidd
+255,Fargo,crime drama thriller,jerri lundegaard inept crime fall apart henchmen bungl persist polic work quit pregnant marg gunderson,joel coen,ethan coen william h maci franc mcdormand steve buscemi
+256,Underground,comedi drama war,group serbian socialist prepar war surreal underground fill parti tragedi love hate,emir kusturica,predrag miki manojlov lazar ristovski mirjana jokov slavko stimac
+257,La haine,crime drama,hour live young men french suburb day violent riot,mathieu kassovitz,vincent cassel hubert koundé saïd taghmaoui abdel ahm ghili
+258,Dilwale Dulhania Le Jayenge,drama romanc,raj meet simran europ isnt love sight simran move india arrang marriag love make presenc felt,aditya chopra,shah rukh khan kajol amrish puri farida jalal
+259,Before Sunrise,drama romanc,young man woman meet train europ wind spend even vienna unfortun know probabl night,richard linklat,ethan hawk juli delpi andrea eckert hanno pöschl
+260,Trois couleurs: Rouge,drama mysteri romanc,model discov retir judg keen invad peopl privaci,krzysztof kieslowski,irèn jacob jeanloui trintign frédériqu feder jeanpierr lorit
+261,Chung Hing sam lam,comedi crime drama,melancholi hong kong policemen fall love mysteri femal underworld figur beauti ether server latenight restaur frequent,karwai wong,brigitt lin takeshi kaneshiro toni chiuwai leung fay wong
+262,Jurassic Park,action adventur scifi,pragmat paleontologist visit complet theme park task protect coupl kid power failur caus park clone dinosaur run loos,steven spielberg,sam neill laura dern jeff goldblum richard attenborough
+263,In the Name of the Father,biographi crime drama,man coerc confess ira bomb did commit result imprison father english lawyer fight free,jim sheridan,daniel daylewi pete postlethwait alison crosbi philip king
+264,Ba wang bie ji,drama music romanc,boy meet opera train school peke result friendship span nearli year endur troublesom time china histori,kaig chen,lesli cheung fengyi zhang gong li ge
+265,Dà hóng denglong gaogao guà,drama histori romanc,young woman fourth wife wealthi lord learn live strict rule tension household,yimou zhang,gong li jingwu ma saifei cuifen cao
+266,Dead Poets Society,comedi drama,maverick teacher john keat use poetri embolden board school student new height selfexpress,peter weir,robin william robert sean leonard ethan hawk josh charl
+267,Stand by Me,adventur drama,death friend writer recount childhood journey friend bodi miss boy,rob reiner,wil wheaton river phoenix corey feldman jerri oconnel
+268,Platoon,drama war,chri taylor neophyt recruit vietnam find caught battl will sergeant good evil shrewd examin brutal war dualiti man conflict,oliv stone,charli sheen tom bereng willem dafo keith david
+269,"Paris, Texas",drama,travi henderson aimless drifter miss year wander desert reconnect societi life famili,wim wender,harri dean stanton nastassja kinski dean stockwel auror clément
+270,Kaze no tani no Naushika,anim adventur fantasi,warrior pacifist princess nausicaä desper struggl prevent war nation destroy die planet,hayao miyazaki,sumi shimamoto mahito tsujimura hisako kyôda gorô naya
+271,The Thing,horror mysteri scifi,research team antarctica hunt shapeshift alien assum appear victim,john carpent,kurt russel wilford brimley keith david richard masur
+272,Pink Floyd: The Wall,drama fantasi music,confin troubl rock star descend mad midst physic social isol,alan parker,bob geldof christin hargreav jame laurenson eleanor david
+273,Fitzcarraldo,adventur drama,stori brian sweeney fitzgerald extrem determin man intend build opera hous middl jungl,werner herzog,klau kinski claudia cardinal josé lewgoy miguel ángel fuent
+274,Fanny och Alexander,drama,young swedish children experi comedi tragedi famili ekdahl,ingmar bergman,bertil guve pernilla allwin kristina adolphson börje ahlstedt
+275,Blade Runner,action scifi thriller,blade runner pursu termin replic stole ship space return earth creator,ridley scott,harrison ford rutger hauer sean young edward jame olmo
+276,The Elephant Man,biographi drama,victorian surgeon rescu heavili disfigur man mistreat scrape live sideshow freak monstrou façad reveal person kind intellig sophist,david lynch,anthoni hopkin john hurt ann bancroft john gielgud
+277,Life of Brian,comedi,born origin christma stabl door jesu christ brian nazareth spend life mistaken messiah,terri jone,graham chapman john clees michael palin terri gilliam
+278,The Deer Hunter,drama war,indepth examin way vietnam war impact disrupt live peopl small industri town pennsylvania,michael cimino,robert niro christoph walken john cazal john savag
+279,Rocky,drama sport,smalltim boxer get suprem rare chanc fight heavyweight champion bout strive distanc selfrespect,john g avildsen,sylvest stallon talia shire burt young carl weather
+280,Network,drama,televis network cynic exploit derang anchor rave revel news media profit,sidney lumet,fay dunaway william holden peter finch robert duval
+281,Barry Lyndon,adventur drama histori,irish rogu win heart rich widow assum dead husband aristocrat posit thcenturi england,stanley kubrick,ryan oneal marisa berenson patrick mage hardi krüger
+282,Zerkalo,biographi drama,die man forti rememb past childhood mother war person moment thing tell recent histori russian nation,andrei tarkovski,margarita terekhova filipp yankovskiy ignat daniltsev oleg yankovskiy
+283,Chinatown,drama mysteri thriller,privat detect hire expos adulter find caught web deceit corrupt murder,roman polanski,jack nicholson fay dunaway john huston perri lopez
+284,Paper Moon,comedi crime drama,great depress man find saddl young girl daughter forg unlik partnership,peter bogdanovich,ryan oneal tatum oneal madelin kahn john hillerman
+285,Viskningar och rop,drama,woman die cancer earli twentiethcenturi sweden visit sister longrepress feel sibl rise surfac,ingmar bergman,harriet andersson liv ullmann kari sylwan ingrid thulin
+286,Solaris,drama mysteri scifi,psychologist sent station orbit distant planet order discov caus crew insan,andrei tarkovski,natalya bondarchuk donata banioni jüri järvet vladislav dvorzhetskiy
+287,Le samouraï,crime drama mysteri,profession hitman jef costello seen wit effort provid alibi drive corner,jeanpierr melvil,alain delon françoi périer nathali delon cathi rosier
+288,Cool Hand Luke,crime drama,laid southern man sentenc year rural prison refus conform,stuart rosenberg,paul newman georg kennedi strother martin jd cannon
+289,Persona,drama thriller,nurs charg mute actress find persona meld,ingmar bergman,bibi andersson liv ullmann margaretha krook gunnar björnstrand
+290,Andrei Rublev,biographi drama histori,life time afflict fifteenthcenturi russian iconograph st andrei rublev,andrei tarkovski,anatoliy solonitsyn ivan lapikov nikolay grinko nikolay sergeev
+291,La battaglia di Algeri,drama war,s fear violenc escal peopl algier fight independ french govern,gillo pontecorvo,brahim hadjadj jean martin yacef saadi samia kerbash
+292,El ángel exterminador,drama fantasi,guest upperclass dinner parti unabl leav,lui buñuel,silvia pinal jacquelin ander enriqu rambal josé baviera
+293,What Ever Happened to Baby Jane?,drama horror thriller,child star torment parapleg sister decay hollywood mansion,robert aldrich,bett davi joan crawford victor buono wesley addi
+294,Sanjuro,action comedi crime,crafti samurai help young man fellow clansmen save uncl frame imprison corrupt superintend,akira kurosawa,toshirô mifun tatsuya nakadai keiju kobayashi yûnosuk itô
+295,The Man Who Shot Liberty Valance,drama western,senat return western town funer old friend tell stori origin,john ford,jame stewart john wayn vera mile lee marvin
+296,Ivanovo detstvo,drama war,ww year old soviet orphan ivan bondarev work soviet armi scout german line strike friendship sympathet soviet offic,andrei tarkovski,eduard abalov nikolay burlyaev valentin zubkov evgeniy zharikov
+297,Jungfrukällan,drama,innoc pamper young virgin famili pregnant jealou servant set deliv candl church return event transpir wood way,ingmar bergman,max von sydow birgitta valberg gunnel lindblom birgitta pettersson
+298,Inherit the Wind,biographi drama histori,base reallif case great lawyer argu case scienc teacher accus crime teach evolut,stanley kramer,spencer traci fredric march gene kelli dick york
+299,Les quatre cents coups,crime drama,young boy left attent delv life petti crime,françoi truffaut,jeanpierr léaud albert rémi clair maurier guy decombl
+300,Ben-Hur,adventur drama histori,jewish princ betray sent slaveri roman friend regain freedom come reveng,william wyler,charlton heston jack hawkin stephen boyd haya harareet
+301,Kakushi-toride no san-akunin,adventur drama,lure gold greedi peasant unknowingli escort princess gener enemi line,akira kurosawa,toshirô mifun misa uehara minoru chiaki kamatari fujiwara
+302,Le notti di Cabiria,drama,waifish prostitut wander street rome look true love find heartbreak,federico fellini,giulietta masina françoi périer franca marzi dorian gray
+303,Kumonosu-jô,drama histori,warharden gener eg ambiti wife work fulfil propheci lord spider web castl,akira kurosawa,toshirô mifun minoru chiaki isuzu yamada takashi shimura
+304,The Bridge on the River Kwai,adventur drama war,british pow forc build railway bridg river kwai japanes captor know alli forc plan destroy,david lean,william holden alec guin jack hawkin sessu hayakawa
+305,On the Waterfront,crime drama thriller,expriz fighter turn longshoreman struggl stand corrupt union boss,elia kazan,marlon brando karl malden lee j cobb rod steiger
+306,Le salaire de la peur,adventur drama thriller,decrepit south american villag men hire transport urgent nitroglycerin shipment equip make safe,henrigeorg clouzot,yve montand charl vanel peter van eyck folco lulli
+307,Ace in the Hole,drama filmnoir,frustrat bigciti journalist stuck work albuquerqu newspap exploit stori man trap cave rekindl career situat quickli escal outofcontrol circu,billi wilder,kirk dougla jan sterl robert arthur porter hall
+308,White Heat,action crime drama,psychopath crimin mother complex make dare break prison lead old gang chemic plant payrol heist,raoul walsh,jame cagney virginia mayo edmond obrien margaret wycherli
+309,The Third Man,filmnoir mysteri thriller,pulp novelist holli martin travel shadowi postwar vienna investig mysteri death old friend harri lime,carol reed,orson well joseph cotten alida valli trevor howard
+310,The Red Shoes,drama music romanc,young ballet dancer torn man love pursuit prima ballerina,michael powel,emer pressburg anton walbrook mariu gore moira shearer
+311,The Shop Around the Corner,comedi drama romanc,employe gift shop bare stand realiz fall love post anonym pen pal,ernst lubitsch,margaret sullavan jame stewart frank morgan joseph schildkraut
+312,Rebecca,drama mysteri romanc,selfconsci woman juggl adjust new role aristocrat wife avoid intimid wife spectral presenc,alfr hitchcock,laurenc olivi joan fontain georg sander judith anderson
+313,Mr. Smith Goes to Washington,comedi drama,naiv man appoint vacanc unit state senat plan promptli collid polit corrupt doesnt,frank capra,jame stewart jean arthur claud rain edward arnold
+314,Gone with the Wind,drama histori romanc,manipul woman roguish man conduct turbul romanc american civil war reconstruct period,victor fleme,georg cukor sam wood clark gabl vivien leigh
+315,La Grande Illusion,drama war,wwi french soldier captur imprison german pow camp escap attempt follow eventu sent seemingli inescap fortress,jean renoir,jean gabin dita parlo pierr fresnay erich von stroheim
+316,It Happened One Night,comedi romanc,renegad report crazi young heiress meet bu head new york end stuck bu leav stop,frank capra,clark gabl claudett colbert walter connolli rosco karn
+317,La passion de Jeanne d'Arc,biographi drama histori,jeann darc place trial charg heresi ecclesiast jurist attempt forc jeann recant claim holi vision,carl theodor dreyer,maria falconetti eugen silvain andré berley mauric schutz
+318,The Circus,comedi romanc,tramp find work girl dream circu,charl chaplin,charl chaplin merna kennedi al ernest garcia harri crocker
+319,Sunrise: A Song of Two Humans,drama romanc,allegor tale man fight good evil side flesh sophist woman attract wife,fw murnau,georg obrien janet gaynor margaret livingston bodil rose
+320,The General,action adventur comedi,union spi steal engin belov locomot pursu singlehandedli straight enemi line,clyde bruckman,buster keaton buster keaton marion mack glen cavend
+321,Das Cabinet des Dr. Caligari,fantasi horror mysteri,hypnotist dr caligari use somnambulist cesar commit murder,robert wien,werner krauss conrad veidt friedrich feher lil dagov
+322,Badhaai ho,comedi drama,man embarrass find mother pregnant,amit ravindernath sharma,ayushmann khurrana neena gupta gajraj rao sanya malhotra
+323,Togo,adventur biographi drama,stori togo sled dog led serum run consid small weak lead intens race,ericson core,willem dafo juliann nicholson christoph heyerdahl richard dormer
+324,Airlift,drama histori,iraq invad kuwait august callou indian businessman spokesperson strand countrymen,raja menon,akshay kumar nimrat kaur kumud mishra prakash belawadi
+325,Bajrangi Bhaijaan,action adventur comedi,indian man magnanim heart take young mute pakistani girl homeland reunit famili,kabir khan,salman khan harshaali malhotra nawazuddin siddiqui kareena kapoor
+326,Baby,action crime thriller,elit counterintellig unit learn plot mastermind maniac madman clock tick track terrorist intern tentacl prevent strike heart india,neeraj pandey,akshay kumar danni denzongpa rana daggubati taapse pannu
+327,La La Land,comedi drama music,navig career lo angel pianist actress fall love attempt reconcil aspir futur,damien chazel,ryan gosl emma stone rosemari dewitt jk simmon
+328,Lion,biographi drama,fiveyearold indian boy adopt australian coupl get lost hundr kilomet home year later set lost famili,garth davi,dev patel nicol kidman rooney mara sunni pawar
+329,The Martian,adventur drama scifi,astronaut strand mar team assum dead reli ingenu way signal earth aliv,ridley scott,matt damon jessica chastain kristen wiig kate mara
+330,Zootopia,anim adventur comedi,citi anthropomorph anim rooki bunni cop cynic artist fox work uncov conspiraci,byron howard,rich moor jare bush ginnif goodwin jason bateman
+331,Bãhubali: The Beginning,action drama,ancient india adventur dare man involv decadesold feud war peopl,ss rajamouli,prabha rana daggubati ramya krishnan sathyaraj
+332,Kaguyahime no monogatari,anim adventur drama,insid shine stalk bamboo old bamboo cutter wife tini girl grow rapidli exquisit young ladi mysteri young princess enthral encount ultim confront fate punish crime,isao takahata,chloë grace moretz jame caan mari steenburgen jame marsden
+333,Wonder,drama famili,base new york time bestsel movi tell incred inspir heartwarm stori august pullman boy facial differ enter fifth grade attend mainstream elementari school time,stephen chboski,jacob tremblay owen wilson izabela vidov julia robert
+334,Gully Boy,drama music romanc,comingofag stori base live street rapper mumbai,zoya akhtar,vijay varma nakul roshan sahdev ranveer singh vijay raaz
+335,Special Chabbis,crime drama thriller,gang conmen rob promin rich businessmen politician pose cbi incom tax offic,neeraj pandey,akshay kumar anupam kher manoj bajpaye jimmi sheirgil
+336,Short Term 12,drama,supervis staff member residenti treatment facil navig troubl water world alongsid cowork longtim boyfriend,destin daniel cretton,brie larson frantz turner john gallagh jr kaitlyn dever
+337,Serbuan maut 2: Berandal,action crime thriller,short time raid rama goe undercov thug jakarta plan bring syndic uncov corrupt polic forc,gareth evan,iko uwai yayan ruhian arifin putra oka antara
+338,The Imitation Game,biographi drama thriller,world war ii english mathemat geniu alan ture tri crack german enigma code help fellow mathematician,morten tyldum,benedict cumberbatch keira knightley matthew good allen leech
+339,Guardians of the Galaxy,action adventur comedi,group intergalact crimin pull stop fanat warrior plan purg univers,jame gunn,chri pratt vin diesel bradley cooper zoe saldana
+340,Blade Runner 2049,action drama mysteri,young blade runner ks discoveri longburi secret lead track blade runner rick deckard who miss thirti year,deni villeneuv,harrison ford ryan gosl ana arma dave bautista
+341,Her,drama romanc scifi,near futur lone writer develop unlik relationship oper design meet need,spike jonz,joaquin phoenix ami adam scarlett johansson rooney mara
+342,Bohemian Rhapsody,biographi drama music,stori legendari british rock band queen lead singer freddi mercuri lead famou perform live aid,bryan singer,rami malek luci boynton gwilym lee ben hardi
+343,The Revenant,action adventur drama,frontiersman fur trade expedit s fight surviv maul bear left dead member hunt team,alejandro g iñárritu,leonardo dicaprio tom hardi poulter domhnal gleeson
+344,The Perks of Being a Wallflower,drama romanc,introvert freshman taken wing senior welcom real world,stephen chboski,logan lerman emma watson ezra miller paul rudd
+345,Tropa de Elite 2: O Inimigo Agora é Outro,action crime drama,prison riot formercaptain nascimento high rank secur offic rio janeiro swept bloodi polit disput involv govern offici paramilitari group,josé padilha,wagner moura irandhir santo andré ramiro milhem cortaz
+346,The King's Speech,biographi drama histori,stori king georg vi impromptu ascens throne british empir speech therapist help unsur monarch overcom stammer,tom hooper,colin firth geoffrey rush helena bonham carter derek jacobi
+347,The Help,drama,aspir author civil right movement s decid write book detail african american maid point view white famili work hardship daili basi,tate taylor,emma stone viola davi octavia spencer bryce dalla howard
+348,Deadpool,action adventur comedi,wisecrack mercenari get experi immort ugli set track man ruin look,tim miller,ryan reynold morena baccarin tj miller ed skrein
+349,Darbareye Elly,drama mysteri,mysteri disappear kindergarten teacher picnic north iran follow seri misadventur fellow travel,asghar farhadi,golshifteh farahani shahab hosseini taraneh alidoosti merila zarei
+350,Dev.D,drama romanc,break childhood sweetheart young man find solac drug teenag girl caught world prostitut destroy redempt,anurag kashyap,abhay deol mahi gill kalki koechlin dibyendu bhattacharya
+351,Yip Man,action biographi drama,japanes invas china wealthi martial artist forc leav home citi occupi littl mean provid ip man remain member citi way surviv,wilson yip,donni yen simon yam siuwong fan ka tung lam
+352,My Name Is Khan,drama,indian muslim man asperg syndrom take challeng speak presid unit state serious embark crosscountri journey,karan johar,shah rukh khan kajol sheetal menon kati kean
+353,Nefes: Vatan Sagolsun,action drama thriller,stori man turkish task forc defend relay station,levent semerci,erdem mete horozoglu ilker kizmaz bari bagci
+354,Slumdog Millionaire,drama romanc,mumbai teenag reflect life accus cheat indian version want millionair,danni boyl,loveleen tandan dev patel freida pinto saurabh shukla
+355,Black Swan,drama thriller,commit dancer struggl maintain saniti win lead role product tchaikovski swan lake,darren aronofski,natali portman mila kuni vincent cassel winona ryder
+356,Tropa de Elite,action crime drama,rio janeiro captain nascimento substitut posit tri drug dealer crimin pope visit,josé padilha,wagner moura andré ramiro caio junqueira milhem cortaz
+357,The Avengers,action adventur scifi,earth mightiest hero come learn fight team go stop mischiev loki alien armi enslav human,joss whedon,robert downey jr chri evan scarlett johansson jeremi renner
+358,Persepolis,anim biographi drama,precoci outspoken iranian girl grow islam revolut,vincent paronnaud,marjan satrapi chiara mastroianni catherin deneuv gena rowland
+359,Dallas Buyers Club,biographi drama,dalla electrician hustler ron woodroof work help aid patient medic need diagnos diseas,jeanmarc vallé,matthew mcconaughey jennif garner jare leto steve zahn
+360,The Pursuit of Happyness,biographi drama,struggl salesman take custodi son he pois begin lifechang profession career,gabriel muccino,smith thandi newton jaden smith brian howe
+361,Blood Diamond,adventur drama thriller,fisherman smuggler syndic businessmen match wit possess priceless diamond,edward zwick,leonardo dicaprio djimon hounsou jennif connelli kagiso kuyper
+362,The Bourne Ultimatum,action mysteri thriller,jason bourn dodg ruthless cia offici agent new assassin program search origin life train killer,paul greengrass,matt damon edgar ramírez joan allen julia stile
+363,Bin-jip,crime drama romanc,transient young man break home partak vacat resid live day,kiduk kim,seungyun lee hee jae hyukho kwon jinmo joo
+364,Sin City,crime thriller,movi explor dark miser town basin citi tell stori differ peopl caught violent corrupt,frank miller,quentin tarantino robert rodriguez mickey rourk clive owen
+365,Le scaphandre et le papillon,biographi drama,true stori ell editor jeandominiqu baubi suffer stroke live total paralyz bodi left eye isnt paralyz,julian schnabel,laura obiol mathieu amalr emmanuel seigner mariejosé croze
+366,G.O.R.A.,adventur comedi scifi,slick young turk kidnap extraterrestri show great humanitarian spirit outwit evil commanderinchief planet gora,ömer faruk sorak,cem yilmaz özge özberk ozan güven safak sezer
+367,Ratatouille,anim adventur comedi,rat cook make unusu allianc young kitchen worker famou restaur,brad bird,jan pinkava brad garrett lou romano patton oswalt
+368,Casino Royale,action adventur thriller,earn statu licenc kill secret agent jame bond set mission bond defeat privat banker fund terrorist highstak game poker casino royal montenegro,martin campbel,daniel craig eva green judi dench jeffrey wright
+369,Kill Bill: Vol. 2,action crime thriller,bride continu quest vengeanc boss lover reclus bouncer budd treacher oneey ell,quentin tarantino,uma thurman david carradin michael madsen daryl hannah
+370,Vozvrashchenie,drama,russian wilder brother face rang new conflict emot father man know singl photograph resurfac,andrey zvyagintsev,vladimir garin ivan dobronravov konstantin lavronenko nataliya vdovina
+371,Bom Yeoareum Gaeul Gyeoul Geurigo Bom,drama romanc,boy rais buddhist monk isol float templ year pass like season,kiduk kim,kiduk kim yeongsu oh jongho kim kim youngmin
+372,Mar adentro,biographi drama,factual stori spaniard ramon sampedro fought thirtyyear campaign favor euthanasia right die,alejandro amenábar,javier bardem belén rueda lola dueña mabel rivera
+373,Cinderella Man,biographi drama histori,stori jame j braddock supposedli washedup boxer came champion inspir s,ron howard,russel crow rené zellweg craig bierko paul giamatti
+374,Kal Ho Naa Ho,comedi drama music,naina introvert perpetu depress girl life chang meet aman aman secret chang live forev embroil rohit naina best friend conceal love,nikkhil advani,preiti zinta shah rukh khan saif ali khan jaya bachchan
+375,Mou gaan dou,action crime drama,stori mole polic depart undercov cop object mole cop,andrew lau,alan mak andi lau toni chiuwai leung anthoni chausang wong
+376,Pirates of the Caribbean: The Curse of the Black Pearl,action adventur fantasi,blacksmith turner team eccentr pirat captain jack sparrow save love governor daughter jack pirat alli undead,gore verbinski,johnni depp geoffrey rush orlando bloom keira knightley
+377,Big Fish,adventur drama fantasi,frustrat son tri determin fact fiction die father life,tim burton,ewan mcgregor albert finney billi crudup jessica lang
+378,The Incredibles,anim action adventur,famili undercov superhero tri live quiet suburban life forc action save world,brad bird,craig t nelson samuel l jackson holli hunter jason lee
+379,Yeopgijeogin geunyeo,comedi drama romanc,young man see drunk cute woman stand close track metro station seoul pull end get troubl repeatedli start train,jaeyoung kwak,taehyun cha jun jihyun inmun kim song woksuk
+380,Dogville,crime drama,woman run mob reluctantli accept small colorado commun exchang labor search visit town find support price,lar von trier,nicol kidman paul bettani lauren bacal harriet andersson
+381,Vizontele,comedi drama,live resid small anatolian villag chang televis introduc,yilmaz erdogan,ömer faruk sorak yilmaz erdogan demet akbag altan erkekli
+382,Donnie Darko,drama mysteri scifi,narrowli escap bizarr accid troubl teenag plagu vision man larg rabbit suit manipul commit seri crime,richard kelli,jake gyllenha jena malon mari mcdonnel holm osborn
+383,Magnolia,drama,epic mosaic interrel charact search love forgiv mean san fernando valley,paul thoma anderson,tom cruis jason robard juliann moor philip seymour hoffman
+384,Dancer in the Dark,crime drama music,east european girl travel unit state young son expect like hollywood film,lar von trier,björk catherin deneuv david mors peter stormar
+385,The Straight Story,biographi drama,old man make long journey lawnmow mend relationship ill brother,david lynch,richard farnsworth sissi spacek jane galloway heitz joseph carpent
+386,Pâfekuto burû,anim crime mysteri,pop singer give career actress slowli goe insan start stalk obsess fan ghost past,satoshi kon,junko iwao rica matsumoto shinpachi tsuji masaaki ôkura
+387,Festen,drama,helg th birthday parti unpleas famili truth reveal,thoma vinterberg,ulrich thomsen hen moritzen thoma bo larsen paprika steen
+388,Central do Brasil,drama,emot journey school teacher write letter illiter peopl young boy mother just die search father knew,walter sall,fernanda montenegro viníciu oliveira marília pêra soia lira
+389,The Iron Giant,anim action adventur,young boy befriend giant robot outer space paranoid govern agent want destroy,brad bird,eli marienth harri connick jr jennif aniston vin diesel
+390,Knockin' on Heaven's Door,action crime comedi,termin ill patient escap hospit steal car rush sea,thoma jahn,til schweiger jan josef liefer thierri van wervek moritz bleibtreu
+391,Sling Blade,drama,karl childer simpl man hospit childhood murder mother lover releas start new life small town,billi bob thornton,billi bob thornton dwight yoakam jt walsh john ritter
+392,Secrets & Lies,comedi drama,follow death adopt parent success young black optometrist establish contact biolog mother lone white factori worker live poverti east london,mike leigh,timothi spall brenda blethyn phylli logan clair rushbrook
+393,Twelve Monkeys,mysteri scifi thriller,futur world devast diseas convict sent time gather inform manmad viru wipe human popul planet,terri gilliam,bruce willi madelein stow brad pitt joseph melito
+394,Kôkaku Kidôtai,anim action crime,cyborg policewoman partner hunt mysteri power hacker call puppet master,mamoru oshii,atsuko tanaka iemasa kayumi akio ôtsuka kôichi yamadera
+395,The Nightmare Before Christmas,anim famili fantasi,jack skellington king halloween town discov christma town attempt bring christma home caus confus,henri selick,danni elfman chri sarandon catherin ohara william hickey
+396,Groundhog Day,comedi fantasi romanc,weatherman find inexplic live day,harold rami,murray andi macdowel chri elliott stephen tobolowski
+397,Bound by Honor,crime drama,base true life experi poet jimmi santiago baca film focus stepbroth paco cruz biraci cousin miklo,taylor hackford,damian chapa jess borrego benjamin bratt enriqu castillo
+398,Scent of a Woman,drama,prep school student need money agre babysit blind man job anticip,martin brest,al pacino chri odonnel jame rebhorn gabriel anwar
+399,Aladdin,anim adventur comedi,kindheart street urchin powerhungri grand vizier vie magic lamp power make deepest wish come true,ron clement,john musker scott weinger robin william linda larkin
+400,JFK,drama histori thriller,new orlean district attorney jim garrison discov there kennedi assassin offici stori,oliv stone,kevin costner gari oldman jack lemmon walter matthau
+401,Beauty and the Beast,anim famili fantasi,princ curs spend day hideou monster set regain human earn young woman love,gari trousdal,kirk wise paig ohara robbi benson jess corti
+402,Dances with Wolves,adventur drama western,lieuten john dunbar assign remot western civil war outpost befriend wolv indian make intoler aberr militari,kevin costner,kevin costner mari mcdonnel graham green rodney grant
+403,Do the Right Thing,comedi drama,hottest day year street bedfordstuyves section brooklyn everyon hate bigotri smolder build explod violenc,spike lee,danni aiello ossi davi rubi dee richard edson
+404,Rain Man,drama,selfish yuppi charli babbitt father left fortun savant brother raymond pittanc charli travel crosscountri,barri levinson,dustin hoffman tom cruis valeria golino gerald r molen
+405,Akira,anim action scifi,secret militari project endang neotokyo turn biker gang member rampag psychic psychopath stop teenag group psychic,katsuhiro ôtomo,mitsuo iwata nozomu sasaki mami koyama tesshô genda
+406,The Princess Bride,adventur famili fantasi,home sick bed young boy grandfath read stori farmboyturnedpir encount numer obstacl enemi alli quest reunit true love,rob reiner,cari elw mandi patinkin robin wright chri sarandon
+407,Der Himmel über Berlin,drama fantasi romanc,angel tire overse human activ wish human fall love mortal,wim wender,bruno ganz solveig dommartin otto sander curt boi
+408,Au revoir les enfants,drama war,french board school run priest haven world war ii new student arriv roommat student class rival roommat form bond share secret,loui mall,gaspard maness raphael fejtö francin racett stanisla carré malberg
+409,Tenkû no shiro Rapyuta,anim adventur drama,young boy girl magic crystal race pirat foreign agent search legendari float castl,hayao miyazaki,mayumi tanaka keiko yokozawa koto hatsui minori terada
+410,The Terminator,action scifi,human soldier sent stop indestruct cyborg kill machin sent year program execut young woman unborn son key human futur salvat,jame cameron,arnold schwarzenegg linda hamilton michael biehn paul winfield
+411,Gandhi,biographi drama histori,life lawyer fame leader indian revolt british rule philosophi nonviol protest,richard attenborough,ben kingsley john gielgud rohini hattangadi roshan seth
+412,Kagemusha,drama histori war,petti thief utter resembl samurai warlord hire lord doubl warlord later die thief forc arm place,akira kurosawa,tatsuya nakadai tsutomu yamazaki kenichi hagiwara jinpachi nezu
+413,Being There,comedi drama,simplemind shelter garden unlik trust advisor power businessman insid washington polit,hal ashbi,peter seller shirley maclain melvyn dougla jack warden
+414,Annie Hall,comedi romanc,neurot new york comedian alvi singer fall love ditzi anni hall,woodi allen,woodi allen dian keaton toni robert carol kane
+415,Jaws,adventur thriller,killer shark unleash chao beach commun local sheriff marin biologist old seafar hunt beast,steven spielberg,roy scheider robert shaw richard dreyfuss lorrain gari
+416,Dog Day Afternoon,biographi crime drama,amateur bank robber plan hold bank nice simpl robberi walk money run unfortun supposedli uncompl heist suddenli bizarr nightmar wrong doe,sidney lumet,al pacino john cazal penelop allen sulli boyar
+417,Young Frankenstein,comedi,american grandson infam scientist struggl prove grandfath insan peopl believ invit transylvania discov process reanim dead bodi,mel brook,gene wilder madelin kahn marti feldman peter boyl
+418,Papillon,biographi crime drama,man befriend fellow crimin begin serv sentenc dread prison island inspir man plot escap,franklin j schaffner,steve mcqueen dustin hoffman victor jori don gordon
+419,The Exorcist,horror,yearold girl possess mysteri entiti mother seek help priest save,william friedkin,ellen burstyn max von sydow linda blair lee j cobb
+420,Sleuth,mysteri thriller,man love game theater invit wife lover meet set battl wit potenti deadli result,joseph l mankiewicz,laurenc olivi michael cain alec cawthorn john matthew
+421,The Last Picture Show,drama romanc,group high schooler come age bleak isol atrophi north texa town slowli die cultur econom,peter bogdanovich,timothi bottom jeff bridg cybil shepherd ben johnson
+422,Fiddler on the Roof,drama famili music,prerevolutionari russia jewish peasant contend marri daughter grow antisemit sentiment threaten villag,norman jewison,topol norma crane leonard frey molli picon
+423,Il conformista,drama,weakwil italian man fascist flunki goe abroad arrang assassin old teacher polit dissid,bernardo bertolucci,jeanloui trintign stefania sandrelli gaston moschin enzo tarascio
+424,Butch Cassidy and the Sundance Kid,biographi crime drama,wyom earli s butch cassidi sundanc kid leader band outlaw train robberi goe wrong run poss hard heel solut escap bolivia,georg roy hill,paul newman robert redford katharin ross strother martin
+425,Rosemary's Baby,drama horror,young coupl tri babi fanci apart surround peculiar neighbor,roman polanski,mia farrow john cassavet ruth gordon sidney blackmer
+426,Planet of the Apes,adventur scifi,astronaut crew crashland planet distant futur intellig talk ape domin speci human oppress enslav,franklin j schaffner,charlton heston roddi mcdowal kim hunter mauric evan
+427,The Graduate,comedi drama romanc,disillus colleg graduat find torn older lover daughter,mike nichol,dustin hoffman ann bancroft katharin ross william daniel
+428,Who's Afraid of Virginia Woolf?,drama,bitter age coupl help alcohol use young houseguest fuel anguish emot pain cours distress night,mike nichol,elizabeth taylor richard burton georg segal sandi denni
+429,The Sound of Music,biographi drama famili,woman leav austrian convent gover children naval offic widow,robert wise,juli andrew christoph plummer eleanor parker richard haydn
+430,Doctor Zhivago,drama romanc war,life russian physician poet marri fall love polit activist wife experi hardship world war octob revolut,david lean,omar sharif juli christi geraldin chaplin rod steiger
+431,Per un pugno di dollari,action drama western,wander gunfight play rival famili town torn apart greed pride reveng,sergio leon,clint eastwood gian maria volontè mariann koch wolfgang lukschi
+432,8½,drama,harri movi director retreat memori fantasi,federico fellini,marcello mastroianni anouk aimé claudia cardinal sandra milo
+433,Vivre sa vie: Film en douze tableaux,drama,episod tale life parisian woman slow descent prostitut,jeanluc godard,anna karina sadi rebbot andré s labarth guylain schlumberg
+434,The Hustler,drama sport,upandcom pool player play longtim champion singl highstak match,robert rossen,paul newman jacki gleason piper lauri georg c scott
+435,La dolce vita,comedi drama,seri stori follow week life philand paparazzo journalist live rome,federico fellini,marcello mastroianni anita ekberg anouk aimé yvonn furneaux
+436,Rio Bravo,action drama western,smalltown sheriff american west enlist help crippl drunk young gunfight effort hold jail brother local bad guy,howard hawk,john wayn dean martin ricki nelson angi dickinson
+437,Anatomy of a Murder,crime drama mysteri,murder trial defend say suffer temporari insan victim rape wife truth win case,otto preming,jame stewart lee remick ben gazzara arthur oconnel
+438,Touch of Evil,crime drama filmnoir,stark pervers stori murder kidnap polic corrupt mexican border town,orson well,charlton heston orson well janet leigh joseph calleia
+439,Cat on a Hot Tin Roof,drama,brick alcohol exfootbal player drink day away resist affect wife reunion termin father jog host memori revel father son,richard brook,elizabeth taylor paul newman burl ive jack carson
+440,Sweet Smell of Success,drama filmnoir,power uneth broadway columnist jj hunseck coerc unscrupul press agent sidney falco break sister romanc jazz musician,alexand mackendrick,burt lancast toni curti susan harrison martin milner
+441,The Killing,crime drama filmnoir,crook johnni clay assembl man team plan execut dare racetrack robberi,stanley kubrick,sterl hayden coleen gray vinc edward jay c flippen
+442,The Night of the Hunter,crime drama filmnoir,religi fanat marri gullibl widow young children reluct tell real daddi hid hed stolen robberi,charl laughton,robert mitchum shelley winter lillian gish jame gleason
+443,La Strada,drama,carefre girl sold travel entertain consequ endur physic emot pain way,federico fellini,anthoni quinn giulietta masina richard basehart aldo silvani
+444,Les diaboliques,crime drama horror,wife mistress loath school princip plan murder believ perfect alibi,henrigeorg clouzot,simon signoret véra clouzot paul meuriss charl vanel
+445,Stalag 17,comedi drama war,escap american world war ii prison kill german pow camp barrack black market jj sefton suspect inform,billi wilder,william holden don taylor otto preming robert strauss
+446,Roman Holiday,comedi romanc,bore shelter princess escap guardian fall love american newsman rome,william wyler,gregori peck audrey hepburn eddi albert hartley power
+447,A Streetcar Named Desire,drama,disturb blanch duboi move sister new orlean torment brutish brotherinlaw realiti crumbl,elia kazan,vivien leigh marlon brando kim hunter karl malden
+448,In a Lonely Place,drama filmnoir mysteri,potenti violent screenwrit murder suspect love neighbor clear soon start doubt,nichola ray,humphrey bogart gloria graham frank lovejoy carl benton reid
+449,Kind Hearts and Coronets,comedi crime,distant poor rel duke dascoyn plot inherit titl murder heir stand ahead line success,robert hamer,denni price alec guin valeri hobson joan greenwood
+450,Rope,crime drama mysteri,men attempt prove commit perfect crime host dinner parti strangl classmat death,alfr hitchcock,jame stewart john dall farley granger dick hogan
+451,Out of the Past,crime drama filmnoir,privat eye escap past run ga station small town past catch return big citi world danger corrupt doubl cross duplicit dame,jacqu tourneur,robert mitchum jane greer kirk dougla rhonda fleme
+452,Brief Encounter,drama romanc,meet stranger railway station woman tempt cheat husband,david lean,celia johnson trevor howard stanley holloway joyc carey
+453,Laura,drama filmnoir mysteri,polic detect fall love woman murder investig,otto preming,gene tierney dana andrew clifton webb vincent price
+454,The Best Years of Our Lives,drama romanc war,world war ii veteran return home smalltown america discov famili irrepar chang,william wyler,myrna loy dana andrew fredric march teresa wright
+455,Arsenic and Old Lace,comedi crime thriller,writer book futil marriag risk reput decid marri thing complic learn wed day belov maiden aunt habitu murder,frank capra,cari grant priscilla lane raymond massey jack carson
+456,The Maltese Falcon,filmnoir mysteri,privat detect take case involv eccentr crimin gorgeou liar quest priceless statuett,john huston,humphrey bogart mari astor gladi georg peter lorr
+457,The Grapes of Wrath,drama histori,poor midwest famili forc land travel california suffer misfortun homeless great depress,john ford,henri fonda jane darwel john carradin charley grapewin
+458,The Wizard of Oz,adventur famili fantasi,dorothi gale swept away farm kansa magic land oz tornado embark quest new friend wizard help return home kansa help friend,victor fleme,georg cukor mervyn leroy norman taurog richard thorp
+459,La règle du jeu,comedi drama,bourgeoi life franc onset world war ii rich poor servant meet french chateau,jean renoir,marcel dalio nora gregor paulett dubost mila paréli
+460,The Thin Man,comedi crime mysteri,detect nick charl wealthi wife nora investig murder case fun,ws van dyke,william powel myrna loy maureen osullivan nat pendleton
+461,All Quiet on the Western Front,drama war,german youth eagerli enter world war enthusiasm wane get firsthand view horror,lewi mileston,lew ayr loui wolheim john wray arnold luci
+462,Bronenosets Potemkin,drama histori thriller,midst russian revolut crew battleship potemkin mutini brutal tyrann regim vessel offic result street demonstr odessa bring polic massacr,sergei m eisenstein,aleksandr antonov vladimir barskiy grigoriy aleksandrov ivan bobrov
+463,Knives Out,comedi crime drama,detect investig death patriarch eccentr comb famili,rian johnson,daniel craig chri evan ana arma jami lee curti
+464,Dil Bechara,comedi drama romanc,emot journey hopelessli love youngster young girl kizi suffer cancer boy manni meet support group,mukesh chhabra,sushant singh rajput sanjana sanghi sahil vaid saswata chatterje
+465,Manbiki kazoku,crime drama,famili smalltim crook child outsid cold,hirokazu koreeda,lili franki sakura andô kirin kiki mayu matsuoka
+466,Marriage Story,comedi drama romanc,noah baumbach incis compassion look marriag break famili stay,noah baumbach,adam driver scarlett johansson julia greer azhi robertson
+467,Call Me by Your Name,drama romanc,s itali romanc blossom seventeenyearold student older man hire father research assist,luca guadagnino,armi hammer timothé chalamet michael stuhlbarg amira casar
+468,"I, Daniel Blake",drama,have suffer heartattack yearold carpent fight bureaucrat forc order receiv employ support allow,ken loach,laura obiol dave john hayley squir sharon perci
+469,Isle of Dogs,anim adventur comedi,set japan isl dog follow boy odyssey search lost dog,we anderson,bryan cranston koyu rankin edward norton bob balaban
+470,Hunt for the Wilderpeople,adventur comedi drama,nation manhunt order rebelli kid foster uncl miss wild new zealand bush,taika waititi,sam neill julian dennison rima te wiata rachel hous
+471,Captain Fantastic,comedi drama,forest pacif northwest father devot rais kid rigor physic intellectu educ forc leav paradis enter world challeng idea mean parent,matt ross,viggo mortensen georg mackay samantha isler annalis basso
+472,Sing Street,comedi drama music,boy grow dublin s escap strain famili life start band impress mysteri girl like,john carney,ferdia walshpeelo aidan gillen maria doyl kennedi jack reynor
+473,Thor: Ragnarok,action adventur comedi,imprison planet sakaar thor race time return asgard stop ragnarök destruct world hand power ruthless villain hela,taika waititi,chri hemsworth tom hiddleston cate blanchett mark ruffalo
+474,Nightcrawler,crime drama thriller,loui bloom man desper work muscl world la crime journal blur line observ particip star stori,dan gilroy,jake gyllenha rene russo paxton riz ahm
+475,Jojo Rabbit,comedi drama war,young boy hitler armi find mother hide jewish girl home,taika waititi,roman griffin davi thomasin mckenzi scarlett johansson taika waititi
+476,Arrival,drama scifi,linguist work militari commun alien lifeform mysteri spacecraft appear world,deni villeneuv,ami adam jeremi renner forest whitak michael stuhlbarg
+477,Star Wars: Episode VII - The Force Awakens,action adventur scifi,new threat galaxi rise rey desert scaveng finn exstormtroop join han solo chewbacca search hope restor peac,jj abram,daisi ridley john boyega oscar isaac domhnal gleeson
+478,Before Midnight,drama romanc,meet jess celin year greec decad pass meet train bound vienna,richard linklat,ethan hawk juli delpi seamu daveyfitzpatrick arian labe
+479,X-Men: Days of Future Past,action adventur scifi,xmen send wolverin past desper effort chang histori prevent event result doom human mutant,bryan singer,patrick stewart ian mckellen hugh jackman jame mcavoy
+480,Bir Zamanlar Anadolu'da,crime drama,group men set search dead bodi anatolian stepp,nuri bilg ceylan,muhammet uzun yilmaz erdogan taner birsel ahmet mümtaz taylan
+481,The Artist,comedi drama romanc,egomaniac film star develop relationship young dancer backdrop hollywood silent era,michel hazanaviciu,jean dujardin bérénice bejo john goodman jame cromwel
+482,Edge of Tomorrow,action adventur scifi,soldier fight alien get reliv day day restart time die,doug liman,tom cruis emili blunt paxton brendan gleeson
+483,Amour,drama romanc,georg ann octogenarian coupl cultiv retir music teacher daughter musician live britain famili day ann stroke coupl bond love sever test,michael hanek,jeanloui trintign emmanuel riva isabel huppert alexandr tharaud
+484,The Irishman,biographi crime drama,old man recal time paint hous friend jimmi hoffa s,martin scorses,robert niro al pacino joe pesci harvey keitel
+485,Un prophète,crime drama,young arab man sent french prison,jacqu audiard,tahar rahim niel arestrup adel bencherif reda kateb
+486,Moon,drama mysteri scifi,astronaut sam bell quintessenti person encount end threeyear stint moon work alongsid comput gerti send earth parcel resourc help diminish planet power problem,duncan jone,sam rockwel kevin spacey dominiqu mcelligott rosi shaw
+487,Låt den rätte komma in,crime drama fantasi,oskar overlook bulli boy find love reveng eli beauti peculiar girl,toma alfredson,kåre hedebr lina leandersson ragnar henrik dahl
+488,District 9,action scifi thriller,violenc ensu extraterrestri race forc live slumlik condit earth find kindr spirit govern agent expos biotechnolog,neill blomkamp,sharlto copley david jame jason cope nathali boltt
+489,The Wrestler,drama sport,fade profession wrestler retir find quest new life outsid ring dispirit struggl,darren aronofski,mickey rourk marisa tomei evan rachel wood mark margoli
+490,Jab We Met,comedi drama romanc,depress wealthi businessman find life chang meet spunki carefre young woman,imtiaz ali,shahid kapoor kareena kapoor tarun arora dara singh
+491,Boyhood,drama,life mason earli childhood arriv colleg,richard linklat,ellar coltran patricia arquett ethan hawk elijah smith
+492,"4 luni, 3 saptamâni si 2 zile",drama,woman assist friend arrang illeg abort s romania,cristian mungiu,anamaria marinca laura vasiliu vlad ivanov alexandru potocean
+493,Star Trek,action adventur scifi,brash jame t kirk tri live father legaci mr spock keep check veng romulan futur creat black hole destroy feder planet time,jj abram,chri pine zachari quinto simon pegg leonard nimoy
+494,In Bruges,comedi crime drama,guiltstricken job gone wrong hitman ray partner await order ruthless boss bruge belgium place world ray want,martin mcdonagh,colin farrel brendan gleeson ciarán hind elizabeth berrington
+495,The Man from Earth,drama fantasi mysteri,impromptu goodby parti professor john oldman mysteri interrog retir scholar reveal colleagu longer stranger past imagin,richard schenkman,david lee smith toni todd john billingsley ellen crawford
+496,Letters from Iwo Jima,action adventur drama,stori battl iwo jima unit state imperi japan world war ii told perspect japanes fought,clint eastwood,ken watanab kazunari ninomiya tsuyoshi ihara ryô kase
+497,The Fall,adventur drama fantasi,hospit outskirt s lo angel injur stuntman begin tell fellow patient littl girl broken arm fantast stori mythic hero thank fractur state mind vivid imagin line fiction realiti blur tale advanc,tarsem singh,lee pace catinca untaru justin waddel kim uylenbroek
+498,Life of Pi,adventur drama fantasi,young man surviv disast sea hurtl epic journey adventur discoveri cast away form unexpect connect survivor fearsom bengal tiger,ang lee,suraj sharma irrfan khan adil hussain tabu
+499,Fantastic Mr. Fox,anim adventur comedi,urban fox resist return farm raid way help commun surviv farmer retali,we anderson,georg clooney meryl streep murray jason schwartzman
+500,C.R.A.Z.Y.,comedi drama,young frenchcanadian grow s s struggl reconcil emerg homosexu father conserv valu cathol belief,jeanmarc vallé,michel côté marcandré grondin daniel proulx émile vallé
+501,Les choristes,drama music,new teacher sever administ boy board school work posit affect student live music,christoph barrati,gérard jugnot françoi berléand jeanbaptist maunier kad merad
+502,Iron Man,action adventur scifi,held captiv afghan cave billionair engin toni stark creat uniqu weapon suit armor fight evil,jon favreau,robert downey jr gwyneth paltrow terrenc howard jeff bridg
+503,Shaun of the Dead,comedi horror,man unev life disrupt zombi apocalyps,edgar wright,simon pegg nick frost kate ashfield luci davi
+504,Gegen die Wand,drama romanc,intent break free strict famili restrict suicid young woman set marriag conveni fortyyearold addict act lead outburst enviou love,fatih akin,birol ünel sibel kekilli güven kiraç zarah jane mckenzi
+505,Mystic River,crime drama mysteri,live men childhood friend shatter famili tragedi,clint eastwood,sean penn tim robbin kevin bacon emmi rossum
+506,Harry Potter and the Prisoner of Azkaban,adventur famili fantasi,harri potter ron hermion return hogwart school witchcraft wizardri year studi delv mysteri surround escap prison pose danger threat young wizard,alfonso cuarón,daniel radcliff emma watson rupert grint richard griffith
+507,Ying xiong,action adventur histori,defens offic nameless summon king qin regard success termin warrior,yimou zhang,jet li toni chiuwai leung maggi cheung ziyi zhang
+508,Hable con ella,drama mysteri romanc,men share odd friendship care women deep coma,pedro almodóvar,rosario flore javier cámara darío grandinetti leonor watl
+509,No Man's Land,comedi drama war,bosnia herzegovina time heaviest fight war side soldier oppos side conflict nino ciki trap man land whilst soldier live boobi trap,dani tanov,branko djuric rene bitorajac filip sovagov georg siatidi
+510,Cowboy Bebop: Tengoku no tobira,anim action crime,terrorist explos releas deadli viru mass bountyhunt bebop crew catch coldblood culprit,shinichirô watanab,tensai okamura hiroyuki okiura yoshiyuki takei beau billingslea
+511,The Bourne Identity,action mysteri thriller,man pick fish boat bulletriddl suffer amnesia race elud assassin attempt regain memori,doug liman,franka potent matt damon chri cooper clive owen
+512,Nueve reinas,crime drama thriller,artist tri swindl stamp collector sell sheet counterfeit rare stamp queen,fabián bielinski,ricardo darín gastón paul graciela tenenbaum maría merced villagra
+513,Children of Men,adventur drama scifi,chaotic world women infertil activist agre help transport miracul pregnant woman sanctuari sea,alfonso cuarón,juliann moor clive owen chiwetel ejiofor michael cain
+514,Almost Famous,adventur comedi drama,highschool boy given chanc write stori roll stone magazin upandcom rock band accompani concert tour,cameron crow,billi crudup patrick fugit kate hudson franc mcdormand
+515,Mulholland Dr.,drama mysteri thriller,car wreck wind mulholland drive render woman amnesiac perki hollywoodhop search clue answer lo angel twist ventur dream realiti,david lynch,naomi watt laura har justin theroux jeann bate
+516,Toy Story 2,anim adventur comedi,woodi stolen toy collector buzz friend set rescu mission save woodi museum toy properti roundup gang jessi prospector bullsey,john lasset,ash brannon lee unkrich tom hank tim allen
+517,Boogie Nights,drama,sex safe pleasur busi busi boom idealist porn produc aspir elev craft art discov hot young talent,paul thoma anderson,mark wahlberg juliann moor burt reynold lui guzmán
+518,Mimi wo sumaseba,anim drama famili,love stori girl love read book boy previous check librari book choos,yoshifumi kondô,yoko honna issey takahashi takashi tachibana shigeru muroi
+519,Once Were Warriors,crime drama,famili descend maori warrior bedevil violent father societ problem treat outcast,lee tamahori,rena owen temuera morrison mamaengaroa kerrbel julian arahanga
+520,True Romance,crime drama romanc,detroit lone pop cultur geek marri girl steal cocain pimp tri sell hollywood owner cocain mob track attempt reclaim,toni scott,christian slater patricia arquett denni hopper val kilmer
+521,Trois couleurs: Bleu,drama music mysteri,woman struggl way live life death husband child,krzysztof kieslowski,juliett binoch zbigniew zamachowski juli delpi benoît régent
+522,Jûbê ninpûchô,anim action adventur,vagabond swordsman aid beauti ninja girl crafti spi confront demon clan killer ghost past leader bent overthrow tokugawa shogun,yoshiaki kawajiri,kôichi yamadera emi shinohara takeshi aono osamu saka
+523,Carlito's Way,crime drama thriller,puerto rican convict just releas prison pledg stay away drug violenc despit pressur lead better life outsid nyc,brian palma,al pacino sean penn penelop ann miller john leguizamo
+524,Edward Scissorhands,drama fantasi romanc,artifici man incomplet construct scissor hand lead solitari life day suburban ladi meet introduc world,tim burton,johnni depp winona ryder diann wiest anthoni michael hall
+525,My Left Foot: The Story of Christy Brown,biographi drama,christi brown born cerebr palsi learn paint write control limb left foot,jim sheridan,daniel daylewi brenda fricker alison whelan kirsten sheridan
+526,Crimes and Misdemeanors,comedi drama,ophthalmologist mistress threaten reveal affair wife marri documentari filmmak infatu woman,woodi allen,martin landau woodi allen bernstein clair bloom
+527,The Untouchables,crime drama thriller,era prohibit unit state feder agent eliot ness set stop ruthless chicago gangster al capon rampant corrupt assembl small handpick team help,brian palma,kevin costner sean conneri robert niro charl martin smith
+528,Hannah and Her Sisters,comedi drama,thanksgiv year apart hannah husband fall love sister lee hypochondriac exhusband rekindl relationship sister holli,woodi allen,mia farrow diann wiest michael cain barbara hershey
+529,Brazil,drama scifi,bureaucrat dystop societi enemi state pursu woman dream,terri gilliam,jonathan pryce kim greist robert niro katherin helmond
+530,This Is Spinal Tap,comedi music,spinal tap england loudest band chronicl film director marti dibergi prove fate tour,rob reiner,rob reiner michael mckean christoph guest kimberli stringer
+531,A Christmas Story,comedi famili,s young boy name ralphi attempt convinc parent teacher santa red ryder bb gun realli perfect christma gift,bob clark,peter billingsley melinda dillon darren mcgavin scott schwartz
+532,The Blues Brothers,action adventur comedi,jake blue just releas prison put old band save cathol home brother elwood rais,john landi,john belushi dan aykroyd cab calloway john candi
+533,Manhattan,comedi drama romanc,life divorc televis writer date teenag girl complic fall love best friend mistress,woodi allen,woodi allen dian keaton mariel hemingway michael murphi
+534,All That Jazz,drama music music,directorchoreograph bob foss tell life stori detail sordid career joe gideon woman drugus dancer,bob foss,roy scheider jessica lang ann reink leland palmer
+535,Dawn of the Dead,action adventur horror,follow evergrow epidem zombi risen dead philadelphia swat team member traffic report televis execut girlfriend seek refug seclud shop mall,georg romero,david emg ken fore scott h reinig gaylen ross
+536,All the President's Men,biographi drama histori,washington post report bob woodward carl bernstein uncov detail waterg scandal lead presid richard nixon resign,alan j pakula,dustin hoffman robert redford jack warden martin balsam
+537,La montaña sagrada,adventur drama fantasi,corrupt greedfuel world power alchemist lead messian charact seven materialist figur holi mountain hope achiev enlighten,alejandro jodorowski,alejandro jodorowski horacio salina zamira saunder juan ferrara
+538,Amarcord,comedi drama famili,seri comed nostalg vignett set s italian coastal town,federico fellini,magali noël bruno zanin pupella maggio armando brancia
+539,Le charme discret de la bourgeoisie,comedi,surreal virtual plotless seri dream center middleclass peopl consist interrupt attempt meal,lui buñuel,fernando rey delphin seyrig paul frankeur bull ogier
+540,"Aguirre, der Zorn Gottes",action adventur biographi,th centuri ruthless insan don lope aguirr lead spanish expedit search el dorado,werner herzog,klau kinski ruy guerra helena rojo del negro
+541,Harold and Maude,comedi drama romanc,young rich obsess death harold find chang forev meet live septuagenarian maud funer,hal ashbi,ruth gordon bud cort vivian pickl cyril cusack
+542,Patton,biographi drama war,world war ii phase career controversi american gener georg s patton,franklin j schaffner,georg c scott karl malden stephen young michael strong
+543,The Wild Bunch,action adventur western,age group outlaw look big score tradit american west disappear,sam peckinpah,william holden ernest borgnin robert ryan edmond obrien
+544,Night of the Living Dead,horror thriller,ragtag group pennsylvanian barricad old farmhous remain safe hord flesheat ghoul ravag east coast unit state,georg romero,duan jone judith odea karl hardman marilyn eastman
+545,The Lion in Winter,biographi drama histori,ad king henri ii son want inherit throne wont commit choic wife various plot forc,anthoni harvey,peter otool katharin hepburn anthoni hopkin john castl
+546,In the Heat of the Night,crime drama mysteri,black polic detect ask investig murder racial hostil southern town,norman jewison,sidney poitier rod steiger warren oat lee grant
+547,Charade,comedi mysteri romanc,romanc suspens ensu pari woman pursu men want fortun murder husband stolen trust,stanley donen,cari grant audrey hepburn walter matthau jame coburn
+548,The Manchurian Candidate,drama thriller,prison war brainwash unwit assassin intern communist conspiraci,john frankenheim,frank sinatra laurenc harvey janet leigh angela lansburi
+549,Spartacus,adventur biographi drama,slave spartacu lead violent revolt decad roman republ,stanley kubrick,kirk dougla laurenc olivi jean simmon charl laughton
+550,L'avventura,drama mysteri,woman disappear mediterranean boat trip search lover best friend attract,michelangelo antonioni,gabriel ferzetti monica vitti lea massari dominiqu blanchar
+551,Hiroshima mon amour,drama romanc,french actress film antiwar film hiroshima affair marri japanes architect share differ perspect war,alain resnai,emmanuel riva eiji okada stella dassa pierr barbaud
+552,The Ten Commandments,adventur drama,mose egyptian princ learn true heritag hebrew divin mission deliver peopl,cecil b demil,charlton heston yul brynner ann baxter edward g robinson
+553,The Searchers,adventur drama western,american civil war veteran embark journey rescu niec comanch,john ford,john wayn jeffrey hunter vera mile ward bond
+554,East of Eden,drama,brother struggl maintain strict bibletot father favor,elia kazan,jame dean raymond massey juli harri burl ive
+555,High Noon,drama thriller western,town marshal despit disagr newlyw bride townspeopl face gang deadli killer high noon gang leader outlaw sent year ago arriv noon train,fred zinnemann,gari cooper grace kelli thoma mitchel lloyd bridg
+556,Strangers on a Train,crime filmnoir thriller,psychopath forc tenni star compli theori stranger away murder,alfr hitchcock,farley granger robert walker ruth roman leo g carrol
+557,Harvey,comedi drama fantasi,insist invis foottal rabbit best friend whimsic middleag man thought famili insan wiser know,henri koster,jame stewart wallac ford william h lynn victoria horn
+558,Miracle on 34th Street,comedi drama famili,nice old man claim santa clau institution insan young lawyer decid defend argu court real thing,georg seaton,edmund gwenn maureen ohara john payn gene lockhart
+559,Notorious,drama filmnoir romanc,woman ask spi group nazi friend south america far ingrati,alfr hitchcock,cari grant ingrid bergman claud rain loui calhern
+560,The Big Sleep,crime filmnoir mysteri,privat detect philip marlow hire wealthi famili complex case he seen murder blackmail love,howard hawk,humphrey bogart lauren bacal john ridg martha vicker
+561,The Lost Weekend,drama filmnoir,desper life chronic alcohol follow fourday drink bout,billi wilder,ray milland jane wyman phillip terri howard da silva
+562,The Philadelphia Story,comedi romanc,rich woman exhusband tabloidtyp report turn just plan remarriag begin learn truth,georg cukor,cari grant katharin hepburn jame stewart ruth hussey
+563,His Girl Friday,comedi drama romanc,newspap editor use trick book ace report exwif remarri,howard hawk,cari grant rosalind russel ralph bellami gene lockhart
+564,The Adventures of Robin Hood,action adventur romanc,princ john norman lord begin oppress saxon mass king richard absenc saxon lord fight outlaw leader rebel guerrilla armi,michael curtiz,william keighley errol flynn olivia havilland basil rathbon
+565,A Night at the Opera,comedi music music,sli busi manag wacki friend opera singer help achiev success humili stuffi snobbish enemi,sam wood,edmund gould groucho marx chico marx harpo marx
+566,King Kong,adventur horror scifi,film crew goe tropic island exot locat shoot discov coloss ape take shine femal blond star captur brought new york citi public exhibit,merian c cooper,ernest b schoedsack fay wray robert armstrong bruce cabot
+567,Freaks,drama horror,circu beauti trapez artist agre marri leader sideshow perform deform friend discov marri inherit,tod brown,wallac ford leila hyam olga baclanova rosco ate
+568,Nosferatu,fantasi horror,vampir count orlok express new resid real estat agent hutter wife,fw murnau,max schreck alexand granach gustav von wangenheim greta schröder
+569,The Gentlemen,action comedi crime,american expat tri sell highli profit marijuana empir london trigger plot scheme briberi blackmail attempt steal domain,guy ritchi,matthew mcconaughey charli hunnam michel dockeri jeremi strong
+570,Raazi,action drama thriller,kashmiri woman agre marri pakistani armi offic order spi pakistan indopakistan war,meghna gulzar,alia bhatt vicki kaushal rajit kapoor shishir sharma
+571,Sound of Metal,drama music,heavymet drummer life thrown freefal begin lose hear,dariu marder,riz ahm olivia cook paul raci lauren ridloff
+572,Forushande,drama,particip product death salesman teacher wife assault new home leav determin perpetr wife traumat object,asghar farhadi,shahab hosseini taraneh alidoosti babak karimi mina sadati
+573,Dunkirk,action drama histori,alli soldier belgium british empir franc surround german armi evacu fierc battl world war ii,christoph nolan,fionn whitehead barri keoghan mark rylanc tom hardi
+574,Perfetti sconosciuti,comedi drama,seven longtim friend dinner decid share content text messag email phone receiv secret start unveil equilibrium trembl,paolo genoves,giusepp battiston anna foglietta marco giallini edoardo leo
+575,Hidden Figures,biographi drama histori,stori team femal africanamerican mathematician serv vital role nasa earli year space program,theodor melfi,taraji p henson octavia spencer janel moná kevin costner
+576,Paddington 2,adventur comedi famili,paddington ben whishaw happili settl brown famili popular member local commun pick seri odd job buy perfect present aunt luci imelda staunton th birthday gift stolen,paul king,ben whishaw hugh grant hugh bonnevil salli hawkin
+577,Udta Punjab,action crime drama,stori revolv drug abus affluent north indian state punjab youth succumb enmass result socioeconom declin,abhishek chaubey,shahid kapoor alia bhatt kareena kapoor diljit dosanjh
+578,Kubo and the Two Strings,anim action adventur,young boy name kubo locat magic suit armour worn late father order defeat veng spirit past,travi knight,charliz theron art parkinson matthew mcconaughey ralph fienn
+579,M.S. Dhoni: The Untold Story,biographi drama sport,untold stori mahendra singh dhoni journey ticket collector trophi collector worldcupwin captain indian cricket team,neeraj pandey,sushant singh rajput kiara advani anupam kher disha patani
+580,Manchester by the Sea,drama,depress uncl ask care teenag nephew boy father die,kenneth lonergan,casey affleck michel william kyle chandler luca hedg
+581,Under sandet,drama histori war,postworld war ii denmark group young german pow forc clear beach thousand land mine watch danish sergeant slowli learn appreci plight,martin zandvliet,roland møller loui hofmann joel basman mikkel boe følsgaard
+582,Rogue One,action adventur scifi,daughter imperi scientist join rebel allianc riski steal plan death star,gareth edward,felic jone diego luna alan tudyk donni yen
+583,Captain America: Civil War,action adventur scifi,polit involv aveng affair caus rift captain america iron man,anthoni russo,joe russo chri evan robert downey jr scarlett johansson
+584,The Hateful Eight,crime drama mysteri,dead wyom winter bounti hunter prison shelter cabin current inhabit collect nefari charact,quentin tarantino,samuel l jackson kurt russel jennif jason leigh walton goggin
+585,Little Women,drama romanc,jo march reflect forth life tell belov stori march sister young women determin live life term,greta gerwig,saoirs ronan emma watson florenc pugh eliza scanlen
+586,Loving Vincent,anim biographi crime,stori depict oil paint anim young man come hometown painter vincent van gogh robert gulaczyk deliv troubl artist final letter end investig final day,dorota kobiela,hugh welchman dougla booth jerom flynn robert gulaczyk
+587,Pride,biographi comedi drama,uk gay activist work help miner lengthi strike nation union minework summer,matthew warchu,nighi imelda staunton domin west paddi considin
+588,Le passé,drama mysteri,iranian man desert french wife children return homeland wife start new relationship realiti husband confront wife request divorc,asghar farhadi,bérénice bejo tahar rahim ali mosaffa paulin burlet
+589,La grande bellezza,drama,jep gambardella seduc way lavish nightlif rome decad th birthday shock past jep look past nightclub parti timeless landscap absurd exquisit beauti,paolo sorrentino,toni servillo carlo verdon sabrina ferilli carlo buccirosso
+590,The Lunchbox,drama romanc,mistaken deliveri mumbai famous effici lunchbox deliveri connect young housewif older man dusk life build fantasi world note lunchbox,ritesh batra,irrfan khan nimrat kaur nawazuddin siddiqui lillet dubey
+591,Vicky Donor,comedi romanc,man brought infertil doctor suppli sperm biggest sperm donor clinic,shoojit sircar,ayushmann khurrana yami gautam annu kapoor dolli ahluwalia
+592,Big Hero 6,anim action adventur,special bond develop plussiz inflat robot baymax prodigi hiro hamada team group friend form band hightech hero,don hall,chri william ryan potter scott adsit jami chung
+593,About Time,comedi drama fantasi,age tim discov travel time chang happen happen life decis make world better place get girlfriend turn easi think,richard curti,domhnal gleeson rachel mcadam nighi lydia wilson
+594,English Vinglish,comedi drama famili,quiet sweet temper housewif endur small slight welleduc husband daughter day inabl speak understand english,gauri shind,sridevi adil hussain mehdi nebbou priya anand
+595,Kaze tachinu,anim biographi drama,look life jiro horikoshi man design japanes fighter plane world war ii,hayao miyazaki,hideaki anno hidetoshi nishijima miori takimoto masahiko nishimura
+596,Toy Story 4,anim adventur comedi,new toy call forki join woodi gang road trip alongsid old new friend reveal big world toy,josh cooley,tom hank tim allen anni pott toni hale
+597,La migliore offerta,crime drama mysteri,lone art expert work mysteri reclus heiress find art worth examin,giusepp tornator,geoffrey rush jim sturgess sylvia hoek donald sutherland
+598,Moonrise Kingdom,comedi drama romanc,pair young lover flee new england town caus local search parti fan,we anderson,jare gilman kara hayward bruce willi murray
+599,How to Train Your Dragon 2,anim action adventur,hiccup toothless discov ice cave home hundr new wild dragon mysteri dragon rider friend center battl protect peac,dean debloi,jay baruchel cate blanchett gerard butler craig ferguson
+600,The Big Short,biographi comedi drama,group investor bet mortgag market research discov flaw corrupt market,adam mckay,christian bale steve carel ryan gosl brad pitt
+601,Kokuhaku,drama thriller,psycholog thriller griev mother turn coldblood aveng twisti master plan pay respons daughter death,tetsuya nakashima,takako matsu yoshino kimura masaki okada yukito nishii
+602,Ang-ma-reul bo-at-da,action crime drama,secret agent exact reveng serial killer seri captur releas,jeewoon kim,lee byunghun choi minsik jeon gookhwan hojin chun
+603,The Girl with the Dragon Tattoo,crime drama mysteri,journalist mikael blomkvist aid search woman miss year lisbeth saland young comput hacker,david fincher,daniel craig rooney mara christoph plummer stellan skarsgård
+604,Captain Phillips,adventur biographi crime,true stori captain richard phillip hijack somali pirat usflag mv maersk alabama american cargo ship hijack year,paul greengrass,tom hank barkhad abdi barkhad abdirahman catherin keener
+605,Ajeossi,action crime drama,quiet pawnshop keeper violent past take drugandorgan traffick ring hope save child friend,jeongbeom lee,won bin saeron kim taehoon kim heewon kim
+606,Straight Outta Compton,biographi drama histori,rap group nwa emerg mean street compton lo angel california mid revolution hip hop cultur music tale life hood,f gari gray,oshea jackson jr corey hawkin jason mitchel neil brown jr
+607,Madeo,crime drama mysteri,mother desper search killer frame son girl horrif murder,bong joon ho,hyeja kim won bin jin goo jemun yun
+608,Chugyeokja,action crime thriller,disgrac expoliceman run small ring prostitut find race time women goe miss,hongjin na,kim yoonseok jungwoo ha yeonghi seo yoojeong kim
+609,The Hobbit: The Desolation of Smaug,adventur fantasi,dwarv bilbo baggin gandalf grey continu quest reclaim erebor homeland smaug bilbo baggin possess mysteri magic ring,peter jackson,ian mckellen martin freeman richard armitag ken stott
+610,Das weiße Band - Eine deutsche Kindergeschichte,drama histori mysteri,strang event happen small villag north germani year world war ritual punish respons,michael hanek,christian friedel ernst jacobi leoni benesch ulrich tukur
+611,Män som hatar kvinnor,crime drama mysteri,journalist aid young femal hacker search killer woman dead year,niel arden oplev,michael nyqvist noomi rapac ewa fröling lena endr
+612,The Trial of the Chicago 7,drama histori thriller,stori peopl trial stem variou charg surround upris democrat nation convent chicago illinoi,aaron sorkin,eddi redmayn alex sharp sacha baron cohen jeremi strong
+613,Druk,comedi drama,friend high school teacher test theori improv live maintain constant level alcohol blood,thoma vinterberg,mad mikkelsen thoma bo larsen magnu millang lar ranth
+614,The Fighter,biographi drama sport,base stori micki ward fledgl boxer tri escap shadow famou troubl older box brother shot great,david o russel,mark wahlberg christian bale ami adam melissa leo
+615,Taken,action thriller,retir cia agent travel europ reli old skill save estrang daughter kidnap trip pari,pierr morel,liam neeson maggi grace famk janssen leland orser
+616,The Boy in the Striped Pyjamas,drama histori war,innoc eye bruno eightyearold son command german concentr camp forbidden friendship jewish boy camp fenc startl unexpect consequ,mark herman,asa butterfield david thewli rupert friend zac mattoon obrien
+617,Once,drama music romanc,modernday music busker immigr event week dublin write rehears record song tell love stori,john carney,glen hansard markéta irglová hugh walsh gerard hendrick
+618,The Hobbit: An Unexpected Journey,adventur fantasi,reluct hobbit bilbo baggin set lone mountain spirit group dwarv reclaim mountain home gold dragon smaug,peter jackson,martin freeman ian mckellen richard armitag andi serki
+619,Auf der anderen Seite,drama,turkish man travel istanbul daughter father girlfriend,fatih akin,baki davrak nurgül yesilçay tuncel kurtiz nursel köse
+620,Atonement,drama mysteri romanc,thirteenyearold fledgl writer brioni talli irrevoc chang cours live accus older sister lover crime did commit,joe wright,keira knightley jame mcavoy brenda blethyn saoirs ronan
+621,Drive,crime drama,mysteri hollywood stuntman mechan moonlight getaway driver find troubl help neighbor,nicola wind refn,ryan gosl carey mulligan bryan cranston albert brook
+622,American Gangster,biographi crime drama,outcast new york citi cop charg bring harlem drug lord frank luca real life inspir partli biograph film,ridley scott,denzel washington russel crow chiwetel ejiofor josh brolin
+623,Avatar,action adventur fantasi,parapleg marin dispatch moon pandora uniqu mission torn follow order protect world feel home,jame cameron,sam worthington zoe saldana sigourney weaver michel rodriguez
+624,Mr. Nobody,drama fantasi romanc,boy stand station platform train leav mother stay father infinit possibl aris decis long doesnt choos possibl,jaco van dormael,jare leto sarah polley dian kruger linh dan pham
+625,Apocalypto,action adventur drama,mayan kingdom face declin young man taken peril journey world rule fear oppress,mel gibson,gerardo taracena raoul max trujillo dalia hernández rudi youngblood
+626,Little Miss Sunshine,comedi drama,famili determin young daughter final beauti pageant crosscountri trip vw bu,jonathan dayton,valeri fari steve carel toni collett greg kinnear
+627,Hot Fuzz,action comedi mysteri,skill london polic offic transfer small town dark secret,edgar wright,simon pegg nick frost martin freeman nighi
+628,The Curious Case of Benjamin Button,drama fantasi romanc,tell stori benjamin button man start age backward consequ,david fincher,brad pitt cate blanchett tilda swinton julia ormond
+629,Veer-Zaara,drama famili music,veerzaara saga love separ courag sacrific love stori inspir remain legend forev,yash chopra,shah rukh khan preiti zinta rani mukerji kirron kher
+630,Adams æbler,comedi crime drama,neonazi sentenc commun servic church clash blindli devot priest,ander thoma jensen,ulrich thomsen mad mikkelsen nicola bro paprika steen
+631,Pride & Prejudice,drama romanc,spark fli spirit elizabeth bennet meet singl rich proud mr darci mr darci reluctantli find fall love woman beneath class overcom pride prejudic,joe wright,keira knightley matthew macfadyen brenda blethyn donald sutherland
+632,The World's Fastest Indian,biographi drama sport,stori new zealand burt munro spent year rebuild indian motorcycl help set land speed world record utah bonnevil salt flat,roger donaldson,anthoni hopkin dian ladd iain rea tessa mitchel
+633,Tôkyô goddofâzâzu,anim adventur comedi,christma eve homeless peopl live street tokyo discov newborn babi trash set parent,satoshi kon,shôgo furuya tôru emori yoshiaki umegaki aya okamoto
+634,Serenity,action adventur scifi,crew ship seren tri evad assassin sent recaptur member telepath,joss whedon,nathan fillion gina torr chiwetel ejiofor alan tudyk
+635,Walk the Line,biographi drama music,chronicl countri music legend johnni cash life earli day arkansa cotton farm rise fame sun record memphi record alongsid elvi presley jerri lee lewi carl perkin,jame mangold,joaquin phoenix rees witherspoon ginnif goodwin robert patrick
+636,Ondskan,drama,teenag boy expel school fight arriv board school systemat bulli younger student encourag mean maintain disciplin decid fight,mikael håfström,andrea wilson henrik lundström gustaf skarsgård linda zilliacu
+637,The Notebook,drama romanc,poor passion young man fall love rich young woman give sens freedom soon separ social differ,nick cassavet,gena rowland jame garner rachel mcadam ryan gosl
+638,Diarios de motocicleta,adventur biographi drama,dramat motorcycl road trip che guevara went youth show life call,walter sall,gael garcía bernal rodrigo la serna mía maestro merced morán
+639,Lilja 4-ever,crime drama,sixteenyearold lilja friend young boy volodja live russia fantas better life day lilja fall love andrej go sweden invit lilja come start new life,luka moodysson,oksana akinshina artyom bogucharskiy pavel ponomaryov lyubov agapova
+640,Les triplettes de Belleville,anim comedi drama,grandson kidnap tour franc madam souza belov pooch bruno team bellevil sistersan age songandd team day fred astaireto rescu,sylvain chomet,michèl caucheteux jeanclaud donda michel robin monica viega
+641,Gongdong gyeongbi guyeok JSA,action drama thriller,shoot incid northsouth korean borderdmz leav north korean soldier dead neutral swissswedish team investig actual happen,chanwook park,lee yeonga lee byunghun kangho song kim taewoo
+642,The Count of Monte Cristo,action adventur drama,young man fals imprison jealou friend escap use hidden treasur exact reveng,kevin reynold,jim caviezel guy pearc christoph adamson jb blanc
+643,Waking Life,anim drama fantasi,man shuffl dream meet variou peopl discuss mean purpos univers,richard linklat,ethan hawk trevor jack brook lorelei linklat wiley wiggin
+644,Remember the Titans,biographi drama sport,true stori newli appoint africanamerican coach high school team season racial integr unit,boaz yakin,denzel washington patton wood harri ryan hurst
+645,Wo hu cang long,action adventur fantasi,young chines warrior steal sword fame swordsman escap world romant adventur mysteri man frontier nation,ang lee,yunfat chow michel yeoh ziyi zhang chen chang
+646,Todo sobre mi madre,drama,young esteban want writer discov ident second mother tran woman care conceal mother manuela,pedro almodóvar,cecilia roth marisa pared candela peña antonia san juan
+647,Cast Away,adventur drama romanc,fedex execut undergo physic emot transform crash land desert island,robert zemecki,tom hank helen hunt paul sanchez lari white
+648,The Boondock Saints,action crime thriller,irish cathol brother vigilant wipe boston crimin underworld god,troy duffi,willem dafo sean patrick flaneri norman reedu david della rocco
+649,The Insider,biographi drama thriller,research chemist come person profession attack decid appear minut exposé big tobacco,michael mann,russel crow al pacino christoph plummer dian venora
+650,October Sky,biographi drama famili,true stori homer hickam coal miner son inspir sputnik launch rocketri father wish,joe johnston,jake gyllenha chri cooper laura dern chri owen
+651,Shrek,anim adventur comedi,mean lord exil fairytal creatur swamp grumpi ogr quest rescu princess lord order land,andrew adamson,vicki jenson mike myer eddi murphi cameron diaz
+652,Titanic,drama romanc,seventeenyearold aristocrat fall love kind poor artist aboard luxuri illfat rm titan,jame cameron,leonardo dicaprio kate winslet billi zane kathi bate
+653,Hana-bi,crime drama romanc,nishi leav polic face harrow person profession difficulti spiral depress make question decis,takeshi kitano,takeshi kitano kayoko kishimoto ren osugi susumu terajima
+654,Gattaca,drama scifi thriller,genet inferior man assum ident superior order pursu lifelong dream space travel,andrew niccol,ethan hawk uma thurman jude law gore vidal
+655,The Game,action drama mysteri,wealthi banker given opportun particip mysteri game life turn upsid unabl distinguish game realiti,david fincher,michael dougla deborah kara unger sean penn jame rebhorn
+656,Breaking the Waves,drama,oilman jan paralyz accid wife pray return feel guilti jan urg sex,lar von trier,emili watson stellan skarsgård katrin cartlidg jeanmarc barr
+657,Ed Wood,biographi comedi drama,ambiti troubl movi director edward d wood jr tri best fulfil dream despit lack talent,tim burton,johnni depp martin landau sarah jessica parker patricia arquett
+658,What's Eating Gilbert Grape,drama,young man small midwestern town struggl care mentallydis younger brother morbidli obes mother attempt pursu happi,lass hallström,johnni depp leonardo dicaprio juliett lewi mari steenburgen
+659,Tombstone,action biographi drama,success lawman plan retir anonym tombston arizona disrupt kind outlaw famou elimin,georg p cosmato,kevin jarr kurt russel val kilmer sam elliott
+660,The Sandlot,comedi drama famili,summer new kid town taken wing young basebal prodigi rowdi team result adventur,david mickey evan,tom guiri mike vitar art lafleur patrick renna
+661,The Remains of the Day,drama romanc,butler sacrif bodi soul servic year lead world war ii realiz late misguid loyalti lordli employ,jame ivori,anthoni hopkin emma thompson john haycraft christoph reev
+662,Naked,comedi drama,parallel tale sexual obsess men hurt annoy women physic mental wander citi talk stranger experienc dimens life,mike leigh,david thewli lesley sharp katrin cartlidg greg cruttwel
+663,The Fugitive,action crime drama,dr richard kimbl unjustli accus murder wife real killer target nationwid manhunt led season marshal,andrew davi,harrison ford tommi lee jone sela ward juliann moor
+664,A Bronx Tale,crime drama romanc,father worri local gangster befriend son bronx s,robert niro,robert niro chazz palminteri lillo brancato franci capra
+665,Batman: Mask of the Phantasm,anim action crime,batman wrongli implic seri murder mob boss actual new vigilant assassin,kevin altieri,boyd kirkland frank paur dan riba eric radomski
+666,Lat sau san taam,action crime thriller,toughasnail cop team undercov agent shut sinist mobster crew,john woo,yunfat chow toni chiuwai leung teresa mo philip chan
+667,Night on Earth,comedi drama,antholog differ cab driver american european citi remark fare event night,jim jarmusch,winona ryder gena rowland lisann falk alan randolph scott
+668,La double vie de Véronique,drama fantasi music,parallel stori ident women live poland franc dont know live profoundli connect,krzysztof kieslowski,irèn jacob wladyslaw kowalski halina gryglaszewska kalina jedrusik
+669,Boyz n the Hood,crime drama,follow live young male live crenshaw ghetto lo angel dissect question race relationship violenc futur prospect,john singleton,cuba good jr laurenc fishburn hudhail alamir lloyd averi ii
+670,Misery,drama thriller,famou author rescu car crash fan novel come realiz care receiv begin nightmar captiv abus,rob reiner,jame caan kathi bate richard farnsworth franc sternhagen
+671,Awakenings,biographi drama,victim enceph epidem year ago cataton new drug offer prospect reviv,penni marshal,robert niro robin william juli kavner ruth nelson
+672,Majo no takkyûbin,anim adventur drama,young witch mandatori year independ life find fit new commun difficult support run air courier servic,hayao miyazaki,kirsten dunst minami takayama rei sakuma kappei yamaguchi
+673,Glory,biographi drama histori,robert gould shaw lead civil war allblack volunt compani fight prejudic union armi confeder,edward zwick,matthew broderick denzel washington cari elw morgan freeman
+674,Dip huet seung hung,action crime drama,disillus assassin accept hit hope use earn restor vision singer accident blind,john woo,yunfat chow danni lee salli yeh kong chu
+675,Back to the Future Part II,adventur comedi scifi,visit marti mcfli repeat visit prevent disastr chang interf trip,robert zemecki,michael j fox christoph lloyd lea thompson thoma f wilson
+676,Mississippi Burning,crime drama histori,fbi agent wildli differ style arriv mississippi investig disappear civil right activist,alan parker,gene hackman willem dafo franc mcdormand brad dourif
+677,Predator,action adventur scifi,team commando mission central american jungl hunt extraterrestri warrior,john mctiernan,arnold schwarzenegg carl weather kevin peter hall elpidia carrillo
+678,Evil Dead II,action comedi fantasi,lone survivor onslaught fleshpossess spirit hole cabin group stranger demon continu attack,sam raimi,bruce campbel sarah berri dan hick kassi wesley depaiva
+679,Ferris Bueller's Day Off,comedi,high school wise guy determin day school despit princip think,john hugh,matthew broderick alan ruck mia sara jeffrey jone
+680,Down by Law,comedi crime drama,men frame sent jail meet murder help escap leav state,jim jarmusch,tom wait john luri roberto benigni nicoletta braschi
+681,The Goonies,adventur comedi famili,group young misfit call gooni discov ancient map set adventur legendari pirat longlost treasur,richard donner,sean astin josh brolin jeff cohen corey feldman
+682,The Color Purple,drama,black southern woman struggl ident suffer abus father decad,steven spielberg,danni glover whoopi goldberg oprah winfrey margaret averi
+683,The Breakfast Club,comedi drama,high school student meet saturday detent discov lot common thought,john hugh,emilio estevez judd nelson molli ringwald alli sheedi
+684,The Killing Fields,biographi drama histori,journalist trap cambodia tyrant pol pot bloodi year zero cleans campaign claim live million undesir civilian,roland joffé,sam waterston ha s ngor john malkovich julian sand
+685,Ghostbusters,action comedi fantasi,parapsycholog professor set shop uniqu ghost remov servic,ivan reitman,murray dan aykroyd sigourney weaver harold rami
+686,The Right Stuff,adventur biographi drama,stori origin mercuri astronaut macho seatofthep approach space program,philip kaufman,sam shepard scott glenn ed harri denni quaid
+687,The King of Comedy,comedi crime drama,rupert pupkin passion unsuccess comic crave spotlight achiev stalk kidnap idol spotlight,martin scorses,robert niro jerri lewi diahnn abbott sandra bernhard
+688,E.T. the Extra-Terrestrial,famili scifi,troubl child summon courag help friendli alien escap earth return home world,steven spielberg,henri thoma drew barrymor peter coyot dee wallac
+689,Kramer vs. Kramer,drama,ted kramer wife leav allow lost bond rediscov ted son billi heat custodi battl ensu divorc coupl son deepen wound left separ,robert benton,dustin hoffman meryl streep jane alexand justin henri
+690,Days of Heaven,drama romanc,hottemp farm labor convinc woman love marri rich die boss claim fortun,terrenc malick,richard gere brook adam sam shepard linda manz
+691,The Outlaw Josey Wales,western,missouri farmer josey wale join confeder guerrilla unit wind run union soldier murder famili,clint eastwood,clint eastwood sondra lock chief dan georg mckinney
+692,The Man Who Would Be King,adventur histori war,british soldier decid set king kafiristan land white man set foot alexand great,john huston,sean conneri michael cain christoph plummer saeed jaffrey
+693,The Conversation,drama mysteri thriller,paranoid secret surveil expert crisi conscienc suspect coupl spi murder,franci ford coppola,gene hackman john cazal allen garfield freder forrest
+694,La planète sauvage,anim scifi,faraway planet blue giant rule oppress humanoid rebel machinelik leader,rené laloux,barri bostwick jennif drake eric baugin jean topart
+695,The Day of the Jackal,crime drama thriller,profession assassin codenam jackal plot kill charl gaull presid franc,fred zinnemann,edward fox terenc alexand michel auclair alan badel
+696,Badlands,action crime drama,impression teenag girl deadend town older greaser boyfriend embark kill spree south dakota badland,terrenc malick,martin sheen sissi spacek warren oat ramon bieri
+697,Cabaret,drama music music,femal girli club entertain weimar republ era berlin romanc men nazi parti rise power,bob foss,liza minnelli michael york helmut griem joel grey
+698,Willy Wonka & the Chocolate Factory,famili fantasi music,poor hope boy seek covet golden ticket send tour willi wonka mysteri chocol factori,mel stuart,gene wilder jack albertson peter ostrum roy kinnear
+699,Midnight Cowboy,drama,naiv hustler travel texa new york citi seek person fortun find new friend process,john schlesing,dustin hoffman jon voight sylvia mile john mcgiver
+700,Wait Until Dark,thriller,recent blind woman terror trio thug search heroinstuf doll believ apart,terenc young,audrey hepburn alan arkin richard crenna efrem zimbalist jr
+701,Guess Who's Coming to Dinner,comedi drama,coupl attitud challeng daughter introduc africanamerican fiancé,stanley kramer,spencer traci sidney poitier katharin hepburn katharin houghton
+702,Bonnie and Clyde,action biographi crime,bore waitress bonni parker fall love excon name clyde barrow start violent crime spree countri steal car rob bank,arthur penn,warren beatti fay dunaway michael j pollard gene hackman
+703,My Fair Lady,drama famili music,snobbish phonet professor henri higgin agre wager make flower girl eliza doolittl present high societi,georg cukor,audrey hepburn rex harrison stanley holloway wilfrid hydewhit
+704,Mary Poppins,comedi famili fantasi,turn centuri london magic nanni employ music adventur help neglect children closer father,robert stevenson,juli andrew dick van dyke david tomlinson glyni john
+705,The Longest Day,action drama histori,event dday told grand scale alli german point view,ken annakin,andrew marton gerd oswald bernhard wicki darryl f zanuck
+706,Jules et Jim,drama romanc,decad love triangl concern friend impuls woman,françoi truffaut,jeann moreau oskar werner henri serr vanna urbino
+707,The Innocents,horror,young gover children convinc hous ground haunt,jack clayton,deborah kerr peter wyngard meg jenkin michael redgrav
+708,À bout de souffle,crime drama,smalltim thief steal car impuls murder motorcycl policeman want author reunit hip american journal student attempt persuad run away itali,jeanluc godard,jeanpaul belmondo jean seberg daniel boulang henrijacqu huet
+709,Red River,action adventur drama,dunson lead cattl drive culmin year work destin missouri tyrann behavior way caus mutini led adopt son,howard hawk,arthur rosson john wayn montgomeri clift joann dru
+710,Key Largo,action crime drama,man visit war buddi famili hotel find gangster run thing hurrican approach end confront,john huston,humphrey bogart edward g robinson lauren bacal lionel barrymor
+711,To Have and Have Not,adventur comedi filmnoir,world war ii american expatri harri morgan help transport french resist leader beauti wife martiniqu romanc sensuou loung singer,howard hawk,humphrey bogart lauren bacal walter brennan dolor moran
+712,Shadow of a Doubt,filmnoir thriller,young girl overjoy favorit uncl come visit famili slowli begin suspect fact merri widow killer sought author,alfr hitchcock,teresa wright joseph cotten macdonald carey henri traver
+713,Stagecoach,adventur drama western,group peopl travel stagecoach journey complic threat geronimo learn process,john ford,john wayn clair trevor andi devin john carradin
+714,The Lady Vanishes,mysteri thriller,travel continent europ rich young playgirl realiz elderli ladi disappear train,alfr hitchcock,margaret lockwood michael redgrav paul luka whitti
+715,Bringing Up Baby,comedi famili romanc,tri secur million donat museum befuddl paleontologist pursu flighti irrit heiress pet leopard babi,howard hawk,katharin hepburn cari grant charl ruggl walter catlett
+716,Bride of Frankenstein,drama horror scifi,mari shelley reveal main charact novel surviv dr frankenstein goad madder scientist build monster mate,jame whale,bori karloff elsa lanchest colin clive valeri hobson
+717,Duck Soup,comedi music war,rufu t firefli name presidentdict bankrupt freedonia declar war neighbor sylvania love wealthi mr teasdal,leo mccarey,groucho marx harpo marx chico marx zeppo marx
+718,Scarface: The Shame of the Nation,action crime drama,ambiti nearli insan violent gangster climb ladder success mob weak prove downfal,howard hawk,richard rosson paul muni ann dvorak karen morley
+719,Frankenstein,drama horror scifi,dr frankenstein dare tamper life death creat human monster lifeless bodi part,jame whale,colin clive mae clark bori karloff john bole
+720,Roma,drama,year life middleclass famili maid mexico citi earli s,alfonso cuarón,yalitza aparicio marina tavira diego cortina autrey carlo peralta
+721,God's Own Country,drama romanc,spring yorkshir young farmer johnni saxbi numb daili frustrat bing drink casual sex arriv romanian migrant worker lamb season ignit intens relationship set johnni new path,franci lee,josh oconnor alec secareanu gemma jone ian hart
+722,Deadpool 2,action adventur comedi,foulmouth mutant mercenari wade wilson aka deadpool bring team fellow mutant rogu protect young boy supernatur abil brutal timetravel cyborg cabl,david leitch,ryan reynold josh brolin morena baccarin julian dennison
+723,Wind River,crime drama mysteri,veteran hunter help fbi agent investig murder young woman wyom nativ american reserv,taylor sheridan,kelsey asbil jeremi renner julia jone teo brion
+724,Get Out,horror mysteri thriller,young africanamerican visit white girlfriend parent weekend simmer uneasi recept eventu reach boil point,jordan peel,daniel kaluuya allison william bradley whitford catherin keener
+725,Mission: Impossible - Fallout,action adventur thriller,ethan hunt imf team familiar alli race time mission gone wrong,christoph mcquarri,tom cruis henri cavil ving rhame simon pegg
+726,En man som heter Ove,comedi drama romanc,ove illtemp isol retire spend day enforc block associ rule visit wife grave final given life just unlik friendship develop boister new neighbor,hann holm,rolf lassgård bahar par filip berg ida engvol
+727,What We Do in the Shadows,comedi horror,viago deacon vladislav vampir find modern life struggl mundan like pay rent keep chore wheel tri nightclub overcom flatmat conflict,jemain clement,taika waititi jemain clement taika waititi cori gonzalezmacu
+728,Omoide no Mânî,anim drama famili,yo anna asthma she sent stay rel guardian japanes countrysid like sketch befriend marni mysteri blond marni,jame simon,hiromasa yonebayashi sara takatsuki kasumi arimura nanako matsushima
+729,The Theory of Everything,biographi drama romanc,look relationship famou physicist stephen hawk wife,jame marsh,eddi redmayn felic jone tom prior sophi perri
+730,Kingsman: The Secret Service,action adventur comedi,spi organis recruit promis street kid agenc train program global threat emerg twist tech geniu,matthew vaughn,colin firth taron egerton samuel l jackson michael cain
+731,The Fault in Our Stars,drama romanc,teenag cancer patient begin lifeaffirm journey visit reclus author amsterdam,josh boon,shailen woodley ansel elgort nat wolff laura dern
+732,Me and Earl and the Dying Girl,comedi drama,high schooler greg spend time make parodi classic movi cowork earl find outlook forev alter befriend classmat just diagnos cancer,alfonso gomezrejon,thoma mann rj cyler olivia cook nick offerman
+733,Birdman or (The Unexpected Virtue of Ignorance),comedi drama,washedup superhero actor attempt reviv fade career write direct star broadway product,alejandro g iñárritu,michael keaton zach galifianaki edward norton andrea riseborough
+734,La vie d'Adèle,drama romanc,adèl life chang meet emma young woman blue hair allow discov desir assert woman adult adèl grow seek lose ultim find love loss,abdellatif kechich,léa seydoux adèl exarchopoulo salim kechiouch aurélien reco
+735,Kai po che!,drama sport,friend grow india turn millennium set open train academi produc countri cricket star,abhishek kapoor,amit sadh sushant singh rajput rajkummar rao amrita puri
+736,The Broken Circle Breakdown,drama music romanc,elis didier fall love sight spite differ talk listen he romant atheist she religi realist daughter serious ill love trial,felix van groeningen,veerl baeten johan heldenbergh nell cattryss geert van rampelberg
+737,Captain America: The Winter Soldier,action adventur scifi,steve roger struggl embrac role modern world team fellow aveng shield agent black widow battl new threat histori assassin known winter soldier,anthoni russo,joe russo chri evan samuel l jackson scarlett johansson
+738,Rockstar,drama music music,janardhan jakhar chase dream big rock star fall love heer,imtiaz ali,ranbir kapoor nargi fakhri shammi kapoor kumud mishra
+739,Nebraska,adventur comedi drama,age boozeaddl father make trip montana nebraska estrang son order claim milliondollar mega sweepstak market prize,alexand payn,bruce dern fort june squibb bob odenkirk
+740,Wreck-It Ralph,anim adventur comedi,video game villain want hero set fulfil dream quest bring havoc arcad live,rich moor,john c reilli jack mcbrayer jane lynch sarah silverman
+741,Le Petit Prince,anim adventur drama,littl girl live grownup world mother tri prepar neighbor aviat introduc girl extraordinari world possibl world littl princ,mark osborn,jeff bridg mackenzi foy rachel mcadam marion cotillard
+742,Detachment,drama,substitut teacher drift classroom classroom find connect student teacher latest assign,toni kay,adrien brodi christina hendrick marcia gay harden luci liu
+743,Midnight in Paris,comedi fantasi romanc,trip pari fiancé famili nostalg screenwrit find mysteri go s day midnight,woodi allen,owen wilson rachel mcadam kathi bate kurt fuller
+744,The Lego Movie,anim action adventur,ordinari lego construct worker thought prophesi special recruit join quest stop evil tyrant glu lego univers etern stasi,christoph miller,phil lord chri pratt ferrel elizabeth bank
+745,Gravity,drama scifi thriller,astronaut work surviv accid leav strand space,alfonso cuarón,sandra bullock georg clooney ed harri orto ignatiussen
+746,Star Trek Into Darkness,action adventur scifi,crew enterpris unstopp forc terror organ captain kirk lead manhunt warzon world captur oneman weapon mass destruct,jj abram,chri pine zachari quinto zoe saldana benedict cumberbatch
+747,Beasts of No Nation,drama war,drama base experi agu child soldier fight civil war unnam african countri,cari joji fukunaga,abraham attah emmanuel affadzi ricki adelayitor andrew adot
+748,The Social Network,biographi drama,harvard student mark zuckerberg creat social network site known facebook su twin claim stole idea cofound later squeez busi,david fincher,jess eisenberg andrew garfield justin timberlak rooney mara
+749,X: First Class,action adventur scifi,s superpow human charl xavier erik lensherr work like erik veng pursuit ambiti mutant ruin life caus schism divid,matthew vaughn,jame mcavoy michael fassbend jennif lawrenc kevin bacon
+750,The Hangover,comedi,buddi wake bachelor parti la vega memori previou night bachelor miss make way citi order friend wed,todd phillip,zach galifianaki bradley cooper justin bartha ed helm
+751,Skyfall,action adventur thriller,jame bond loyalti m test past come haunt mi come attack track destroy threat matter person cost,sam mend,daniel craig javier bardem naomi harri judi dench
+752,Silver Linings Playbook,comedi drama romanc,stint mental institut teacher pat solitano move parent tri reconcil exwif thing challeng pat meet tiffani mysteri girl problem,david o russel,bradley cooper jennif lawrenc robert niro jacki weaver
+753,Argo,biographi drama thriller,act cover hollywood produc scout locat scienc fiction film cia agent launch danger oper rescu american tehran hostag crisi iran,ben affleck,ben affleck bryan cranston john goodman alan arkin
+754,(500) Days of Summer,comedi drama romanc,offbeat romant comedi woman doesnt believ true love exist young man fall,marc webb,zooey deschanel joseph gordonlevitt geoffrey arend chloë grace moretz
+755,Harry Potter and the Deathly Hallows: Part 1,adventur famili fantasi,harri ron hermion race time evil destroy horcrux uncov exist power object wizard world deathli hallow,david yate,daniel radcliff emma watson rupert grint nighi
+756,Gake no ue no Ponyo,anim adventur comedi,fiveyearold boy develop relationship ponyo young goldfish princess long human fall love,hayao miyazaki,cate blanchett matt damon liam neeson tomoko yamaguchi
+757,Frost/Nixon,biographi drama histori,dramat retel postwaterg televis interview british talkshow host david frost presid richard nixon,ron howard,frank langella michael sheen kevin bacon sam rockwel
+758,Papurika,anim drama fantasi,machin allow therapist enter patient dream stolen hell break loos young femal therapist paprika stop,satoshi kon,megumi hayashibara tôru emori katsunosuk hori tôru furuya
+759,Changeling,biographi crime drama,griefstricken mother christin collin angelina joli take lapd detriment tri pass obviou impostor miss child,clint eastwood,angelina joli colm feor ami ryan gattlin griffith
+760,Flipped,comedi drama romanc,eighthgrad start feel despit total opposit,rob reiner,madelin carrol callan mcauliff rebecca mornay anthoni edward
+761,Toki o kakeru shôjo,anim adventur comedi,highschool girl name makoto acquir power travel time decid use person benefit littl doe know affect live just,mamoru hosoda,riisa naka takuya ishida mitsutaka itakura ayami kakiuchi
+762,Death Note: Desu nôto,crime drama fantasi,battl world greatest mind begin light yagami find death note notebook power kill decid rid world crimin,shûsuke kaneko,tatsuya fujiwara kenichi matsuyama asaka seto yû kashii
+763,This Is England,crime drama,young boy friend gang skinhead friend soon like famili relationship push limit,shane meadow,thoma turgoos stephen graham jo hartley andrew shim
+764,Ex Machina,drama scifi thriller,young programm select particip groundbreak experi synthet intellig evalu human qualiti highli advanc humanoid ai,alex garland,alicia vikand domhnal gleeson oscar isaac sonoya mizuno
+765,Efter brylluppet,drama,manag orphanag india sent copenhagen denmark discov lifealt famili secret,susann bier,mad mikkelsen sids babett knudsen rolf lassgård neeral mulchandani
+766,The Last King of Scotland,biographi drama histori,base event brutal ugandan dictat idi amin regim seen person physician s,kevin macdonald,jame mcavoy forest whitak gillian anderson kerri washington
+767,Zodiac,crime drama mysteri,late searli s san francisco cartoonist amateur detect obsess track zodiac killer unidentifi individu terror northern california kill spree,david fincher,jake gyllenha robert downey jr mark ruffalo anthoni edward
+768,Lucky Number Slevin,action crime drama,case mistaken ident land slevin middl war plot citi rival crime boss constant surveil detect brikowski assassin goodkat,paul mcguigan,josh hartnett ben kingsley morgan freeman luci liu
+769,Joyeux Noël,drama histori music,decemb unoffici christma truce western allow soldier oppos side world war gain insight way life,christian carion,dian kruger benno fürmann guillaum canet natali dessay
+770,Control,biographi drama music,profil ian curti enigmat singer joy divis person profession romant troubl led commit suicid age,anton corbijn,sam riley samantha morton craig parkinson alexandra maria lara
+771,Tangled,anim adventur comedi,magic longhair rapunzel spent entir life tower runaway thief stumbl discov world time realli,nathan greno,byron howard mandi moor zachari levi donna murphi
+772,Zwartboek,drama thriller war,nazioccupi netherland world war ii jewish singer infiltr region gestapo headquart dutch resist,paul verhoeven,caric van houten sebastian koch thom hoffman halina reijn
+773,Brokeback Mountain,drama romanc,stori forbidden secret relationship cowboy live year,ang lee,jake gyllenha heath ledger michel william randi quaid
+774,3:10 to Yuma,action crime drama,smalltim rancher agre hold captur outlaw who await train court yuma battl will ensu outlaw tri psych rancher,jame mangold,russel crow christian bale ben foster logan lerman
+775,Crash,crime drama thriller,lo angel citizen vastli separ live collid interweav stori race loss redempt,paul haggi,don cheadl sandra bullock thandi newton karina arroyav
+776,Kung fu,action comedi fantasi,shanghai china s wannab gangster aspir join notori axe gang resid hous complex exhibit extraordinari power defend turf,stephen chow,stephen chow wah yuen qiu yuen siulung leung
+777,The Bourne Supremacy,action mysteri thriller,jason bourn frame cia oper gone awri forc resum life train assassin surviv,paul greengrass,matt damon franka potent joan allen brian cox
+778,The Machinist,drama thriller,industri worker slept year begin doubt saniti,brad anderson,christian bale jennif jason leigh aitana sánchezgijón john sharian
+779,Ray,biographi drama music,stori life career legendari rhythm blue musician ray charl humbl begin south went blind age seven meteor rise stardom s s,taylor hackford,jami foxx regina king kerri washington clifton powel
+780,Lost in Translation,comedi drama,fade movi star neglect young woman form unlik bond cross path tokyo,sofia coppola,murray scarlett johansson giovanni ribisi anna fari
+781,Harry Potter and the Goblet of Fire,adventur famili fantasi,harri potter find compet hazard tournament rival school magic distract recur nightmar,mike newel,daniel radcliff emma watson rupert grint eric syke
+782,Man on Fire,action crime drama,mexico citi cia oper swear vengeanc commit unspeak act famili hire protect,toni scott,denzel washington christoph walken dakota fan radha mitchel
+783,Coraline,anim drama famili,adventur yearold girl find world strang ideal version frustrat home sinist secret,henri selick,dakota fan teri hatcher john hodgman jennif saunder
+784,The Last Samurai,action drama,american militari advisor embrac samurai cultur hire destroy captur battl,edward zwick,tom cruis ken watanab billi connolli william atherton
+785,The Magdalene Sisters,drama,young irish women struggl maintain spirit endur dehuman abus inmat magdalen sister asylum,peter mullan,eileen walsh dorothi duffi norajan annemari duff
+786,Good Bye Lenin!,comedi drama romanc,protect fragil mother fatal shock long coma young man learn belov nation east germani knew disappear,wolfgang becker,daniel brühl katrin saß chulpan khamatova florian luka
+787,In America,drama,famili irish immigr adjust life mean street hell kitchen griev death child,jim sheridan,paddi considin samantha morton djimon hounsou sarah bolger
+788,I Am Sam,drama,mental handicap man fight custodi yearold daughter process teach coldheart lawyer valu love famili,jessi nelson,sean penn michel pfeiffer dakota fan diann wiest
+789,Adaptation.,comedi drama,lovelorn screenwrit desper tri fail adapt orchid thief susan orlean screen,spike jonz,nicola cage meryl streep chri cooper tilda swinton
+790,Black Hawk Down,drama histori war,elit soldier drop somalia captur lieuten renegad warlord desper battl larg forc heavilyarm somali,ridley scott,josh hartnett ewan mcgregor tom sizemor eric bana
+791,Road to Perdition,crime drama thriller,mob enforc son wit murder forc father road father path redempt reveng,sam mend,tom hank tyler hoechlin rob maxey liam aiken
+792,Das Experiment,drama thriller,week male particip hire play prison guard prison prison follow seemingli mild rule guard told retain order use physic violenc,oliv hirschbiegel,moritz bleibtreu christian berkel oliv stokowski wotan wilk möhring
+793,Billy Elliot,drama music,talent young boy torn unexpect love danc disintegr famili,stephen daldri,jami bell juli walter jean heywood jami draven
+794,Hedwig and the Angry Inch,comedi drama music,genderqu punkrock singer east berlin tour band tell life stori follow loverbandm stole song,john cameron mitchel,john cameron mitchel miriam shor stephen trask theodor liscinski
+795,Ocean's Eleven,crime thriller,danni ocean accomplic plan rob la vega casino simultan,steven soderbergh,georg clooney brad pitt julia robert matt damon
+796,Vampire Hunter D: Bloodlust,anim action fantasi,girl abduct vampir legendari bounti hunter hire bring,yoshiaki kawajiri,andrew philpot john rafter lee pamela adlon wende lee
+797,"O Brother, Where Art Thou?",adventur comedi crime,deep south s escap convict search hidden treasur relentless lawman pursu,joel coen,ethan coen georg clooney john turturro tim blake nelson
+798,Interstate 60: Episodes of the Road,adventur comedi drama,neal oliv confus young man artist take journey lifetim highway doesnt exist map go place heard search answer dreamgirl,bob gale,jame marsden gari oldman kurt russel matthew edison
+799,"South Park: Bigger, Longer & Uncut",anim comedi fantasi,stan marsh friend rrate movi start curs parent think canada blame,trey parker,trey parker matt stone mari kay bergman isaac hay
+800,Office Space,comedi,compani worker hate job decid rebel greedi boss,mike judg,ron livingston jennif aniston david herman ajay naidu
+801,Happiness,comedi drama,live individu intertwin live uniqu way engag act societi disturb desper search human connect,todd solondz,jane adam jon lovitz philip seymour hoffman dylan baker
+802,Training Day,crime drama thriller,rooki cop spend day lo angel narcot offic rogu detect isnt appear,antoin fuqua,denzel washington ethan hawk scott glenn tom bereng
+803,Rushmore,comedi drama romanc,extracurricular king rushmor preparatori school academ probat,we anderson,jason schwartzman murray olivia william seymour cassel
+804,Abre los ojos,drama mysteri scifi,handsom man find love life suffer accid need face rebuilt surgeri sever disfigur,alejandro amenábar,eduardo noriega penélop cruz chete lera fele martínez
+805,Being John Malkovich,comedi drama fantasi,puppet discov portal lead liter head movi star john malkovich,spike jonz,john cusack cameron diaz catherin keener john malkovich
+806,As Good as It Gets,comedi drama romanc,singl mother waitress misanthrop author gay artist form unlik friendship artist assault robberi,jame l brook,jack nicholson helen hunt greg kinnear cuba good jr
+807,The Fifth Element,action adventur scifi,color futur cab driver unwittingli central figur search legendari cosmic weapon evil mr zorg bay,luc besson,bruce willi milla jovovich gari oldman ian holm
+808,Le dîner de cons,comedi,friend weekli fool dinner bring fool pierr find champion fool dinner surpris,franci veber,thierri lhermitt jacqu villeret franci huster daniel prévost
+809,Donnie Brasco,biographi crime drama,fbi undercov agent infiltr mob find identifi mafia life expens regular,mike newel,al pacino johnni depp michael madsen bruno kirbi
+810,Shine,biographi drama music,pianist david helfgott driven father teacher breakdown year later return piano popular critic acclaim,scott hick,geoffrey rush armin muellerstahl justin brain sonia todd
+811,Primal Fear,crime drama mysteri,altar boy accus murder priest truth buri layer deep,gregori hoblit,richard gere laura linney edward norton john mahoney
+812,Hamlet,drama,hamlet princ denmark return home father murder mother remarri murder uncl war brew,kenneth branagh,kenneth branagh juli christi derek jacobi kate winslet
+813,A Little Princess,drama famili fantasi,young girl releg servitud board school father goe miss presum dead,alfonso cuarón,liesel matthew eleanor bron liam cunningham rusti schwimmer
+814,Do lok tin si,comedi crime drama,hong kongset crime drama follow live hitman hope busi elus femal partner,karwai wong,leon lai michel rei takeshi kaneshiro charli yeung
+815,Il postino,biographi comedi drama,simpl italian postman learn love poetri deliv mail famou poet use woo local beauti beatric,michael radford,massimo troisi massimo troisi philipp noiret maria grazia cucinotta
+816,Clerks,comedi,day live conveni clerk name dant randal annoy custom discuss movi play hockey store roof,kevin smith,brian ohalloran jeff anderson marilyn ghigliotti lisa spoonauer
+817,Short Cuts,comedi drama,daytoday live suburban lo angel resid,robert altman,andi macdowel juliann moor tim robbin bruce davison
+818,Philadelphia,drama,man hiv fire law firm condit hire homophob small time lawyer will advoc wrong dismiss suit,jonathan demm,tom hank denzel washington roberta maxwel buzz kilman
+819,The Muppet Christmas Carol,comedi drama famili,muppet charact tell version classic tale old bitter miser redempt christma eve,brian henson,michael cain kermit frog dave goelz miss piggi
+820,Malcolm X,biographi drama histori,biograph epic controversi influenti black nationalist leader earli life career smalltim gangster ministri member nation islam,spike lee,denzel washington angela bassett delroy lindo spike lee
+821,The Last of the Mohicans,action adventur drama,trapper protect daughter british colonel midst french indian war,michael mann,daniel daylewi madelein stow russel mean eric schweig
+822,Kurenai no buta,anim adventur comedi,s itali veteran world war pilot curs look like anthropomorph pig,hayao miyazaki,shûichirô moriyama tokiko katô bunshi katsura vi tsunehiko kamijô
+823,Glengarry Glen Ross,crime drama mysteri,examin machin scene real estat offic,jame foley,al pacino jack lemmon alec baldwin alan arkin
+824,A Few Good Men,drama thriller,militari lawyer lieuten daniel kaffe defend marin accus murder contend act order,rob reiner,tom cruis jack nicholson demi moor kevin bacon
+825,Fried Green Tomatoes,drama,housewif unhappi life befriend old ladi nurs home enthral tale tell peopl use know,jon avnet,kathi bate jessica tandi mari stuart masterson marylouis parker
+826,Barton Fink,comedi drama thriller,renown new york playwright entic california write movi discov hellish truth hollywood,joel coen,ethan coen john turturro john goodman judi davi
+827,Miller's Crossing,crime drama thriller,tom reagan advisor prohibitionera crime boss tri peac war mob get caught divid loyalti,joel coen,ethan coen gabriel byrn albert finney john turturro
+828,Who Framed Roger Rabbit,anim adventur comedi,toonhat detect cartoon rabbit hope prove innoc accus murder,robert zemecki,bob hoskin christoph lloyd joanna cassidi charl fleischer
+829,Spoorloos,mysteri thriller,rex saskia young coupl love vacat stop busi servic station saskia abduct year sign saskia rex begin receiv letter abductor,georg sluizer,bernardpierr donnadieu gene bervoet johanna ter steeg gwen eckhau
+830,Withnail & I,comedi drama,substanceabus unemploy actor retreat countrysid holiday prove disastr,bruce robinson,richard e grant paul mcgann richard griffith ralph brown
+831,The Last Emperor,biographi drama histori,stori final emperor china,bernardo bertolucci,john lone joan chen peter otool ruocheng ying
+832,Empire of the Sun,action drama histori,young english boy struggl surviv japanes occup world war ii,steven spielberg,christian bale john malkovich miranda richardson nigel haver
+833,Der Name der Rose,crime drama mysteri,intellectu nonconformist friar investig seri mysteri death isol abbey,jeanjacqu annaud,sean conneri christian slater helmut qualting elya baskin
+834,Blue Velvet,drama mysteri thriller,discoveri sever human ear field lead young man investig relat beauti mysteri nightclub singer group psychopath crimin kidnap child,david lynch,isabella rossellini kyle maclachlan denni hopper laura dern
+835,The Purple Rose of Cairo,comedi fantasi romanc,new jersey movi charact walk screen real world,woodi allen,mia farrow jeff daniel danni aiello irv metzman
+836,After Hours,comedi crime drama,ordinari word processor worst night life agre visit girl soho met even coffe shop,martin scorses,griffin dunn rosanna arquett verna bloom tommi chong
+837,Zelig,comedi,documentari man look act like he meet variou famou peopl,woodi allen,woodi allen mia farrow patrick horgan john buckwalt
+838,The Verdict,drama,lawyer see chanc salvag career selfrespect take medic malpractic case trial settl,sidney lumet,paul newman charlott rampl jack warden jame mason
+839,Star Trek II: The Wrath of Khan,action adventur scifi,assist enterpris crew admir kirk stop old nemesi khan noonien singh use lifegener genesi devic ultim weapon,nichola meyer,william shatner leonard nimoy deforest kelley jame doohan
+840,First Blood,action adventur,veteran green beret forc cruel sheriff deputi flee mountain wage escal oneman war pursuer,ted kotcheff,sylvest stallon brian dennehi richard crenna mckinney
+841,Ordinary People,drama,accident death older son affluent famili deepli strain relationship bitter mother goodnatur father guiltridden younger son,robert redford,donald sutherland mari tyler moor judd hirsch timothi hutton
+842,Airplane!,comedi,man afraid fli ensur plane land safe pilot sick,jim abraham,david zucker jerri zucker robert hay juli hagerti
+843,Rupan sansei: Kariosutoro no shiro,anim adventur famili,dash thief gang desperado intrepid policeman struggl free princess evil count clutch learn hidden secret fabul treasur hold key,hayao miyazaki,yasuo yamada eiko masuyama kiyoshi kobayashi makio inou
+844,Halloween,horror thriller,year murder sister halloween night michael myer escap mental hospit return small town haddonfield illinoi kill,john carpent,donald pleasenc jami lee curti toni moran nanci kye
+845,Le locataire,drama thriller,bureaucrat rent pari apart find drawn rabbit hole danger paranoia,roman polanski,roman polanski isabel adjani melvyn dougla jo van fleet
+846,Love and Death,comedi war,czarist russia neurot soldier distant cousin formul plot assassin napoleon,woodi allen,woodi allen dian keaton georg adet frank adu
+847,The Taking of Pelham One Two Three,action crime thriller,new york arm men hijack subway car demand ransom passeng paid away,joseph sargent,walter matthau robert shaw martin balsam hector elizondo
+848,Blazing Saddles,comedi western,order ruin western town corrupt politician appoint black sheriff promptli formid adversari,mel brook,cleavon littl gene wilder slim picken harvey korman
+849,Serpico,biographi crime drama,honest new york cop name frank serpico blow whistl rampant corrupt forc comrad turn,sidney lumet,al pacino john randolph jack keho biff mcguir
+850,Enter the Dragon,action crime drama,secret agent come opium lord island fortress fighter martialart tournament,robert clous,bruce lee john saxon jim kelli ahna capri
+851,Deliverance,adventur drama thriller,intent see cahulawasse river dam turn lake outdoor fanat lewi medlock take friend cano trip theyll forget danger american backcountri,john boorman,jon voight burt reynold ned beatti ronni cox
+852,The French Connection,action crime drama,pair nyc cop narcot bureau stumbl drug smuggl job french connect,william friedkin,gene hackman roy scheider fernando rey toni lo bianco
+853,Dirty Harry,action crime thriller,madman call scorpio killer menac citi toughasnail san francisco polic inspector dirti harri callahan assign track ferret craze psychopath,don siegel,clint eastwood andrew robinson harri guardino reni santoni
+854,Where Eagles Dare,action adventur war,alli agent stage dare raid castl nazi hold american brigadi gener georg carnabi prison that that realli go,brian g hutton,richard burton clint eastwood mari ure patrick wymark
+855,The Odd Couple,comedi,friend tri share apart idea housekeep lifestyl differ night day,gene sak,jack lemmon walter matthau john fiedler herb edelman
+856,The Dirty Dozen,action adventur war,world war ii rebelli armi major assign dozen convict murder train lead mass assassin mission german offic,robert aldrich,lee marvin ernest borgnin charl bronson john cassavet
+857,Belle de jour,drama romanc,frigid young housewif decid spend midweek afternoon prostitut,lui buñuel,catherin deneuv jean sorel michel piccoli genevièv page
+858,A Man for All Seasons,biographi drama histori,stori sir thoma stood king henri viii king reject roman cathol church obtain divorc remarri,fred zinnemann,paul scofield wendi hiller robert shaw leo mckern
+859,Repulsion,drama horror thriller,sexrepuls woman disapprov sister boyfriend sink depress horrif vision rape violenc,roman polanski,catherin deneuv ian hendri john fraser yvonn furneaux
+860,Zulu,drama histori war,outnumb british soldier battl zulu warrior rork drift,cy endfield,stanley baker jack hawkin ulla jacobsson jame booth
+861,Goldfinger,action adventur thriller,investig gold magnat smuggl jame bond uncov plot contamin fort knox gold reserv,guy hamilton,sean conneri gert fröbe honor blackman shirley eaton
+862,The Birds,drama horror mysteri,wealthi san francisco socialit pursu potenti boyfriend small northern california town slowli take turn bizarr bird kind suddenli begin attack peopl,alfr hitchcock,rod taylor tippi hedren jessica tandi suzann pleshett
+863,Cape Fear,drama thriller,lawyer famili stalk man help jail,j lee thompson,gregori peck robert mitchum polli bergen lori martin
+864,Peeping Tom,drama horror thriller,young man murder women use movi camera film die express terror,michael powel,karlheinz böhm anna massey moira shearer maxin audley
+865,The Magnificent Seven,action adventur western,seven gunfight hire mexican peasant liber villag oppress bandit,john sturg,yul brynner steve mcqueen charl bronson eli wallach
+866,Les yeux sans visage,drama horror,surgeon caus accid leav daughter disfigur goe extrem new face,georg franju,pierr brasseur alida valli juliett mayniel alexandr rignault
+867,Invasion of the Body Snatchers,drama horror scifi,smalltown doctor learn popul commun replac emotionless alien duplic,don siegel,kevin mccarthi dana wynter larri gate king donovan
+868,Rebel Without a Cause,drama,rebelli young man troubl past come new town find friend enemi,nichola ray,jame dean natali wood sal mineo jim backu
+869,The Ladykillers,comedi crime,oddbal crimin plan bank robberi rent room culdesac octogenarian widow pretext classic musician,alexand mackendrick,alec guin peter seller cecil parker herbert lom
+870,Sabrina,comedi drama romanc,playboy interest daughter famili chauffeur brother better man,billi wilder,humphrey bogart audrey hepburn william holden walter hampden
+871,The Quiet Man,comedi drama romanc,retir american boxer return villag birth ireland fall spirit redhead brother contemptu union,john ford,john wayn maureen ohara barri fitzgerald ward bond
+872,The Day the Earth Stood Still,drama scifi,alien land tell peopl earth live peac destroy danger planet,robert wise,michael renni patricia neal hugh marlow sam jaff
+873,The African Queen,adventur drama romanc,wwi africa ginswil riverboat captain persuad straitlac missionari use boat attack enemi warship,john huston,humphrey bogart katharin hepburn robert morley peter bull
+874,Gilda,drama filmnoir romanc,smalltim gambler hire work bueno air casino discov employ new wife lover,charl vidor,rita hayworth glenn ford georg macreadi joseph calleia
+875,Fantasia,anim famili fantasi,collect anim interpret great work western classic music,jame algar,samuel armstrong ford beeb jr norman ferguson david hand
+876,The Invisible Man,horror scifi,scientist find way invis do murder insan,jame whale,claud rain gloria stuart william harrigan henri traver
+877,Dark Waters,biographi drama histori,corpor defens attorney take environment lawsuit chemic compani expos lengthi histori pollut,todd hayn,mark ruffalo ann hathaway tim robbin pullman
+878,Searching,drama mysteri thriller,teenag daughter goe miss desper father tri clue laptop,aneesh chaganti,john cho debra mess joseph lee michel la
+879,Once Upon a Time... in Hollywood,comedi drama,fade televis actor stunt doubl strive achiev fame success final year hollywood golden age lo angel,quentin tarantino,leonardo dicaprio brad pitt margot robbi emil hirsch
+880,Nelyubov,drama,coupl go divorc team son disappear bitter argument,andrey zvyagintsev,maryana spivak aleksey rozin matvey novikov marina vasileva
+881,The Florida Project,drama,set summer film follow precoci sixyearold moone court mischief adventur ragtag playmat bond rebelli care mother live shadow walt disney world,sean baker,brooklynn princ bria vinait willem dafo christoph rivera
+882,Just Mercy,biographi crime drama,worldrenown civil right defens attorney bryan stevenson work free wrongli condemn death row prison,destin daniel cretton,michael b jordan jami foxx brie larson charli pye jr
+883,Gifted,drama,frank singl man rais child prodigi niec mari drawn custodi battl mother,marc webb,chri evan mckenna grace lindsay duncan octavia spencer
+884,The Peanut Butter Falcon,adventur comedi drama,zak run away care home make dream wrestler come true,tyler nilson,michael schwartz zack gottsagen ann owen dakota johnson
+885,Victoria,crime drama romanc,young spanish woman recent move berlin find flirtat local guy turn potenti deadli night friend reveal danger secret,sebastian schipper,laia costa frederick lau franz rogowski burak yigit
+886,Mustang,drama,orphan girl seen innoc play boy beach scandal conserv guardian confin forc marriag arrang,deniz gamz ergüven,güne sensoy doga zeynep doguslu tugba sunguroglu elit iscan
+887,Guardians of the Galaxy Vol. 2,action adventur comedi,guardian struggl team deal person famili issu notabl starlord encount father ambiti celesti ego,jame gunn,chri pratt zoe saldana dave bautista vin diesel
+888,Baby Driver,action crime drama,coerc work crime boss young getaway driver find take heist doom fail,edgar wright,ansel elgort jon bernthal jon hamm eiza gonzález
+889,Only the Brave,action biographi drama,base true stori granit mountain hotshot group elit firefight risk protect town histor wildfir,joseph kosinski,josh brolin mile teller jeff bridg jennif connelli
+890,Bridge of Spies,drama histori thriller,cold war american lawyer recruit defend arrest soviet spi court help cia facilit exchang spi soviet captur american u spi plane pilot franci gari power,steven spielberg,tom hank mark rylanc alan alda ami ryan
+891,Incredibles 2,anim action adventur,incred famili take new mission involv chang famili role bob parr mr incred manag hous wife helen elastigirl goe save world,brad bird,craig t nelson holli hunter sarah vowel huck milner
+892,Moana,anim adventur comedi,ancient polynesia terribl curs incur demigod maui reach moana island answer ocean seek demigod set thing right,ron clement,john musker don hall chri william aulii cravalho
+893,Sicario,action crime drama,idealist fbi agent enlist govern task forc aid escal war drug border area mexico,deni villeneuv,emili blunt josh brolin benicio del toro jon bernthal
+894,Creed,drama sport,world heavyweight champion rocki balboa serv trainer mentor adoni johnson son late friend rival apollo creed,ryan coogler,michael b jordan sylvest stallon tessa thompson phylicia rashad
+895,Leviafan,crime drama,russian coastal town kolya forc fight corrupt mayor told hous demolish recruit lawyer friend help man arriv bring misfortun kolya famili,andrey zvyagintsev,aleksey serebryakov elena lyadova roman madyanov vladimir vdovichenkov
+896,Hell or High Water,action crime drama,divorc father excon older brother resort desper scheme order save famili ranch west texa,david mackenzi,chri pine ben foster jeff bridg gil birmingham
+897,Philomena,biographi comedi drama,worldweari polit journalist pick stori woman search son taken away decad ago pregnant forc live convent,stephen frear,judi dench steve coogan sophi kennedi clark mare winningham
+898,Dawn of the Planet of the Apes,action adventur drama,grow nation genet evolv ape led caesar threaten band human survivor devast viru unleash decad earlier,matt reev,gari oldman keri russel andi serki kodi smitmcphe
+899,El cuerpo,mysteri thriller,detect search bodi femm fatal gone miss morgu,oriol paulo,jose coronado hugo silva belén rueda aura garrido
+900,Serbuan maut,action thriller,swat team trap tenement run ruthless mobster armi killer thug,gareth evan,iko uwai ananda georg ray sahetapi donni alamsyah
+901,End of Watch,action crime drama,shot documentarystyl film follow daili grind young polic offic la partner friend happen meet crimin forc greater,david ayer,jake gyllenha michael peña anna kendrick america ferrera
+902,Kari-gurashi no Arietti,anim adventur famili,clock famili fourinchtal peopl live anonym famili resid borrow simpl item make home life chang clock teenag daughter arrietti discov,hiromasa yonebayashi,ami poehler mirai shida ryûnosuk kamiki tatsuya fujiwara
+903,A Star Is Born,drama music romanc,musician help young singer fame age alcohol send career downward spiral,bradley cooper,ladi gaga bradley cooper sam elliott greg grunberg
+904,True Grit,drama western,stubborn teenag enlist help tough marshal track father murder,ethan coen,joel coen jeff bridg matt damon haile steinfeld
+905,Hævnen,drama romanc,live danish famili cross extraordinari riski friendship come bud loneli frailti sorrow lie wait,susann bier,mikael persbrandt trine dyrholm marku rygaard wil johnson
+906,Despicable Me,anim comedi crime,crimin mastermind use trio orphan girl pawn grand scheme find love profoundli chang better,pierr coffin,chri renaud steve carel jason segel russel brand
+907,50/50,comedi drama romanc,inspir true stori comedi center yearold guy learn cancer diagnosi subsequ struggl beat diseas,jonathan levin,joseph gordonlevitt seth rogen anna kendrick bryce dalla howard
+908,Kick-Ass,action comedi crime,dave lizewski unnot high school student comic book fan day decid superhero power train meaning reason,matthew vaughn,aaron taylorjohnson nicola cage chloë grace moretz garrett m brown
+909,Celda 211,action adventur crime,stori men differ side prison riot inmat lead rebellion young guard trap revolt pose prison desper attempt surviv ordeal,daniel monzón,lui tosar alberto ammann antonio resin manuel morón
+910,Moneyball,biographi drama sport,oakland gener manag billi bean success attempt assembl basebal team lean budget employ computergener analysi acquir new player,bennett miller,brad pitt robin wright jonah hill philip seymour hoffman
+911,La piel que habito,drama horror thriller,brilliant plastic surgeon haunt past tragedi creat type synthet skin withstand kind damag guinea pig mysteri volatil woman hold key obsess,pedro almodóvar,antonio bandera elena anaya jan cornet marisa pared
+912,Zombieland,adventur comedi fantasi,shi student tri reach famili ohio guntot tough guy tri twinki pair sister tri amus park join forc travel zombiefil america,ruben fleischer,jess eisenberg emma stone woodi harrelson abigail breslin
+913,Die Welle,drama thriller,high school teacher experi demonstr student life like dictatorship spin horribl control form social unit life,denni gansel,jürgen vogel frederick lau max riemelt jennif ulrich
+914,Sherlock Holmes,action adventur mysteri,detect sherlock holm stalwart partner watson engag battl wit brawn nemesi plot threat england,guy ritchi,robert downey jr jude law rachel mcadam mark strong
+915,The Blind Side,biographi drama sport,stori michael oher homeless traumat boy allamerican footbal player firstround nfl draft pick help care woman famili,john lee hancock,quinton aaron sandra bullock tim mcgraw jae head
+916,The Visitor,drama,colleg professor travel new york citi attend confer find young coupl live apart,tom mccarthi,richard jenkin haaz sleiman danai gurira hiam abbass
+917,Seven Pounds,drama,man fate secret embark extraordinari journey redempt forev chang live seven stranger,gabriel muccino,smith rosario dawson woodi harrelson michael eali
+918,Eastern Promises,action crime drama,teenag die childbirth leav clue journal tie child rape involv violent russian mob famili,david cronenberg,naomi watt viggo mortensen armin muellerstahl josef altin
+919,Stardust,adventur famili fantasi,countrysid town border magic land young man make promis belov hell retriev fallen star ventur magic realm,matthew vaughn,charli cox clair dane sienna miller ian mckellen
+920,The Secret of Kells,anim adventur famili,young boy remot mediev outpost sieg barbarian raid beckon adventur celebr master illumin arriv ancient book brim secret wisdom power,tomm moor,nora twomey evan mcguir brendan gleeson mick lalli
+921,Inside Man,crime drama mysteri,polic detect bank robber highpow broker enter highstak negoti crimin brilliant heist spiral hostag situat,spike lee,denzel washington clive owen jodi foster christoph plummer
+922,Gone Baby Gone,crime drama mysteri,boston area detect investig littl girl kidnap ultim turn crisi profession person,ben affleck,morgan freeman ed harri casey affleck michel monaghan
+923,La Vie En Rose,biographi drama music,biopic icon french singer édith piaf rais grandmoth brothel discov sing street corner age despit success piaf life fill tragedi,olivi dahan,marion cotillard sylvi testud pascal greggori emmanuel seigner
+924,Huo Yuan Jia,action biographi drama,biographi chines martial art master huo yuanjia founder spiritu guru jin wu sport feder,ronni yu,jet li li sun yong dong yun qu
+925,The Illusionist,drama fantasi mysteri,turnofthecenturi vienna magician use abil secur love woman far social stand,neil burger,edward norton jessica biel paul giamatti rufu sewel
+926,Dead Man's Shoes,crime drama thriller,disaffect soldier return hometown thug brutal mentallychalleng brother year ago,shane meadow,paddi considin gari stretch tobi kebbel stuart wolfenden
+927,Harry Potter and the Half-Blood Prince,action adventur famili,harri potter begin sixth year hogwart discov old book mark properti halfblood princ begin learn lord voldemort dark past,david yate,daniel radcliff emma watson rupert grint michael gambon
+928,300,action drama,king leonida sparta forc men fight persian thermopyla bc,zack snyder,gerard butler lena headey david wenham domin west
+929,Match Point,drama romanc thriller,turn point life tenni pro fall actress happen date friend soontob brotherinlaw,woodi allen,scarlett johansson jonathan rhi meyer emili mortim matthew good
+930,Watchmen,action drama mysteri,superhero exist murder colleagu send activ vigilant rorschach sprawl investig uncov complet chang cours histori know,zack snyder,jacki earl haley patrick wilson carla gugino malin akerman
+931,Lord of War,action crime drama,arm dealer confront moral work chase interpol agent,andrew niccol,nicola cage ethan hawk jare leto bridget moynahan
+932,Saw,horror mysteri thriller,stranger awaken room recollect got soon discov theyr pawn deadli game perpetr notori serial killer,jame wan,cari elw leigh whannel danni glover ken leung
+933,"Synecdoche, New York",drama,theatr director struggl work women life creat lifes replica new york citi insid warehous new play,charli kaufman,philip seymour hoffman samantha morton michel william catherin keener
+934,Mysterious Skin,drama,teenag hustler young man obsess alien abduct cross path discov horribl liber truth,gregg araki,bradi corbet joseph gordonlevitt elisabeth shue chase ellison
+935,Jeux d'enfants,comedi drama romanc,adult best friend julien sophi continu odd game start children fearless competit outdo dare outrag stunt act reliev anoth pain game way avoid fact truli meant,yann samuel,guillaum canet marion cotillard thibault verhaegh joséphin lebasjoli
+936,Un long dimanche de fiançailles,drama mysteri romanc,tell stori young woman relentless search fiancé disappear trench somm world war,jeanpierr jeunet,audrey tautou gaspard ulliel jodi foster dominiqu pinon
+937,The Station Agent,comedi drama,friend die man born dwarfism move rural new jersey live life solitud meet chatti hot dog vendor woman deal person loss,tom mccarthi,peter dinklag patricia clarkson bobbi cannaval paul benjamin
+938,21 Grams,crime drama thriller,freak accid bring critic ill mathematician griev mother bornagain excon,alejandro g iñárritu,sean penn benicio del toro naomi watt danni huston
+939,Boksuneun naui geot,crime drama thriller,recent laid factori worker kidnap boss friend daughter hope use ransom money pay sister kidney transplant,chanwook park,kangho song shin hakyun bae doona jieun lim
+940,Finding Neverland,biographi drama famili,stori sir jm barri friendship famili inspir creat peter pan,marc forster,johnni depp kate winslet juli christi radha mitchel
+941,25th Hour,drama,corner dea convict new york drug dealer montgomeri brogan reevalu life remain hour face sevenyear jail term,spike lee,edward norton barri pepper philip seymour hoffman rosario dawson
+942,The Butterfly Effect,drama scifi thriller,evan treborn suffer blackout signific event life grow find way rememb lost memori supernatur way alter life read journal,eric bress,j macky gruber ashton kutcher ami smart melora walter
+943,28 Days Later...,drama horror scifi,week mysteri incur viru spread uk hand survivor tri sanctuari,danni boyl,cillian murphi naomi harri christoph eccleston alex palmer
+944,Batoru rowaiaru,action adventur drama,futur japanes govern captur class ninthgrad student forc kill revolutionari battl royal act,kinji fukasaku,tatsuya fujiwara aki maeda tarô yamamoto takeshi kitano
+945,The Royal Tenenbaums,comedi drama,eccentr member dysfunct famili reluctantli gather roof variou reason,we anderson,gene hackman gwyneth paltrow anjelica huston ben stiller
+946,Y tu mamá también,drama,mexico teenag boy attract older woman embark road trip learn thing life friendship sex,alfonso cuarón,maribel verdú gael garcía bernal daniel giménez cacho ana lópez mercado
+947,Harry Potter and the Sorcerer's Stone,adventur famili fantasi,orphan boy enrol school wizardri learn truth famili terribl evil haunt magic world,chri columbu,daniel radcliff rupert grint richard harri maggi smith
+948,The Others,horror mysteri thriller,woman live darken old famili hous photosensit children convinc home haunt,alejandro amenábar,nicol kidman christoph eccleston fionnula flanagan alakina mann
+949,Blow,biographi crime drama,stori georg jung medellín cartel head pablo escobar establish american cocain market s unit state,ted demm,johnni depp penélop cruz franka potent rachel griffith
+950,Enemy at the Gates,drama histori war,russian german sniper play game catandmous battl stalingrad,jeanjacqu annaud,jude law ed harri joseph fienn rachel weisz
+951,Minority Report,action crime mysteri,futur special polic unit abl arrest murder commit crime offic unit accus futur murder,steven spielberg,tom cruis colin farrel samantha morton max von sydow
+952,The Hurricane,biographi drama sport,stori rubin hurrican carter boxer wrongli imprison murder peopl aid fight prove innoc,norman jewison,denzel washington vicel shannon deborah kara unger liev schreiber
+953,American Psycho,comedi crime drama,wealthi new york citi invest bank execut patrick bateman hide altern psychopath ego cowork friend delv deeper violent hedonist fantasi,mari harron,christian bale justin theroux josh luca sage
+954,Lola rennt,crime drama thriller,botch money deliveri lola minut come deutschmark,tom tykwer,franka potent moritz bleibtreu herbert knaup nina petri
+955,The Thin Red Line,drama war,adapt jame jone autobiograph novel focus conflict guadalcan second world war,terrenc malick,jim caviezel sean penn nick nolt kirk acevedo
+956,Mulan,anim adventur famili,save father death armi young maiden secretli goe place china greatest heroin process,toni bancroft,barri cook mingna wen eddi murphi bd wong
+957,Fear and Loathing in Las Vegas,adventur comedi drama,oddbal journalist psychopath lawyer travel la vega seri psychedel escapad,terri gilliam,johnni depp benicio del toro tobey maguir michael lee gogin
+958,Funny Games,crime drama thriller,violent young men mother father son hostag vacat cabin forc play sadist game amus,michael hanek,susann lothar ulrich mühe arno frisch frank gier
+959,Dark City,mysteri scifi thriller,man struggl memori past includ wife rememb nightmarish world wake,alex proya,rufu sewel kiefer sutherland jennif connelli william hurt
+960,Sleepers,crime drama thriller,prank goe disastr wrong group boy sent detent center brutal thirteen year later unexpect random encount guard give chanc reveng,barri levinson,robert niro kevin bacon brad pitt jason patric
+961,Lost Highway,mysteri thriller,anonym videotap presag musician murder convict gangster girlfriend lead mechan astray,david lynch,pullman patricia arquett john roseliu loui eppolito
+962,Sense and Sensibility,drama romanc,rich mr dashwood die leav second wife daughter poor rule inherit eldest daughter titl opposit,ang lee,emma thompson kate winslet jame fleet tom wilkinson
+963,Die Hard: With a Vengeance,action adventur thriller,john mcclane harlem store owner target german terrorist simon new york citi plan rob feder reserv build,john mctiernan,bruce willi jeremi iron samuel l jackson graham green
+964,Dead Man,adventur drama fantasi,run murder man account william blake encount strang aborigin american man name prepar journey spiritu world,jim jarmusch,johnni depp gari farmer crispin glover lanc henriksen
+965,The Bridges of Madison County,drama romanc,photograph robert kincaid wander life housewif francesca johnson day s,clint eastwood,clint eastwood meryl streep anni corley victor slezak
+966,Apollo 13,adventur drama histori,nasa devis strategi return apollo earth safe spacecraft undergo massiv intern damag put live astronaut board jeopardi,ron howard,tom hank paxton kevin bacon gari sinis
+967,Trois couleurs: Blanc,comedi drama romanc,wife divorc polish immigr plot,krzysztof kieslowski,zbigniew zamachowski juli delpi janusz gajo jerzi stuhr
+968,Falling Down,action crime drama,ordinari man frustrat variou flaw see societi begin psychot violent lash,joel schumach,michael dougla robert duval barbara hershey rachel ticotin
+969,Dazed and Confused,comedi,adventur high school junior high student day school,richard linklat,jason london wiley wiggin matthew mcconaughey rori cochran
+970,My Cousin Vinny,comedi crime,new yorker accus murder rural alabama way colleg help cousin loudmouth lawyer trial experi,jonathan lynn,joe pesci marisa tomei ralph macchio mitchel whitfield
+971,Omohide poro poro,anim drama romanc,twentysevenyearold offic worker travel countrysid reminisc childhood tokyo,isao takahata,miki imai toshirô yanagiba yoko honna mayumi izuka
+972,Delicatessen,comedi crime,postapocalypt surrealist black comedi landlord apart build occasion prepar delicaci odd tenant,marc caro,jeanpierr jeunet marielaur dougnac dominiqu pinon pascal benezech
+973,Home Alone,comedi famili,eightyearold troublemak protect hous pair burglar accident left home famili christma vacat,chri columbu,macaulay culkin joe pesci daniel stern john heard
+974,The Godfather: Part III,crime drama,follow michael corleon s seek free famili crime suitabl successor empir,franci ford coppola,al pacino dian keaton andi garcia talia shire
+975,When Harry Met Sally...,comedi drama romanc,harri salli known year good friend fear sex ruin friendship,rob reiner,billi crystal meg ryan carri fisher bruno kirbi
+976,The Little Mermaid,anim famili fantasi,mermaid princess make faustian bargain attempt human win princ love,ron clement,john musker jodi benson samuel e wright rene auberjonoi
+977,The Naked Gun: From the Files of Police Squad!,comedi crime,incompet polic detect frank drebin foil attempt assassin queen elizabeth ii,david zucker,lesli nielsen priscilla presley oj simpson ricardo montalban
+978,"Planes, Trains & Automobiles",comedi drama,man struggl travel home thanksgiv lovabl oaf shower curtain ring salesman companion,john hugh,steve martin john candi laila robin michael mckean
+979,Lethal Weapon,action crime thriller,newli pair cop complet opposit asid differ order catch gang drug smuggler,richard donner,mel gibson danni glover gari busey mitchel ryan
+980,Blood Simple,crime drama thriller,owner seedi smalltown texa bar discov employe have affair wife chaotic chain misunderstand lie mischief ensu devis plot murder,joel coen,ethan coen john getz franc mcdormand dan hedaya
+981,On Golden Pond,drama,norman curmudgeon estrang relationship daughter chelsea golden pond wife agre care billi son chelsea new boyfriend unexpect relationship bloom,mark rydel,katharin hepburn henri fonda jane fonda doug mckeon
+982,Mad Max 2,action adventur scifi,postapocalypt australian wasteland cynic drifter agre help small gasolinerich commun escap hord bandit,georg miller,mel gibson bruce spenc michael preston max phipp
+983,The Warriors,action crime thriller,near futur charismat leader summon street gang new york citi bid kill warrior fals blame fight way home gang hunt,walter hill,michael beck jame remar dorsey wright brian tyler
+984,The Muppet Movie,adventur comedi famili,kermit newfound friend trek america success hollywood frog leg merchant kermit,jame frawley,jim henson frank oz jerri nelson richard hunt
+985,Escape from Alcatraz,action biographi crime,alcatraz secur prison time believ escap dare men make possibl success attempt escap infam prison world,don siegel,clint eastwood patrick mcgoohan robert blossom jack thibeau
+986,Watership Down,anim adventur drama,hope escap destruct human develop save commun coloni rabbit led hazel fiver seek safe place set new warren,martin rosen,john hubley john hurt richard brier ralph richardson
+987,Midnight Express,biographi crime drama,billi hay american colleg student caught smuggl drug turkey thrown prison,alan parker,brad davi iren miracl bo hopkin paolo bonacelli
+988,Close Encounters of the Third Kind,drama scifi,roy neari electr lineman watch quiet ordinari daili life turn upsid close encount ufo,steven spielberg,richard dreyfuss françoi truffaut teri garr melinda dillon
+989,The Long Goodbye,comedi crime drama,privat investig philip marlow help friend jam do get implic wife murder,robert altman,elliott gould nina van pallandt sterl hayden mark rydel
+990,Giù la testa,drama war western,lowlif bandit ira explos expert rebel govern hero mexican revolut,sergio leon,rod steiger jame coburn romolo valli maria monti
+991,Kelly's Heroes,adventur comedi war,group soldier sneak enemi line hand secret stash nazi treasur,brian g hutton,clint eastwood telli savala don rickl carrol oconnor
+992,The Jungle Book,anim adventur famili,bagheera panther baloo bear difficult time tri convinc boy leav jungl human civil,wolfgang reitherman,phil harri sebastian cabot loui prima bruce reitherman
+993,Blowup,drama mysteri thriller,fashion photograph unknowingli captur death film follow lover park,michelangelo antonioni,david hem vanessa redgrav sarah mile john castl
+994,A Hard Day's Night,comedi music music,typic day life beatl boy struggl sir paul mccartney mischiev grandfath check prepar live televis perform,richard lester,john lennon paul mccartney georg harrison ringo starr
+995,Breakfast at Tiffany's,comedi drama romanc,young new york socialit interest young man move apart build past threaten way,blake edward,audrey hepburn georg peppard patricia neal buddi ebsen
+996,Giant,drama western,sprawl epic cover life texa cattl rancher famili associ,georg steven,elizabeth taylor rock hudson jame dean carrol baker
+997,From Here to Eternity,drama romanc war,hawaii privat cruelli punish box unit team captain wife secondincommand fall love,fred zinnemann,burt lancast montgomeri clift deborah kerr donna reed
+998,Lifeboat,drama war,survivor torpedo merchant ship world war ii lifeboat crew member uboat sank ship,alfr hitchcock,tallulah bankhead john hodiak walter slezak william bendix
+999,The 39 Steps,crime mysteri thriller,man london tri help counterespionag agent agent kill man stand accus run save stop spi ring tri steal secret inform,alfr hitchcock,robert donat madelein carrol luci mannheim godfrey tearl
+
