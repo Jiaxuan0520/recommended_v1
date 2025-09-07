@@ -5,7 +5,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.neighbors import NearestNeighbors
 from sklearn.metrics import classification_report, precision_score, recall_score, f1_score, accuracy_score, mean_squared_error
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
 from collections import defaultdict
 import warnings
 warnings.filterwarnings('ignore')
@@ -30,7 +29,6 @@ RATING_THRESHOLD = 4.0  # ratings >= threshold are positive
 TEST_SIZE_PER_USER = 0.2
 RANDOM_STATE = 42
 K_NEIGHBORS = 20  # for item-based KNN similarity neighborhood
-WEIGHT_GRID_STEP = 0.2  # grid step for hybrid weight tuning
 
 # =============================================================
 # Data Loading
@@ -183,19 +181,15 @@ def evaluate_models():
 
 	# Split BEFORE building models to avoid leakage
 	train_df, test_df = split_per_user(ratings)
-	# Inner split from train for validation-based tuning/calibration
-	inner_train_df, val_df = split_per_user(train_df, test_size=0.25, random_state=RANDOM_STATE)
 
 	# Content features/similarity (independent of split)
 	content_matrix = build_content_matrix(merged)
 	sim_matrix, title_to_idx = predict_content_scores(merged, content_matrix)
 
-	# Collaborative KNN models (inner for tuning, full-train for final)
-	knn_inner, user_item_inner = build_item_similarity_knn(inner_train_df, merged)
+	# Collaborative KNN built on training data only
 	knn, user_item = build_item_similarity_knn(train_df, merged)
 
 	# Popularity/recency based on training interactions
-	popularity_inner, recency_inner = compute_popularity_and_recency(merged, inner_train_df)
 	popularity, recency = compute_popularity_and_recency(merged, train_df)
 
 	# Build quick lookups
@@ -209,140 +203,120 @@ def evaluate_models():
 	item_mean = train_df.groupby('Movie_ID')['Rating'].mean().to_dict()
 
 	# Precompute user profile vectors for content-based: average similarity to liked items
-	def build_user_content_pref(source_df):
-		pref = {}
-		for u_id, g in source_df.groupby('User_ID'):
-			liked_movie_ids = g[g['Rating'] >= RATING_THRESHOLD]['Movie_ID'].tolist()
-			idxs = [title_to_idx.get(movieid_to_title.get(mid, ''), None) for mid in liked_movie_ids]
-			idxs = [i for i in idxs if i is not None]
-			if idxs:
-				profile = sim_matrix[idxs].mean(axis=0)
-				# Per-user min-max normalization to spread scores to [0,1]
-				prof_min = float(np.min(profile))
-				prof_max = float(np.max(profile))
-				if prof_max > prof_min:
-					profile = (profile - prof_min) / (prof_max - prof_min)
-				else:
-					profile = np.zeros_like(profile)
-				pref[u_id] = profile
+	user_content_pref = {}
+	for user_id, grp in user_train:
+		liked_movie_ids = grp[grp['Rating'] >= RATING_THRESHOLD]['Movie_ID'].tolist()
+		idxs = [title_to_idx.get(movieid_to_title.get(mid, ''), None) for mid in liked_movie_ids]
+		idxs = [i for i in idxs if i is not None]
+		if idxs:
+			profile = sim_matrix[idxs].mean(axis=0)
+			# Per-user min-max normalization to spread scores to [0,1]
+			prof_min = float(np.min(profile))
+			prof_max = float(np.max(profile))
+			if prof_max > prof_min:
+				profile = (profile - prof_min) / (prof_max - prof_min)
 			else:
-				pref[u_id] = np.zeros(sim_matrix.shape[0])
-		return pref
-
-	user_content_pref_inner = build_user_content_pref(inner_train_df)
-	user_content_pref = build_user_content_pref(train_df)
-
-	# -------------------------------------------------------------
-	# Content score -> rating calibration on validation
-	# -------------------------------------------------------------
-	content_calibrator = None
-	calib_coef = (8.0, 2.0)  # default slope and intercept for rating = a*score + b
-	if 'User_ID' in locals() or True:
-		X_scores = []
-		Y_ratings = []
-		for _, r in val_df.iterrows() if 'val_df' in locals() else []:
-			title = movieid_to_title.get(int(r['Movie_ID']))
-			if title is None or title not in title_to_idx:
-				continue
-			idx = title_to_idx[title]
-			u = r['User_ID']
-			prof = user_content_pref_inner.get(u)
-			if prof is None or len(prof) == 0:
-				continue
-			cs = float(prof[idx])
-			X_scores.append([cs])
-			Y_ratings.append(float(r['Rating']))
-		if len(X_scores) >= 10:
-			try:
-				reg = LinearRegression()
-				reg.fit(np.array(X_scores), np.array(Y_ratings))
-				calib_coef = (float(reg.coef_[0]), float(reg.intercept_))
-				content_calibrator = reg
-			except Exception:
-				pass
-
-	def map_content_score_to_rating(score: float) -> float:
-		a, b = calib_coef
-		try:
-			val = a * float(score) + b
-		except Exception:
-			val = 2.0 + 8.0 * float(np.clip(score, 0.0, 1.0))
-		return float(np.clip(val, 1.0, 10.0))
+				profile = np.zeros_like(profile)
+			user_content_pref[user_id] = profile
+		else:
+			user_content_pref[user_id] = np.zeros(sim_matrix.shape[0])
 
 	# -------------------------------------------------------------
-	# Tune hybrid weights and classification threshold on validation
+	# Tune classification thresholds on the training set (improves
+	# accuracy/precision/recall for the 3 models when applied to test)
 	# -------------------------------------------------------------
-	best_params = {'alpha': ALPHA, 'beta': BETA, 'gamma': GAMMA, 'delta': DELTA, 'threshold': RATING_THRESHOLD}
-	best_f1 = -1.0
-	best_rmse = float('inf')
-	if 'val_df' in locals() and not val_df.empty:
-		steps = np.arange(0.0, 1.00001, WEIGHT_GRID_STEP)
-		cls_thresholds = [3.5, 4.0, 4.5]
-		# Compute baseline stats used by CF on inner train
-		global_mean = float(inner_train_df['Rating'].mean()) if not inner_train_df.empty else 7.0
-		user_mean = inner_train_df.groupby('User_ID')['Rating'].mean().to_dict()
-		item_mean = inner_train_df.groupby('Movie_ID')['Rating'].mean().to_dict()
-		for a in steps:
-			for b in steps:
-				for c in steps:
-					d = 1.0 - a - b - c
-					if d < 0.0:
-						continue
-					for thr in cls_thresholds:
-						y_true_val = []
-						y_pred_val = []
-						y_true_reg_v = []
-						y_pred_reg_v = []
-						for _, r in val_df.iterrows():
-							user = r['User_ID']
-							mid = int(r['Movie_ID'])
-							true_r = float(r['Rating'])
-							title = movieid_to_title.get(mid)
-							if title is None or title not in title_to_idx:
-								continue
-							idx = title_to_idx[title]
-							content_score = float(user_content_pref_inner.get(user, np.zeros(sim_matrix.shape[0]))[idx])
-							content_rating_est = map_content_score_to_rating(content_score)
-							neighbor_sims = predict_collaborative_scores(knn_inner, user_item_inner, mid, k=K_NEIGHBORS)
-							b_u = user_mean.get(user, global_mean)
-							b_i = item_mean.get(mid, global_mean)
-							numerator = 0.0
-							norm = 0.0
-							if neighbor_sims:
-								user_row = user_item_inner.loc[user].dropna() if (user_item_inner is not None and user in user_item_inner.index) else pd.Series(dtype=float)
-								for nb_movie, simv in neighbor_sims.items():
-									if nb_movie in user_row.index:
-										r_uj = float(user_row.loc[nb_movie])
-										b_j = item_mean.get(int(nb_movie), global_mean)
-										numerator += simv * (r_uj - b_u - b_j)
-										norm += abs(simv)
-								if norm > 0:
-									collab_score_v = b_u + b_i + (numerator / norm)
-								else:
-									collab_score_v = np.nan
-							else:
-								collab_score_v = np.nan
-							if np.isnan(collab_score_v):
-								item_ratings = inner_train_df[inner_train_df['Movie_ID'] == mid]['Rating']
-								collab_score_v = item_ratings.mean() if not item_ratings.empty else train_df['Rating'].mean()
-							pop_v = popularity_inner.get(title, 0.5)
-							rec_v = recency_inner.get(title, 0.5)
-							pop_rating_v = 2.0 + 8.0 * pop_v
-							rec_rating_v = 2.0 + 8.0 * rec_v
-							hybrid_v = a * content_rating_est + b * collab_score_v + c * pop_rating_v + d * rec_rating_v
-							hybrid_v = float(np.clip(hybrid_v, 1.0, 10.0))
-							y_true_val.append(1 if true_r >= RATING_THRESHOLD else 0)
-							y_pred_val.append(1 if hybrid_v >= thr else 0)
-							y_true_reg_v.append(true_r)
-							y_pred_reg_v.append(hybrid_v)
-						if len(y_true_val) > 0:
-							f1_v = f1_score(y_true_val, y_pred_val, zero_division=0)
-							mse_v = mean_squared_error(y_true_reg_v, y_pred_reg_v)
-							rmse_v = float(np.sqrt(mse_v))
-							if (f1_v > best_f1) or (np.isclose(f1_v, best_f1) and rmse_v < best_rmse):
-								best_f1 = f1_v
-								best_rmse = rmse_v
-								best_params = {'alpha': float(a), 'beta': float(b), 'gamma': float(c), 'delta': float(d), 'threshold': float(thr)}
+
+	def _find_best_threshold(y_true, y_scores, thresholds=None):
+		if thresholds is None:
+			thresholds = np.linspace(2.0, 10.0, 81)  # 0.1 step on rating scale
+		best_t = RATING_THRESHOLD
+		best_f1 = -1.0
+		best_acc = -1.0
+		if not y_true or not y_scores:
+			return best_t
+		for t in thresholds:
+			y_pred = [1 if s >= t else 0 for s in y_scores]
+			f1 = f1_score(y_true, y_pred, zero_division=0)
+			acc = accuracy_score(y_true, y_pred)
+			if (f1 > best_f1) or (f1 == best_f1 and acc > best_acc):
+				best_f1 = f1
+				best_acc = acc
+				best_t = float(t)
+		return best_t
+
+	# Collect training predictions to learn thresholds
+	train_true_cls = []
+	train_pred_reg_content = []
+	train_pred_reg_collab = []
+	train_pred_reg_hybrid = []
+
+	for _, row in train_df.iterrows():
+		user = row['User_ID']
+		movie_id = int(row['Movie_ID'])
+		true_rating = float(row['Rating'])
+		true_label = 1 if true_rating >= RATING_THRESHOLD else 0
+		title = movieid_to_title.get(movie_id)
+		if title is None or title not in title_to_idx:
+			continue
+
+		# Content score for this user-item
+		idx = title_to_idx[title]
+		content_score = float(user_content_pref.get(user, np.zeros(sim_matrix.shape[0]))[idx])
+		content_rating_est = 2.0 + 8.0 * float(np.clip(content_score, 0.0, 1.0))
+
+		# Collaborative estimate
+		neighbor_sims = predict_collaborative_scores(knn, user_item, movie_id, k=K_NEIGHBORS)
+		b_u = user_mean.get(user, global_mean)
+		b_i = item_mean.get(movie_id, global_mean)
+		numerator = 0.0
+		norm = 0.0
+		if neighbor_sims:
+			user_row = user_item.loc[user].dropna() if (user in user_item.index) else pd.Series(dtype=float)
+			for nb_movie, sim in neighbor_sims.items():
+				if nb_movie in user_row.index:
+					r_uj = float(user_row.loc[nb_movie])
+					b_j = item_mean.get(int(nb_movie), global_mean)
+					numerator += sim * (r_uj - b_u - b_j)
+					norm += abs(sim)
+			if norm > 0:
+				collab_score = b_u + b_i + (numerator / norm)
+			else:
+				collab_score = np.nan
+		else:
+			collab_score = np.nan
+		if np.isnan(collab_score):
+			item_ratings = train_df[train_df['Movie_ID'] == movie_id]['Rating']
+			collab_score = item_ratings.mean() if not item_ratings.empty else ratings['Rating'].mean()
+
+		# Popularity/recency mapped to rating scale
+		pop = popularity.get(title, 0.5)
+		rec = recency.get(title, 0.5)
+		pop_rating = 2.0 + 8.0 * pop
+		rec_rating = 2.0 + 8.0 * rec
+
+		# Hybrid
+		hybrid_pred = (
+			ALPHA * content_rating_est +
+			BETA * collab_score +
+			GAMMA * pop_rating +
+			DELTA * rec_rating
+		)
+
+		# Clip
+		content_rating_est = float(np.clip(content_rating_est, 1.0, 10.0))
+		collab_score = float(np.clip(collab_score, 1.0, 10.0))
+		hybrid_pred = float(np.clip(hybrid_pred, 1.0, 10.0))
+
+		# Store
+		train_true_cls.append(true_label)
+		train_pred_reg_content.append(content_rating_est)
+		train_pred_reg_collab.append(collab_score)
+		train_pred_reg_hybrid.append(hybrid_pred)
+
+	# Determine thresholds on training predictions
+	best_t_content = _find_best_threshold(train_true_cls, train_pred_reg_content)
+	best_t_collab = _find_best_threshold(train_true_cls, train_pred_reg_collab)
+	best_t_hybrid = _find_best_threshold(train_true_cls, train_pred_reg_hybrid)
 
 	# Predictions and ground truth
 	y_true_cls = []
@@ -394,8 +368,8 @@ def evaluate_models():
 			item_ratings = train_df[train_df['Movie_ID'] == movie_id]['Rating']
 			collab_score = item_ratings.mean() if not item_ratings.empty else ratings['Rating'].mean()
 
-		# Map content similarity via calibrated linear mapping
-		content_rating_est = map_content_score_to_rating(content_score)
+		# Map content similarity directly to rating scale without IMDB rating blending
+		content_rating_est = 2.0 + 8.0 * float(np.clip(content_score, 0.0, 1.0))  # [0,1] -> [2,10]
 
 		# Popularity & Recency (0..1) mapped to 2..10
 		pop = popularity.get(title, 0.5)
@@ -403,16 +377,12 @@ def evaluate_models():
 		pop_rating = 2.0 + 8.0 * pop
 		rec_rating = 2.0 + 8.0 * rec
 
-		# Hybrid final score (rating prediction) with tuned weights
-		AL = best_params['alpha']
-		BE = best_params['beta']
-		GA = best_params['gamma']
-		DE = best_params['delta']
+		# Hybrid final score (rating prediction)
 		hybrid_pred = (
-			AL * content_rating_est +
-			BE * collab_score +
-			GA * pop_rating +
-			DE * rec_rating
+			ALPHA * content_rating_est +
+			BETA * collab_score +
+			GAMMA * pop_rating +
+			DELTA * rec_rating
 		)
 
 		# Clip to rating bounds
@@ -426,12 +396,11 @@ def evaluate_models():
 		y_pred_reg_collab.append(collab_score)
 		y_pred_reg_hybrid.append(hybrid_pred)
 
-		# Classification label predictions (hybrid uses tuned threshold on hybrid_pred)
+		# Classification label predictions using tuned thresholds
 		y_true_cls.append(true_label)
-		y_pred_cls_content.append(1 if content_rating_est >= RATING_THRESHOLD else 0)
-		y_pred_cls_collab.append(1 if collab_score >= RATING_THRESHOLD else 0)
-		cls_thr = best_params.get('threshold', RATING_THRESHOLD)
-		y_pred_cls_hybrid.append(1 if hybrid_pred >= cls_thr else 0)
+		y_pred_cls_content.append(1 if content_rating_est >= best_t_content else 0)
+		y_pred_cls_collab.append(1 if collab_score >= best_t_collab else 0)
+		y_pred_cls_hybrid.append(1 if hybrid_pred >= best_t_hybrid else 0)
 
 	# Compute metrics
 	def compute_classification_metrics(y_true, y_pred):
@@ -464,27 +433,22 @@ def evaluate_models():
 	# Display
 	print('Model: Content-Based')
 	print(f"Accuracy: {results['Content-Based']['accuracy']:.3f}")
-	print(f"F1: {results['Content-Based']['f1']:.3f} | RMSE: {results['Content-Based']['rmse']:.3f}")
 	print(results['Content-Based']['report'])
 	print('Model: Collaborative')
 	print(f"Accuracy: {results['Collaborative']['accuracy']:.3f}")
-	print(f"F1: {results['Collaborative']['f1']:.3f} | RMSE: {results['Collaborative']['rmse']:.3f}")
 	print(results['Collaborative']['report'])
 	print('Model: Hybrid')
 	print(f"Accuracy: {results['Hybrid']['accuracy']:.3f}")
-	print(f"F1: {results['Hybrid']['f1']:.3f} | RMSE: {results['Hybrid']['rmse']:.3f}")
 	print(results['Hybrid']['report'])
-	print(f"Tuned Weights -> ALPHA: {best_params['alpha']:.2f}, BETA: {best_params['beta']:.2f}, GAMMA: {best_params['gamma']:.2f}, DELTA: {best_params['delta']:.2f}; Threshold: {best_params['threshold']:.2f}")
+	print(f"Tuned thresholds (from training): Content={best_t_content:.2f}, Collaborative={best_t_collab:.2f}, Hybrid={best_t_hybrid:.2f}")
 
 	# Summary table
 	summary_rows = []
 	for name in ['Collaborative', 'Content-Based', 'Hybrid']:
 		row = {
 			'Method Used': name,
-			'Accuracy': round(results[name]['accuracy'], 2),
 			'Precision': round(results[name]['precision'], 2),
 			'Recall': round(results[name]['recall'], 2),
-			'F1': round(results[name]['f1'], 2),
 			'RMSE': round(results[name]['rmse'], 2),
 			'Notes': (
 				'Worked well with dense ratings' if name == 'Collaborative' else
@@ -493,10 +457,15 @@ def evaluate_models():
 			)
 		}
 		summary_rows.append(row)
-	summary_df = pd.DataFrame(summary_rows, columns=['Method Used', 'Accuracy', 'Precision', 'Recall', 'F1', 'RMSE', 'Notes'])
+	summary_df = pd.DataFrame(summary_rows, columns=['Method Used', 'Precision', 'Recall', 'RMSE', 'Notes'])
 	print('\nComparison Table:')
 	print(summary_df.to_string(index=False))
-	print('\nDirection: Higher is better -> Accuracy, Precision, Recall, F1. Lower is better -> RMSE.')
+	print('\nComparison table: which direction is better')
+	print('Precision: higher is better (fewer false positives).')
+	print('Recall: higher is better (fewer false negatives).')
+	print('RMSE: lower is better (more accurate rating predictions).')
+	print('Method Used / Notes: descriptive only; not “better” or “worse”.')
+	print('Tip: If you care about only very relevant picks, prioritize higher Precision; if you care about not missing liked items, prioritize higher Recall. (Aim to balance both where possible.)')
 
 
 if __name__ == '__main__':
