@@ -437,17 +437,17 @@ def evaluate_models():
 		return {'mse': mse, 'rmse': float(np.sqrt(mse))}
 
 	results = {}
-	# Use each method's own y_true from cls_data for fair classification metrics
+	# Compute classification metrics from rating-based predictions we collected
 	results['Content-Based'] = {
-		**compute_classification_metrics(cls_data['Content-Based']['y_true'], cls_data['Content-Based']['y_pred']),
+		**compute_classification_metrics(y_true_cls, y_pred_cls_content),
 		**compute_regression_metrics(y_true_reg, y_pred_reg_content)
 	}
 	results['Collaborative'] = {
-		**compute_classification_metrics(cls_data['Collaborative']['y_true'], cls_data['Collaborative']['y_pred']),
+		**compute_classification_metrics(y_true_cls, y_pred_cls_collab),
 		**compute_regression_metrics(y_true_reg, y_pred_reg_collab)
 	}
 	results['Hybrid'] = {
-		**compute_classification_metrics(cls_data['Hybrid']['y_true'], cls_data['Hybrid']['y_pred']),
+		**compute_classification_metrics(y_true_cls, y_pred_cls_hybrid),
 		**compute_regression_metrics(y_true_reg, y_pred_reg_hybrid)
 	}
 
